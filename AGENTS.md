@@ -40,4 +40,4 @@ Report like a researcher: counts, voices, and the customer's words. Prefer "5 of
 
 ## Developing this app
 
-Framework guides for coding agents live in `.agents/skills/` (`actions`, `adding-a-feature`, `storing-data`, `real-time-sync`, `context-awareness`, `frontend-design`, `agent-native-docs`, `agent-native-toolkit`, `customizing-agent-native`). Search framework docs with `pnpm action docs-search --query "<topic>"`. Run `pnpm typecheck`, `pnpm test` and `pnpm agent-native:doctor` before shipping a change.
+Framework guides for coding agents live in `.agents/skills/` (`actions`, `adding-a-feature`, `storing-data`, `real-time-sync`, `context-awareness`, `agent-native-docs`, `agent-native-toolkit`, `customizing-agent-native`). Search framework docs with `pnpm action docs-search --query "<topic>"`. Run `pnpm typecheck`, `pnpm test` and `pnpm agent-native:doctor` before shipping a change.

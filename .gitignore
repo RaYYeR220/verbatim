@@ -59,3 +59,7 @@ variants/
 
 .vercel
 .env*
+
+# Local agent-tool symlinks (created by `agent-native setup-agents`)
+CLAUDE.md
+.claude/

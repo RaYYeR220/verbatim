@@ -1,38 +1,34 @@
-# Visual Design Contract
+# Design
 
-Chat is a quiet, full-canvas conversation workbench. AgentKit owns the
-conversation primitives; the template owns the surrounding navigation and
-workspace chrome.
+Verbatim is a wall of customer words you can read. The design keeps the words legible at every zoom and lets colour mean one thing: which theme a quote belongs to.
 
-## Product mode
+## Principles
 
-- Mode: `operate`
-- Audience and cadence: frequent users managing many ongoing agent threads.
-- Primary workflow: begin, resume, pin, and organize conversations without
-  leaving the chat canvas.
+- **The quote is the interface.** Notes are short passages in the body face, never truncated into icons. Zoomed out, the board becomes a mosaic of theme colours; zoomed in, every card reads as a sentence with its speaker, timestamp or rating underneath.
+- **Colour is data.** Theme hues are the only saturated colour in the app. Chrome stays ink on a warm light ground, with 1px hairlines instead of shadows.
+- **Everything shows its source.** A card opens to its exact span in the transcript or review; an insight shows the quotes it counts; the activity feed says who did what (you, the agent, an automation, an MCP client).
+- **The agent is visible, not loud.** The agent's cursor and labels use steel blue and sit on the cards it is changing. It never moves anything a person is dragging.
 
-## Visual direction
+## Tokens (`app/global.css`)
 
-- Direction name: Quiet conversation library
-- Palette family: neutral ink and semantic surfaces; active rows use the
-  existing sidebar accent rather than a separate branded color.
-- Type treatment: dense sans-serif labels with regular-weight conversation
-  titles and restrained section labels.
-- Composition: a persistent conversation library beside a generous chat
-  canvas. New chat is the primary rail action, followed by Pinned and Recents.
-  Account, workspace, settings, and sign-out controls disclose from one footer
-  row instead of competing in the rail.
-- Shape language: borderless lists, soft selected rows, quiet corners, and
-  compact icon controls.
-- Anti-references: icon-only navigation as the default state, floating chips,
-  duplicated settings links, timestamps competing with thread titles, and
-  placeholder destinations that the app does not implement.
+| Token | Light | Use |
+|---|---|---|
+| `--vb-ground` | `#f1f1ee` | page and canvas |
+| `--vb-ink` | `#1b1b19` | text; hairlines at 7–11% |
+| `--vb-wall` | ink at 16% | unsorted notes and the zoomed-out wall |
+| `--vb-rust` `--vb-ochre` `--vb-moss` `--vb-teal` `--vb-steel` `--vb-plum` `--vb-clay` `--vb-slate` | | theme hues, assigned in board order |
+| `--vb-ease` | `cubic-bezier(.16,1,.3,1)` | every entrance and reveal |
 
-## Guardrails
+Dark mode redefines the same tokens on `#0b0d11` with brighter hues.
 
-- Preserve the scaffold's semantic tokens and shared component seams.
-- Keep domain pages distinct from full-page chat and use the AgentSidebar for
-  contextual AI.
-- Compare sibling apps before reusing their palette or composition.
-- Keep pinning, rename, archive, and routing wired to the shared chat thread
-  model; the sidebar is a presentation layer, not a second history store.
+## Type
+
+- Display: General Sans 500, tracked −0.03em (headings, theme names, the landing).
+- Body: Figtree Variable (notes, insights, the source viewer).
+- Data: Geist Mono Variable, only for real data: speakers, timestamps, counts, ratings, ids.
+
+## Shape and motion
+
+- 2px radius on cards, chips and frames; the only pill is the primary call to action.
+- New notes fade and rise in with a short stagger as the agent adds them; the board refits when its shape changes while you follow the agent.
+- Semantic zoom: near shows full cards, mid shows text lines, far shows colour blocks with screen-space theme labels.

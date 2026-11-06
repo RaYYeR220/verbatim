@@ -228,7 +228,7 @@ TL;DR: declare the vocabulary once with `defineAppRoles({ appId, roles, defaultR
 - **sharing** — How to make a new resource ownable (private by default, share with users/orgs/public)
 - **context-awareness** — How to expose UI state to the agent (area 4 in detail)
 - **actions** — How to create actions with `defineAction` and the `http` option (area 2 in detail)
-- **build-an-app** — Start a complete app from a vague domain prompt
+
 - **storing-data** — Where to store the feature's data
 - **real-time-sync** — How the UI stays in sync when the agent writes data
 - **performance** — Query/load cost and expensive startup work
