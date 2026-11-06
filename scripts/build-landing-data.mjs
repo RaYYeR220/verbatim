@@ -12,7 +12,10 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const input = resolve(root, process.argv[2] ?? "fixtures/landing/notion-board.json");
+const input = resolve(
+  root,
+  process.argv[2] ?? "fixtures/landing/notion-board.json",
+);
 const wallOut = resolve(root, "public/landing/wall.json");
 const summaryOut = resolve(root, "app/components/landing/wall-summary.ts");
 
@@ -20,8 +23,18 @@ const summaryOut = resolve(root, "app/components/landing/wall-summary.ts");
 const STACK_HUES = ["moss", "rust", "steel", "teal", "ochre"];
 /** The two refusals the page shows: the model "corrected" a customer's spelling. */
 const REFUSALS = [
-  { find: "Türkçe desteği", source: "alacaktım", proposed: "alacaktim", language: "Turkish" },
-  { find: "Идея не плохая", source: "объеденить", proposed: "объединить", language: "Russian" },
+  {
+    find: "Türkçe desteği",
+    source: "alacaktım",
+    proposed: "alacaktim",
+    language: "Turkish",
+  },
+  {
+    find: "Идея не плохая",
+    source: "объеденить",
+    proposed: "объединить",
+    language: "Russian",
+  },
 ];
 
 const fail = (msg) => {
@@ -31,7 +44,8 @@ const fail = (msg) => {
 
 const board = JSON.parse(readFileSync(input, "utf8"));
 const { sources, notes, themes, insights } = board;
-if (!Array.isArray(sources) || !Array.isArray(notes) || !Array.isArray(themes)) fail("not a board export");
+if (!Array.isArray(sources) || !Array.isArray(notes) || !Array.isArray(themes))
+  fail("not a board export");
 
 /* ---------- sources ---------- */
 const TITLE = /^(.*) · (\d)★ · (\d{4}-\d{2}-\d{2})$/;
@@ -59,10 +73,15 @@ const ranked = themes
     voices: voices.get(t.id)?.size ?? 0,
     exported: { notes: t.noteCount, voices: t.voiceCount },
   }))
-  .sort((a, b) => b.voices - a.voices || b.notes - a.notes || a.name.localeCompare(b.name));
+  .sort(
+    (a, b) =>
+      b.voices - a.voices || b.notes - a.notes || a.name.localeCompare(b.name),
+  );
 for (const t of ranked) {
   if (t.notes !== t.exported.notes || t.voices !== t.exported.voices) {
-    fail(`theme "${t.name}" counts drift: notes ${t.notes}/${t.exported.notes}, voices ${t.voices}/${t.exported.voices}`);
+    fail(
+      `theme "${t.name}" counts drift: notes ${t.notes}/${t.exported.notes}, voices ${t.voices}/${t.exported.voices}`,
+    );
   }
 }
 const themeIndex = new Map(ranked.map((t, i) => [t.id, i]));
@@ -73,7 +92,8 @@ const wallNotes = notes
     const si = srcIndex.get(n.sourceId);
     if (si === undefined) fail(`note ${n.id} has no source`);
     const text = sources[si].text;
-    if (text.slice(n.charStart, n.charEnd) !== n.text) fail(`note ${n.id} is not an exact span of its source`);
+    if (text.slice(n.charStart, n.charEnd) !== n.text)
+      fail(`note ${n.id} is not an exact span of its source`);
     const ti = themeIndex.get(n.themeId);
     return [si, n.charStart, n.charEnd, ti ?? -1];
   })
@@ -88,7 +108,11 @@ const wall = {
   v: 1,
   study: board.study?.title ?? "",
   stacks: STACK_HUES.length,
-  themes: ranked.map((t) => ({ name: t.name, notes: t.notes, voices: t.voices })),
+  themes: ranked.map((t) => ({
+    name: t.name,
+    notes: t.notes,
+    voices: t.voices,
+  })),
   sources: wallSources,
   notes: wallNotes,
 };
@@ -107,25 +131,38 @@ const stacks = ranked.slice(0, STACK_HUES.length).map((t, i) => ({
   voices: t.voices,
 }));
 
-const insightTheme = ranked.find((t) => t.name === "Buggy, freezes and crashes") ?? ranked[1];
-const insight = insights.find((x) => x.themeId === insightTheme.id && x.status === "verified");
+const insightTheme =
+  ranked.find((t) => t.name === "Buggy, freezes and crashes") ?? ranked[1];
+const insight = insights.find(
+  (x) => x.themeId === insightTheme.id && x.status === "verified",
+);
 if (!insight) fail("no verified insight for the example theme");
-const cited = insight.noteIds.map((id) => notes.find((n) => n.id === id)).filter(Boolean);
+const cited = insight.noteIds
+  .map((id) => notes.find((n) => n.id === id))
+  .filter(Boolean);
 const example = cited.find((n) => n.text.includes("force-close")) ?? cited[0];
 if (!example) fail("the example insight cites no notes");
 
 const refusals = REFUSALS.map((r) => {
   const src = sources.find((s) => s.text.includes(r.find));
   if (!src) fail(`no source contains "${r.find}"`);
-  if (!src.text.includes(r.source)) fail(`source does not contain "${r.source}"`);
-  const note = notes.find((n) => n.sourceId === src.id && n.text.includes(r.source));
+  if (!src.text.includes(r.source))
+    fail(`source does not contain "${r.source}"`);
+  const note = notes.find(
+    (n) => n.sourceId === src.id && n.text.includes(r.source),
+  );
   if (!note) fail(`no exact note holds "${r.source}"`);
-  if (r.source.length !== r.proposed.length) fail("a fix must keep the word length");
+  if (r.source.length !== r.proposed.length)
+    fail("a fix must keep the word length");
   return {
     language: r.language,
     ...parseTitle(src.title),
     quote: { text: note.text, start: note.charStart, end: note.charEnd },
-    word: { source: r.source, proposed: r.proposed, at: note.text.indexOf(r.source) },
+    word: {
+      source: r.source,
+      proposed: r.proposed,
+      at: note.text.indexOf(r.source),
+    },
   };
 });
 
@@ -159,5 +196,10 @@ writeFileSync(
 const kb = (Buffer.byteLength(JSON.stringify(wall)) / 1024).toFixed(0);
 console.log(
   `wall.json: ${wallSources.length} sources, ${wallNotes.length} notes, ${ranked.length} themes, ${kb} KB\n` +
-    stacks.map((s) => `  ${s.hue.padEnd(5)} ${s.name} · ${s.notes} quotes · ${s.voices} voices`).join("\n"),
+    stacks
+      .map(
+        (s) =>
+          `  ${s.hue.padEnd(5)} ${s.name} · ${s.notes} quotes · ${s.voices} voices`,
+      )
+      .join("\n"),
 );

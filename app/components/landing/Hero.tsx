@@ -41,16 +41,23 @@ const WAITING_CARDS: CardState[] = STACKS.map(() => ({
   old: [],
 }));
 
-const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
+const useIsoLayoutEffect =
+  typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 function waitForFonts(): Promise<void> {
   const fonts = document.fonts;
   if (!fonts) return Promise.resolve();
-  const loads = Promise.all([...FONT_LOADS.map((f) => fonts.load(f)), fonts.ready]).then(
+  const loads = Promise.all([
+    ...FONT_LOADS.map((f) => fonts.load(f)),
+    fonts.ready,
+  ]).then(
     () => undefined,
     () => undefined,
   );
-  return Promise.race([loads, new Promise<void>((r) => window.setTimeout(r, 2600))]);
+  return Promise.race([
+    loads,
+    new Promise<void>((r) => window.setTimeout(r, 2600)),
+  ]);
 }
 
 function StackQuote({ q }: { q: ShownQuote }) {
@@ -104,7 +111,9 @@ function Stack({ index, card }: { index: number; card: CardState }) {
               <i />
               <i />
             </div>
-            {card.quotes === 0 ? <p className="vbl-st-wait">waiting for the agent</p> : null}
+            {card.quotes === 0 ? (
+              <p className="vbl-st-wait">waiting for the agent</p>
+            ) : null}
           </>
         )}
       </div>
@@ -116,9 +125,25 @@ function Mark() {
   return (
     <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
       <rect x="1" y="1" width="16" height="16" rx="2" fill="#1b1b19" />
-      <rect x="4" y="5.5" width="10" height="1.6" rx=".8" fill="#f1f1ee" opacity=".38" />
+      <rect
+        x="4"
+        y="5.5"
+        width="10"
+        height="1.6"
+        rx=".8"
+        fill="#f1f1ee"
+        opacity=".38"
+      />
       <rect x="4" y="8.6" width="6.5" height="1.6" rx=".8" fill="#c8553d" />
-      <rect x="4" y="11.7" width="8" height="1.6" rx=".8" fill="#f1f1ee" opacity=".38" />
+      <rect
+        x="4"
+        y="11.7"
+        width="8"
+        height="1.6"
+        rx=".8"
+        fill="#f1f1ee"
+        opacity=".38"
+      />
     </svg>
   );
 }
@@ -135,20 +160,27 @@ export function Wordmark({ className = "vbl-mark" }: { className?: string }) {
 const SR_WALL =
   `Behind the headline, the full text of ${WALL_SUMMARY.sources} public App Store reviews of Notion for iOS forms a wall. ` +
   `Each of the ${WALL_SUMMARY.notes} exact quotes in it is tinted by theme, and the five largest themes lift out into stacks: ` +
-  STACKS.map((s) => `${s.name}, ${s.notes} quotes from ${s.voices} reviewers`).join("; ") +
+  STACKS.map(
+    (s) => `${s.name}, ${s.notes} quotes from ${s.voices} reviewers`,
+  ).join("; ") +
   ".";
 
 export function Hero() {
   const rootRef = useRef<HTMLElement>(null);
   const [cards, setCards] = useState<CardState[]>(KEY_CARDS);
-  const [wallPage, setWallPage] = useState<{ page: number; pages: number } | null>(null);
+  const [wallPage, setWallPage] = useState<{
+    page: number;
+    pages: number;
+  } | null>(null);
   const [ready, setReady] = useState(false);
   const [mobile, setMobile] = useState(false);
 
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     setMobile(window.matchMedia("(max-width: 860px)").matches);
     if (!reduce) setCards(WAITING_CARDS);
     const ctrl = new AbortController();
@@ -171,7 +203,8 @@ export function Hero() {
           onCards: setCards,
           onPage: (page, pages) => setWallPage({ page, pages }),
         });
-        if (import.meta.env.DEV) Object.assign(window, { __verbatimWall: wall });
+        if (import.meta.env.DEV)
+          Object.assign(window, { __verbatimWall: wall });
         setReady(true);
       } catch {
         if (!cancelled) setCards(KEY_CARDS);
@@ -185,7 +218,12 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="vbl-hero" ref={rootRef} aria-labelledby="vbl-h1" data-wall-ready={ready || undefined}>
+    <section
+      className="vbl-hero"
+      ref={rootRef}
+      aria-labelledby="vbl-h1"
+      data-wall-ready={ready || undefined}
+    >
       <div className="vbl-walls" aria-hidden="true">
         <canvas className="vbl-wall" data-wall="a" />
         <canvas className="vbl-wall" data-wall="b" style={{ opacity: 0 }} />
@@ -203,10 +241,19 @@ export function Hero() {
         >
           <Wordmark />
         </a>
-        <nav className="vbl-links vbl-reveal" style={{ "--i": 1 } as React.CSSProperties} aria-label="Primary" data-clear="box" data-clear-pad="14,12">
+        <nav
+          className="vbl-links vbl-reveal"
+          style={{ "--i": 1 } as React.CSSProperties}
+          aria-label="Primary"
+          data-clear="box"
+          data-clear-pad="14,12"
+        >
           <a href="#how">How it works</a>
           <a href="#verified">Proof</a>
-          <a className="vbl-signin" href={agentNativePath("/_agent-native/sign-in")}>
+          <a
+            className="vbl-signin"
+            href={agentNativePath("/_agent-native/sign-in")}
+          >
             Sign in
           </a>
           <a className="vbl-open" href={appPath("/studies")}>
@@ -239,11 +286,18 @@ export function Hero() {
           data-frost-top=""
         >
           <span data-line="">Every insight, in the</span>
-          <span className="vbl-br" /> <span data-line="">customer’s own words.</span>
+          <span className="vbl-br" />{" "}
+          <span data-line="">customer’s own words.</span>
         </h1>
-        <p className="vbl-sub vbl-reveal" style={{ "--i": 3 } as React.CSSProperties} data-clear="lines" data-clear-pad="16,6">
-          Drop in interviews, calls and feedback. Verbatim’s agent cuts every source into exact quotes and sorts them into
-          themes with you, live, on one board. Nothing on it is paraphrased.
+        <p
+          className="vbl-sub vbl-reveal"
+          style={{ "--i": 3 } as React.CSSProperties}
+          data-clear="lines"
+          data-clear-pad="16,6"
+        >
+          Drop in interviews, calls and feedback. Verbatim’s agent cuts every
+          source into exact quotes and sorts them into themes with you, live, on
+          one board. Nothing on it is paraphrased.
         </p>
         <div
           className="vbl-actions vbl-reveal"
@@ -257,8 +311,14 @@ export function Hero() {
             How quotes are verified
           </a>
         </div>
-        <p className="vbl-proof vbl-reveal" style={{ "--i": 5 } as React.CSSProperties} data-clear="lines" data-clear-pad="14,6">
-          {WALL_SUMMARY.sources} sources · {WALL_SUMMARY.notes} exact quotes · {REFUSED} paraphrases refused
+        <p
+          className="vbl-proof vbl-reveal"
+          style={{ "--i": 5 } as React.CSSProperties}
+          data-clear="lines"
+          data-clear-pad="14,6"
+        >
+          {WALL_SUMMARY.sources} sources · {WALL_SUMMARY.notes} exact quotes ·{" "}
+          {REFUSED} paraphrases refused
         </p>
         <div
           className="vbl-stacks vbl-reveal"
@@ -274,13 +334,18 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="vbl-foot vbl-reveal" style={{ "--i": 7 } as React.CSSProperties}>
+      <div
+        className="vbl-foot vbl-reveal"
+        style={{ "--i": 7 } as React.CSSProperties}
+      >
         <span data-clear="lines" data-clear-pad="12,6">
-          Live demo corpus · <b>{WALL_SUMMARY.sources}</b> public App Store reviews of Notion for iOS
+          Live demo corpus · <b>{WALL_SUMMARY.sources}</b> public App Store
+          reviews of Notion for iOS
         </span>
         {wallPage ? (
           <span data-clear="lines" data-clear-pad="12,6">
-            wall: all <b>{WALL_SUMMARY.sources}</b> reviews · <b>{WALL_SUMMARY.notes}</b> exact spans · page{" "}
+            wall: all <b>{WALL_SUMMARY.sources}</b> reviews ·{" "}
+            <b>{WALL_SUMMARY.notes}</b> exact spans · page{" "}
             <b>{wallPage.page + 1}</b>/{wallPage.pages}
             {mobile ? "" : " · hover a sentence"}
           </span>

@@ -141,9 +141,18 @@ interface Card extends CardState {
 const LH = 14;
 const BASE = 10.4;
 const FAMILY = '"Figtree Variable", Figtree, system-ui, sans-serif';
-const FONT: readonly [string, string] = [`400 10px ${FAMILY}`, `600 10px ${FAMILY}`];
-const WALL_INK: readonly [string, string] = ["rgba(27,27,25,.165)", "rgba(27,27,25,.2)"];
-const NOTE_INK: readonly [string, string] = ["rgba(27,27,25,.25)", "rgba(27,27,25,.29)"];
+const FONT: readonly [string, string] = [
+  `400 10px ${FAMILY}`,
+  `600 10px ${FAMILY}`,
+];
+const WALL_INK: readonly [string, string] = [
+  "rgba(27,27,25,.165)",
+  "rgba(27,27,25,.2)",
+];
+const NOTE_INK: readonly [string, string] = [
+  "rgba(27,27,25,.25)",
+  "rgba(27,27,25,.29)",
+];
 const NEUTRAL = "#7b7a74";
 const MS = 0.25;
 
@@ -158,10 +167,13 @@ const HOLD = 9.5;
 const REFILL = 1.5;
 const REST = 0.58;
 
-const easeInOut = (p: number) => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2);
+const easeInOut = (p: number) =>
+  p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
 const bez = (p0: number, p1: number, p2: number, p3: number, t: number) => {
   const u = 1 - t;
-  return u * u * u * p0 + 3 * u * u * t * p1 + 3 * u * t * t * p2 + t * t * t * p3;
+  return (
+    u * u * u * p0 + 3 * u * u * t * p1 + 3 * u * t * t * p2 + t * t * t * p3
+  );
 };
 const rnd = (seed: number) => {
   let s = seed >>> 0;
@@ -193,7 +205,11 @@ function sentIds(text: string, ids: Int32Array, start: number): number {
   return id + 1;
 }
 
-function el<K extends keyof HTMLElementTagNameMap>(tag: K, className: string, text?: string): HTMLElementTagNameMap[K] {
+function el<K extends keyof HTMLElementTagNameMap>(
+  tag: K,
+  className: string,
+  text?: string,
+): HTMLElementTagNameMap[K] {
   const node = document.createElement(tag);
   node.className = className;
   if (text !== undefined) node.textContent = text;
@@ -247,7 +263,13 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
   for (const q of Q) bySource[q.src]?.push(q);
   const groups = Array.from({ length: STACKS }, (_, k) => {
     const qs = Q.filter((q) => q.k === k);
-    return { qs, total: qs.length, voices: new Set(qs.map((q) => q.src)).size, hue: hues[k] ?? NEUTRAL, pat: null as CanvasPattern | null };
+    return {
+      qs,
+      total: qs.length,
+      voices: new Set(qs.map((q) => q.src)).size,
+      hue: hues[k] ?? NEUTRAL,
+      pat: null as CanvasPattern | null,
+    };
   });
 
   /* ======================= tokens + sentences ======================= */
@@ -309,12 +331,16 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
     sentCount = next;
   });
   const sentQ = new Map<number, number>();
-  for (const t of TOK) if (t.q >= 0 && !sentQ.has(t.sent)) sentQ.set(t.sent, t.q);
+  for (const t of TOK)
+    if (t.q >= 0 && !sentQ.has(t.sent)) sentQ.set(t.sent, t.q);
   for (const t of TOK) if (t.q >= 0) Q[t.q]?.sents.add(t.sent);
 
   /* ======================= measurement ======================= */
   const mctx = document.createElement("canvas").getContext("2d");
-  const wcache: [Map<string, number>, Map<string, number>] = [new Map(), new Map()];
+  const wcache: [Map<string, number>, Map<string, number>] = [
+    new Map(),
+    new Map(),
+  ];
   const mw = (text: string, bold: Bold) => {
     const c = wcache[bold];
     let w = c.get(text);
@@ -373,7 +399,16 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
   const emitCards = () => {
     if (!cardsDirty) return;
     cardsDirty = false;
-    opts.onCards(cards.map((c) => ({ quotes: c.quotes, voices: c.voices, on: c.on, done: c.done, shown: c.shown, old: c.old.slice() })));
+    opts.onCards(
+      cards.map((c) => ({
+        quotes: c.quotes,
+        voices: c.voices,
+        on: c.on,
+        done: c.done,
+        shown: c.shown,
+        old: c.old.slice(),
+      })),
+    );
   };
 
   /* ======================= layout ======================= */
@@ -419,7 +454,19 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
     }
     const perPage = N * R;
     const pages = Math.max(1, Math.ceil(lines.length / perPage));
-    const lay: Layout = { m, gut, N, colW, top, R, lines, perPage, pages, mob, sentToks: new Map() };
+    const lay: Layout = {
+      m,
+      gut,
+      N,
+      colW,
+      top,
+      R,
+      lines,
+      perPage,
+      pages,
+      mob,
+      sentToks: new Map(),
+    };
     L = lay;
 
     for (const q of Q) q.frags = [];
@@ -430,7 +477,17 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
         continue;
       }
       if (!cur || cur.q !== t.q || cur.li !== t.li || cur.bold !== t.bold) {
-        cur = { q: t.q, li: t.li, x: t.x, w: t.w, text: t.text, bold: t.bold, ax: -1, ay: 0, aw: 0 };
+        cur = {
+          q: t.q,
+          li: t.li,
+          x: t.x,
+          w: t.w,
+          text: t.text,
+          bold: t.bold,
+          ax: -1,
+          ay: 0,
+          aw: 0,
+        };
         Q[t.q]?.frags.push(cur);
       } else {
         cur.text += (t.lead ? " " : "") + t.text;
@@ -540,11 +597,17 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
     c.setTransform(MS, 0, 0, MS, 0, 0);
     const rects: [number, number, number, number][] = [];
     const add = (r: DOMRect, px: number, py: number) =>
-      rects.push([r.left - hr.left - px, r.top - hr.top - py, r.width + 2 * px, r.height + 2 * py]);
+      rects.push([
+        r.left - hr.left - px,
+        r.top - hr.top - py,
+        r.width + 2 * px,
+        r.height + 2 * py,
+      ]);
     const lineRects = (node: Element, px: number, py: number) => {
       const rg = document.createRange();
       rg.selectNodeContents(node);
-      for (const r of Array.from(rg.getClientRects())) if (r.width > 2) add(r, px, py);
+      for (const r of Array.from(rg.getClientRects()))
+        if (r.width > 2) add(r, px, py);
     };
     const top = q$("[data-frost-top]")?.getBoundingClientRect();
     const bottom = q$("[data-frost-bottom]")?.getBoundingClientRect();
@@ -567,10 +630,18 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
       c.restore();
     }
     root.querySelectorAll<HTMLElement>("[data-clear]").forEach((node) => {
-      const [px = 14, py = 8] = (node.dataset.clearPad ?? "").split(",").filter(Boolean).map(Number);
+      const [px = 14, py = 8] = (node.dataset.clearPad ?? "")
+        .split(",")
+        .filter(Boolean)
+        .map(Number);
       const mode = node.dataset.clear;
       if (mode === "lines") lineRects(node, px, py);
-      else if (mode === "spans") node.querySelectorAll("[data-line]").forEach((ln) => Array.from(ln.getClientRects()).forEach((r) => add(r, px, py)));
+      else if (mode === "spans")
+        node
+          .querySelectorAll("[data-line]")
+          .forEach((ln) =>
+            Array.from(ln.getClientRects()).forEach((r) => add(r, px, py)),
+          );
       else add(node.getBoundingClientRect(), px, py);
     });
     c.shadowColor = "#000";
@@ -668,21 +739,50 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
     groups.forEach((g, k) => {
       const S = T0 + k * TG;
       const tg = targets[k] ?? { x: W / 2, y: H };
-      const on = g.qs.filter((q) => q.page === page).sort((a, b) => dist(b, tg) - dist(a, tg));
+      const on = g.qs
+        .filter((q) => q.page === page)
+        .sort((a, b) => dist(b, tg) - dist(a, tg));
       const off = g.qs.filter((q) => q.page !== page);
       on.forEach((q, n) => {
-        const L0 = S + INK + LIFT + (on.length > 1 ? (n / (on.length - 1)) * (WIN * 0.8) : 0);
-        next[q.i] = { S, L: L0, A: L0 + FLY + R() * 0.25, on: true, below: false, side: Math.sign(posOf(q)[0] - W / 2 || R() - 0.5), jx: R(), jy: R(), arrived: false };
+        const L0 =
+          S +
+          INK +
+          LIFT +
+          (on.length > 1 ? (n / (on.length - 1)) * (WIN * 0.8) : 0);
+        next[q.i] = {
+          S,
+          L: L0,
+          A: L0 + FLY + R() * 0.25,
+          on: true,
+          below: false,
+          side: Math.sign(posOf(q)[0] - W / 2 || R() - 0.5),
+          jx: R(),
+          jy: R(),
+          arrived: false,
+        };
       });
       off.forEach((q) => {
         const L0 = S + INK + LIFT + 0.1 + R() * (WIN + 0.4);
-        next[q.i] = { S, L: L0, A: L0 + FLY * 0.95 + R() * 0.2, on: false, below: q.page > page, side: R() < 0.5 ? -1 : 1, jx: R(), jy: R(), arrived: false };
+        next[q.i] = {
+          S,
+          L: L0,
+          A: L0 + FLY * 0.95 + R() * 0.2,
+          on: false,
+          below: q.page > page,
+          side: R() < 0.5 ? -1 : 1,
+          jx: R(),
+          jy: R(),
+          arrived: false,
+        };
       });
     });
     plan = next;
   }
 
-  function flightPath(q: Quote, pl: Plan): [number, number, number, number, number, number, number, number] {
+  function flightPath(
+    q: Quote,
+    pl: Plan,
+  ): [number, number, number, number, number, number, number, number] {
     const tg = targets[q.k] ?? { x: W / 2, y: H };
     let x0: number;
     let y0: number;
@@ -786,7 +886,17 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
   function drawFrag(f: Frag, x: number, y: number, alpha: number) {
     if (alpha <= 0.003 || f.ax < 0 || !atlas) return;
     fctx.globalAlpha = alpha;
-    fctx.drawImage(atlas, f.ax * DPR, f.ay * DPR, f.aw * DPR, LH * DPR, x - 1, y, f.aw, LH);
+    fctx.drawImage(
+      atlas,
+      f.ax * DPR,
+      f.ay * DPR,
+      f.aw * DPR,
+      LH * DPR,
+      x - 1,
+      y,
+      f.aw,
+      LH,
+    );
   }
 
   function draw(t: number) {
@@ -811,7 +921,9 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
           if (tk.sq || tk.li < pa || tk.li >= pb) continue;
           const [lx, ly] = lineXY(tk.li);
           const own = tk.q === hq;
-          c.globalAlpha = own ? 0.92 : 0.74 * Math.max(0.25, vis(lx + tk.x, ly + 7));
+          c.globalAlpha = own
+            ? 0.92
+            : 0.74 * Math.max(0.25, vis(lx + tk.x, ly + 7));
           c.font = FONT[tk.bold];
           c.fillStyle = "#1b1b19";
           c.fillText(tk.text, lx + tk.x, ly + BASE);
@@ -920,7 +1032,12 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
             const n = Math.min(3, q.frags.length);
             for (let k = 0; k < n; k++) {
               const f = q.frags[k]!;
-              c.fillRect(bx + (k === 0 ? 0 : f.x - f0.x) * 0.5, by + k * 4, Math.max(8, f.w * 0.5), 1.5);
+              c.fillRect(
+                bx + (k === 0 ? 0 : f.x - f0.x) * 0.5,
+                by + k * 4,
+                Math.max(8, f.w * 0.5),
+                1.5,
+              );
             }
             continue;
           }
@@ -931,7 +1048,17 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
             if (f.ax < 0 || !atlas) continue;
             const dx = (k === 0 ? 0 : f.x - f0.x) * s;
             const dy = k * LH * s;
-            c.drawImage(atlas, f.ax * DPR, f.ay * DPR, f.aw * DPR, LH * DPR, bx + dx - 1, by + dy, f.aw * s, LH * s);
+            c.drawImage(
+              atlas,
+              f.ax * DPR,
+              f.ay * DPR,
+              f.aw * DPR,
+              LH * DPR,
+              bx + dx - 1,
+              by + dy,
+              f.aw * s,
+              LH * s,
+            );
           }
         }
       }
@@ -1050,7 +1177,11 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
     sw.style.background = hue;
     head.append(sw, document.createTextNode(data.themes[q.theme]?.name ?? ""));
     const meta = `${q.author} · ★ ${q.stars} · ${formatDay(q.date)} · chars ${q.s}–${q.e}${filed ? " · lifted to its stack" : ""}`;
-    chip.replaceChildren(head, el("p", "vbl-ch-q", `“${q.view.text}”`), el("p", "vbl-ch-m", meta));
+    chip.replaceChildren(
+      head,
+      el("p", "vbl-ch-q", `“${q.view.text}”`),
+      el("p", "vbl-ch-m", meta),
+    );
   }
 
   function clearHover() {
@@ -1063,7 +1194,8 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
   function onMove(ev: PointerEvent) {
     if (!L || ev.pointerType === "touch") return;
     const target = ev.target instanceof Element ? ev.target : null;
-    if (target?.closest("a,button,[data-stack],[data-no-wall-hover]")) return clearHover();
+    if (target?.closest("a,button,[data-stack],[data-no-wall-hover]"))
+      return clearHover();
     const hr = root.getBoundingClientRect();
     const x = ev.clientX - hr.left;
     const y = ev.clientY - hr.top;
@@ -1117,18 +1249,23 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
     dirty = true;
   }
 
-  let lastSize = "";
+  // Width changes re-flow the wall; small height changes (a stack opening on a phone) do not.
+  let laidW = 0;
+  let laidH = 0;
   let resizeT = 0;
   const onResize = () => {
     window.clearTimeout(resizeT);
     resizeT = window.setTimeout(() => {
       const r = root.getBoundingClientRect();
-      const size = `${Math.round(r.width)}x${Math.round(r.height)}`;
-      if (size === lastSize) return;
-      lastSize = size;
+      const w = Math.round(r.width);
+      const h = Math.round(r.height);
+      if (w === laidW && Math.abs(h - laidH) < 160) return;
+      laidW = w;
+      laidH = h;
       restart();
     }, 140);
   };
+  const ro = new ResizeObserver(onResize);
 
   const io = new IntersectionObserver((entries) => {
     for (const en of entries) {
@@ -1138,8 +1275,8 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
   });
 
   layout();
-  const r0 = root.getBoundingClientRect();
-  lastSize = `${Math.round(r0.width)}x${Math.round(r0.height)}`;
+  laidW = W;
+  laidH = H;
   if (reduce) {
     keyState();
     draw(0);
@@ -1151,11 +1288,13 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
   emitCards();
   // the copy settles after its entrance; re-cut the clearing where it landed
   timers.push(window.setTimeout(refreshGeometry, reduce ? 120 : 1500));
-  void document.fonts?.ready.then(() => timers.push(window.setTimeout(refreshGeometry, 50)));
+  void document.fonts?.ready.then(() =>
+    timers.push(window.setTimeout(refreshGeometry, 50)),
+  );
 
   root.addEventListener("pointermove", onMove);
   root.addEventListener("pointerleave", clearHover);
-  window.addEventListener("resize", onResize);
+  ro.observe(root);
   io.observe(root);
 
   return {
@@ -1166,7 +1305,7 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
       for (const id of timers) window.clearTimeout(id);
       root.removeEventListener("pointermove", onMove);
       root.removeEventListener("pointerleave", clearHover);
-      window.removeEventListener("resize", onResize);
+      ro.disconnect();
       io.disconnect();
       clearHover();
     },

@@ -1,6 +1,7 @@
+import { getSession } from "@agent-native/core/server";
 import { defineEventHandler, readBody } from "h3";
 
-import { newGuestEmail, readGuestEmail, setGuestCookie } from "../../verbatim/guest.js";
+import { isGuestEmail, newGuestEmail, readGuestEmail, setGuestCookie } from "../../verbatim/guest.js";
 import { cloneStudyForOwner, studiesOwnedBy } from "../../verbatim/store.js";
 
 /**
@@ -11,6 +12,13 @@ import { cloneStudyForOwner, studiesOwnedBy } from "../../verbatim/store.js";
 export default defineEventHandler(async (event) => {
   const body = ((await readBody(event).catch(() => null)) ?? {}) as { next?: string };
   let email = await readGuestEmail(event);
+  // Someone already signed in keeps their own account and studies.
+  if (!email) {
+    const session = await getSession(event).catch(() => null);
+    if (session?.email && !isGuestEmail(session.email) && session.email !== "local@localhost") {
+      return { email: session.email, redirect: "/studies" };
+    }
+  }
   if (!email) {
     email = newGuestEmail();
     await setGuestCookie(event, email);

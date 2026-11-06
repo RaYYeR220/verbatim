@@ -29,7 +29,9 @@ html:has(.vbl) {
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --display: "General Sans", "Figtree Variable", system-ui, sans-serif;
   --body: "Figtree Variable", "Figtree", system-ui, sans-serif;
-  --mono: "Geist Mono Variable", "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --mono:
+    "Geist Mono Variable", "Geist Mono", ui-monospace, SFMono-Regular, Menlo,
+    monospace;
   --wrap: min(1240px, calc(100% - 56px));
 
   position: relative;
@@ -289,7 +291,8 @@ html:has(.vbl) {
   font-size: 15px;
   font-weight: 500;
   padding: 5px 0;
-  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px
+    no-repeat;
   color: var(--ink);
   transition: color 0.2s;
 }
@@ -695,17 +698,30 @@ html:has(.vbl) {
   line-height: 1.45;
   color: var(--ink);
 }
+.vbl-step .vbl-claim-m {
+  max-width: none;
+  margin: 10px 0 0;
+  font: 400 11.5px/1.35 var(--mono);
+  color: var(--ink3);
+}
 .vbl-claim-m b {
   font-weight: 500;
   color: var(--ink);
 }
 
 /* verified: the honest proof */
+.vbl-h2-wide {
+  max-width: 21ch;
+}
 .vbl-proofgrid {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   gap: 64px;
   align-items: start;
+  margin-top: 56px;
+}
+.vbl-proofgrid > div > .vbl-lede:first-child {
+  margin-top: 0;
 }
 .vbl-proofgrid .vbl-lede + .vbl-lede {
   margin-top: 18px;

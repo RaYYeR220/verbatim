@@ -58,6 +58,7 @@ function isBareRoute(pathname: string): boolean {
 }
 
 const THEME_INIT_SCRIPT = getThemeInitScript();
+const LANDING_STAYS_SCRIPT = `if (location.pathname === "/") window.__agentNativeAuthRedirectStarted = true;`;
 const LOCALE_INIT_SCRIPT = getLocaleInitScript();
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -72,6 +73,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <script
           suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
+        />
+        {/* The landing is for everyone: keep signed-in visitors on "/" instead of
+            the framework's hop to the app home (they can open it from the nav). */}
+        <script
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: LANDING_STAYS_SCRIPT }}
         />
         <script
           data-agent-native-locale-init
@@ -191,15 +198,25 @@ export default function Root() {
   // The path, not the visitor, picks the shell, so the SSR shell stays one
   // cached page per URL.
   const { pathname } = useLocation();
+  // Public pages (the landing, shared readouts) render on the server for
+  // everyone, signed in or not, without the app shell.
+  const isPublicPage = pathname === "/" || pathname.startsWith("/r/");
   return (
     <AppToolkitProvider>
       <AppProviders
         queryClient={queryClient}
+        isPublicPath={isPublicPage}
         skeletonLayout={skeletonLayoutForPath(pathname)}
         i18n={{ catalog: i18nCatalog }}
       >
-        <DbSyncSetup />
-        <AppContent />
+        {isPublicPage ? (
+          <Outlet />
+        ) : (
+          <>
+            <DbSyncSetup />
+            <AppContent />
+          </>
+        )}
       </AppProviders>
     </AppToolkitProvider>
   );

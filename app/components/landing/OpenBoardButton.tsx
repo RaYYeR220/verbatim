@@ -33,7 +33,11 @@ export function OpenBoardButton() {
       if (!res.ok) throw new Error(`guest workspace: ${res.status}`);
       const body: unknown = await res.json();
       const redirect =
-        body && typeof body === "object" && "redirect" in body && typeof body.redirect === "string" && body.redirect.startsWith("/")
+        body &&
+        typeof body === "object" &&
+        "redirect" in body &&
+        typeof body.redirect === "string" &&
+        body.redirect.startsWith("/")
           ? body.redirect
           : "/studies";
       window.location.assign(appPath(redirect));

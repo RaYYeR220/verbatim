@@ -1,7 +1,11 @@
 import "./landing.css";
-
 import { Hero } from "./Hero";
-import { AgentNative, HowItWorks, LandingFooter, Verified } from "./LandingSections";
+import {
+  AgentNative,
+  HowItWorks,
+  LandingFooter,
+  Verified,
+} from "./LandingSections";
 
 export function LandingPage() {
   return (
