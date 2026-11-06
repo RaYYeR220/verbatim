@@ -1,0 +1,407 @@
+/* The research board: a quiet ground, ink cards, colour only in themes. */
+
+.vb-board {
+  position: relative;
+  overflow: hidden;
+  background: var(--vb-ground);
+  background-image: radial-gradient(var(--vb-hair2) 1px, transparent 1px);
+  background-size: 24px 24px;
+  touch-action: none;
+  user-select: none;
+  cursor: default;
+}
+.vb-board[data-panning="true"] {
+  cursor: grabbing;
+}
+.vb-world {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+/* ── notes ─────────────────────────────────────────────── */
+.vb-note {
+  position: absolute;
+  width: 240px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 11px 9px 13px;
+  background: var(--vb-card);
+  border: 1px solid var(--vb-hair);
+  border-radius: 2px;
+  color: var(--vb-ink);
+  transition:
+    border-color 0.25s var(--vb-ease),
+    box-shadow 0.25s var(--vb-ease),
+    opacity 0.2s;
+}
+.vb-note::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  bottom: -1px;
+  width: 2px;
+  border-radius: 2px 0 0 2px;
+  background: var(--hue, transparent);
+}
+.vb-note:hover {
+  border-color: color-mix(in srgb, var(--vb-ink) 28%, transparent);
+}
+.vb-note[data-selected="true"] {
+  border-color: var(--vb-ink);
+  box-shadow: 0 0 0 1px var(--vb-ink);
+}
+.vb-note[data-agent="true"] {
+  border-color: var(--vb-steel);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--vb-steel) 18%, transparent);
+}
+.vb-note[data-focus="true"] {
+  border-color: var(--vb-rust);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--vb-rust) 20%, transparent);
+}
+.vb-note[data-dragging="true"] {
+  opacity: 0.92;
+  z-index: 50;
+  box-shadow: 0 8px 24px -12px color-mix(in srgb, var(--vb-ink) 40%, transparent);
+}
+.vb-note-quote {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: -0.003em;
+}
+.vb-note-foot {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--vb-mono);
+  font-size: 10.5px;
+  color: var(--vb-ink3);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.vb-note-foot .who {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
+.vb-note-foot .exact {
+  margin-left: auto;
+  color: var(--vb-ink4);
+}
+.vb-note-foot .exact[data-bad="true"] {
+  color: var(--vb-rust);
+}
+.vb-note .vb-badge {
+  position: absolute;
+  top: -7px;
+  right: 8px;
+  padding: 0 5px;
+  height: 14px;
+  line-height: 14px;
+  border-radius: 2px;
+  font-family: var(--vb-mono);
+  font-size: 9.5px;
+  background: var(--vb-ink);
+  color: var(--vb-ground-hi);
+}
+
+/* semantic zoom: mid = quote only, far = hue bars */
+.vb-board[data-zoom="mid"] .vb-note-foot {
+  display: none;
+}
+.vb-board[data-zoom="mid"] .vb-note-quote {
+  font-size: 15px;
+  -webkit-line-clamp: 5;
+}
+.vb-board[data-zoom="far"] .vb-note {
+  padding: 0;
+  background: color-mix(in srgb, var(--hue, var(--vb-ink4)) 22%, var(--vb-card));
+  border-color: transparent;
+}
+.vb-board[data-zoom="far"] .vb-note > * {
+  visibility: hidden;
+}
+
+/* ── theme frames ──────────────────────────────────────── */
+.vb-frame {
+  position: absolute;
+  border: 1px solid var(--vb-hair);
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--hue) 4%, transparent);
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.vb-frame[data-drop="true"] {
+  background: color-mix(in srgb, var(--hue) 10%, transparent);
+  border-color: color-mix(in srgb, var(--hue) 55%, transparent);
+}
+.vb-frame[data-agent="true"] {
+  border-color: color-mix(in srgb, var(--vb-steel) 60%, transparent);
+}
+.vb-frame[data-focus="true"] {
+  border-color: var(--hue);
+}
+.vb-frame-head {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  top: 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  cursor: grab;
+}
+.vb-frame-chip {
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  background: var(--hue);
+  transform: translateY(-1px);
+}
+.vb-frame-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--vb-display);
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  color: var(--vb-ink);
+}
+.vb-frame-name[contenteditable="true"] {
+  outline: none;
+  border-bottom: 1px solid var(--vb-ink);
+  cursor: text;
+}
+.vb-frame-count {
+  flex: none;
+  font-family: var(--vb-mono);
+  font-size: 11px;
+  color: var(--vb-ink3);
+  font-variant-numeric: tabular-nums;
+}
+.vb-frame-status {
+  margin-left: auto;
+  flex: none;
+  font-family: var(--vb-mono);
+  font-size: 10.5px;
+  color: var(--vb-ink3);
+}
+.vb-board[data-zoom="far"] .vb-frame-name {
+  font-size: 40px;
+}
+.vb-board[data-zoom="far"] .vb-frame-count {
+  font-size: 22px;
+}
+.vb-board[data-zoom="mid"] .vb-frame-name {
+  font-size: 24px;
+}
+
+.vb-column-label {
+  position: absolute;
+  font-family: var(--vb-mono);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--vb-ink3);
+}
+
+/* ── lasso + agent cursor ──────────────────────────────── */
+.vb-lasso {
+  position: absolute;
+  border: 1px dashed var(--vb-ink3);
+  background: color-mix(in srgb, var(--vb-ink) 4%, transparent);
+  pointer-events: none;
+}
+.vb-cursor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 80;
+  pointer-events: none;
+  transition: transform 0.7s var(--vb-ease), opacity 0.4s;
+}
+.vb-cursor svg {
+  display: block;
+  color: var(--vb-steel);
+  filter: drop-shadow(0 1px 1px color-mix(in srgb, var(--vb-ink) 30%, transparent));
+}
+.vb-cursor-label {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 280px;
+  padding: 5px 8px 6px;
+  border-radius: 2px;
+  background: var(--vb-steel);
+  color: #fff;
+  white-space: nowrap;
+}
+.vb-cursor-label b {
+  font-family: var(--vb-mono);
+  font-weight: 500;
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+}
+.vb-cursor-label span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}
+
+/* ── hover chip ────────────────────────────────────────── */
+.vb-chip {
+  position: absolute;
+  z-index: 90;
+  width: 340px;
+  padding: 12px 13px 11px;
+  background: var(--vb-ground-hi);
+  border: 1px solid var(--vb-hair);
+  border-radius: 2px;
+  box-shadow: 0 12px 32px -18px color-mix(in srgb, var(--vb-ink) 45%, transparent);
+  pointer-events: none;
+}
+.vb-chip q {
+  display: block;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--vb-ink);
+  quotes: "\201C" "\201D";
+}
+.vb-chip .meta {
+  margin-top: 8px;
+  font-family: var(--vb-mono);
+  font-size: 10.5px;
+  color: var(--vb-ink3);
+}
+
+/* ── controls ──────────────────────────────────────────── */
+.vb-zoom {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--vb-hair);
+  border-radius: 2px;
+  background: var(--vb-ground-hi);
+  font-family: var(--vb-mono);
+  font-size: 11px;
+  color: var(--vb-ink2);
+}
+.vb-zoom button {
+  height: 28px;
+  min-width: 28px;
+  padding: 0 8px;
+  color: var(--vb-ink2);
+}
+.vb-zoom button:hover {
+  background: var(--vb-card);
+  color: var(--vb-ink);
+}
+.vb-zoom button + button,
+.vb-zoom span + button,
+.vb-zoom button + span {
+  border-left: 1px solid var(--vb-hair);
+}
+.vb-zoom span {
+  padding: 0 8px;
+  min-width: 48px;
+  text-align: center;
+  line-height: 28px;
+}
+.vb-selbar {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--vb-hair);
+  border-radius: 2px;
+  background: var(--vb-ground-hi);
+  box-shadow: 0 10px 30px -18px color-mix(in srgb, var(--vb-ink) 50%, transparent);
+  font-size: 12.5px;
+}
+.vb-selbar .count {
+  padding: 0 8px;
+  font-family: var(--vb-mono);
+  font-size: 11px;
+  color: var(--vb-ink3);
+}
+.vb-selbar button {
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 2px;
+  color: var(--vb-ink);
+}
+.vb-selbar button:hover {
+  background: var(--vb-card);
+}
+.vb-selbar button.primary {
+  background: var(--vb-ink);
+  color: var(--vb-ground-hi);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vb-cursor,
+  .vb-note,
+  .vb-frame {
+    transition: none;
+  }
+}
+
+/* theme names stay readable when zoomed out: drawn in screen space */
+.vb-frame-label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 20px;
+  padding: 0 7px 0 6px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--vb-ground-hi) 88%, transparent);
+  backdrop-filter: blur(4px);
+  font-size: 12px;
+  color: var(--vb-ink);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.vb-frame-label .dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+}
+.vb-frame-label .name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+.vb-frame-label .n {
+  font-family: var(--vb-mono);
+  font-size: 10.5px;
+  color: var(--vb-ink3);
+}
+.vb-board[data-zoom="far"] .vb-frame-head,
+.vb-board[data-zoom="mid"] .vb-frame-head {
+  visibility: hidden;
+}

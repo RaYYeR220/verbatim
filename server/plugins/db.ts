@@ -153,6 +153,16 @@ CREATE TABLE IF NOT EXISTS board_events (
 );
 CREATE INDEX IF NOT EXISTS idx_board_events_study ON board_events (study_id, created_at)`,
     },
+    {
+      version: 5,
+      name: "create-guest-usage",
+      sql: `CREATE TABLE IF NOT EXISTS guest_usage (
+  email TEXT NOT NULL,
+  day TEXT NOT NULL,
+  runs INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (email, day)
+)`,
+    },
   ],
   { table: "verbatim_migrations" },
 );

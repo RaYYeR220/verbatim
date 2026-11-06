@@ -6,7 +6,7 @@ export interface Viewport {
   scale: number;
 }
 
-export const MIN_SCALE = 0.15;
+export const MIN_SCALE = 0.04;
 export const MAX_SCALE = 1.6;
 
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
@@ -41,16 +41,27 @@ export function useViewport(container: RefObject<HTMLElement | null>) {
     });
   }, [container]);
 
+  /**
+   * Fits `bounds` into view. With `minScale`, never zooms out past it: the view
+   * then starts at the top-left of the content instead of shrinking cards
+   * until they can't be read.
+   */
   const fit = useCallback(
-    (bounds: { x: number; y: number; w: number; h: number } | null, padding = 80) => {
+    (bounds: { x: number; y: number; w: number; h: number } | null, opts: { padding?: number; minScale?: number } = {}) => {
       const el = container.current;
+      const padding = opts.padding ?? 80;
       if (!el || !bounds || bounds.w <= 0 || bounds.h <= 0) return;
       const { width, height } = el.getBoundingClientRect();
-      const scale = clamp(Math.min((width - padding * 2) / bounds.w, (height - padding * 2) / bounds.h), MIN_SCALE, 1);
+      const fitted = clamp(Math.min((width - padding * 2) / bounds.w, (height - padding * 2) / bounds.h), MIN_SCALE, 1);
+      if (opts.minScale && fitted < opts.minScale) {
+        const scale = opts.minScale;
+        setVp({ scale, x: padding / 2 - bounds.x * scale, y: padding / 2 - bounds.y * scale });
+        return;
+      }
       setVp({
-        scale,
-        x: (width - bounds.w * scale) / 2 - bounds.x * scale,
-        y: (height - bounds.h * scale) / 2 - bounds.y * scale,
+        scale: fitted,
+        x: (width - bounds.w * fitted) / 2 - bounds.x * fitted,
+        y: (height - bounds.h * fitted) / 2 - bounds.y * fitted,
       });
     },
     [container],

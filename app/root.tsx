@@ -47,8 +47,15 @@ configureTracking({
 });
 
 export const links: LinksFunction = () => [
+  { rel: "preconnect", href: "https://api.fontshare.com" },
+  { rel: "stylesheet", href: "https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" },
   { rel: "stylesheet", href: stylesheet },
 ];
+
+/** Routes that render without the app shell (sidebar, header, agent panel). */
+function isBareRoute(pathname: string): boolean {
+  return pathname === "/" || pathname.startsWith("/embed/") || pathname.startsWith("/r/");
+}
 
 const THEME_INIT_SCRIPT = getThemeInitScript();
 const LOCALE_INIT_SCRIPT = getLocaleInitScript();
@@ -71,7 +78,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: LOCALE_INIT_SCRIPT }}
         />
-        <meta name="theme-color" content="#18181B" />
+        <meta name="theme-color" content="#f1f1ee" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta
           name="apple-mobile-web-app-status-bar-style"
@@ -168,9 +175,13 @@ function AppContent() {
           <ThemeToggleItem />
         </CommandMenu.Group>
       </CommandMenu>
-      <AppLayout>
+      {isBareRoute(location.pathname) ? (
         <Outlet />
-      </AppLayout>
+      ) : (
+        <AppLayout>
+          <Outlet />
+        </AppLayout>
+      )}
     </>
   );
 }

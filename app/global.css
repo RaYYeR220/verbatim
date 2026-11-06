@@ -1,4 +1,5 @@
-@import "@fontsource-variable/inter";
+@import "@fontsource-variable/figtree";
+@import "@fontsource-variable/geist-mono";
 
 @import "tailwindcss";
 @import "@agent-native/toolkit/styles.css";
@@ -6,34 +7,58 @@
 @source "./**/*.{ts,tsx}";
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 0 0% 10%;
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 10%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 10%;
-  --primary: 0 0% 15%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 0 0% 95%;
-  --secondary-foreground: 0 0% 15%;
-  --muted: 0 0% 95%;
-  --muted-foreground: 0 0% 43%;
-  --accent: 0 0% 95%;
-  --accent-foreground: 0 0% 15%;
-  --destructive: 0 91% 71%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 0 0% 40%;
-  --radius: 0.5rem;
-  --sidebar-background: 0 0% 97%;
-  --sidebar-foreground: 0 0% 43%;
-  --sidebar-primary: 0 0% 15%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 95%;
-  --sidebar-accent-foreground: 0 0% 15%;
-  --sidebar-border: 0 0% 90%;
-  --sidebar-ring: 0 0% 40%;
+  /* Verbatim: a quiet warm ground, ink, hairlines; colour lives in the themes. */
+  --background: 60 10% 94%;
+  --foreground: 60 4% 10%;
+  --card: 60 13% 96%;
+  --card-foreground: 60 4% 10%;
+  --popover: 60 14% 97%;
+  --popover-foreground: 60 4% 10%;
+  --primary: 60 4% 10%;
+  --primary-foreground: 60 14% 97%;
+  --secondary: 60 8% 90%;
+  --secondary-foreground: 60 4% 10%;
+  --muted: 60 8% 91%;
+  --muted-foreground: 51 3% 45%;
+  --accent: 60 8% 89%;
+  --accent-foreground: 60 4% 10%;
+  --destructive: 10 56% 51%;
+  --destructive-foreground: 60 14% 97%;
+  --border: 60 5% 85%;
+  --input: 60 5% 83%;
+  --ring: 220 38% 50%;
+  --radius: 0.125rem;
+  --sidebar-background: 60 9% 92%;
+  --sidebar-foreground: 48 3% 32%;
+  --sidebar-primary: 60 4% 10%;
+  --sidebar-primary-foreground: 60 14% 97%;
+  --sidebar-accent: 60 8% 88%;
+  --sidebar-accent-foreground: 60 4% 10%;
+  --sidebar-border: 60 5% 85%;
+  --sidebar-ring: 220 38% 50%;
+
+  --vb-ground: #f1f1ee;
+  --vb-ground-hi: #f7f7f4;
+  --vb-card: #f5f5f2;
+  --vb-ink: #1b1b19;
+  --vb-ink2: #4b4a46;
+  --vb-ink3: #7b7a74;
+  --vb-ink4: #a8a7a0;
+  --vb-hair: #1b1b191c;
+  --vb-hair2: #1b1b1912;
+  --vb-wall: #1b1b1929;
+  --vb-rust: #c8553d;
+  --vb-ochre: #c99a2e;
+  --vb-moss: #5f8f4e;
+  --vb-teal: #2f8a8a;
+  --vb-steel: #4f6fb0;
+  --vb-plum: #8d5a8f;
+  --vb-clay: #a8744f;
+  --vb-slate: #5f6b76;
+  --vb-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --vb-display: "General Sans", "Figtree Variable", system-ui, sans-serif;
+  --vb-body: "Figtree Variable", "Figtree", system-ui, sans-serif;
+  --vb-mono: "Geist Mono Variable", "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --chat-sidebar-width: 17.5rem;
   --chat-sidebar-content-inset: 0.5rem;
   --chat-sidebar-row-padding: 0.75rem;
@@ -229,41 +254,59 @@
 }
 
 .dark {
-  --background: 0 0% 13%;
-  --foreground: 0 0% 90%;
-  --card: 0 0% 16.47%;
-  --card-foreground: 0 0% 90%;
-  --popover: 0 0% 15%;
-  --popover-foreground: 0 0% 90%;
-  --primary: 0 0% 75%;
-  --primary-foreground: 0 0% 10%;
-  --secondary: 0 0% 18%;
-  --secondary-foreground: 0 0% 90%;
-  --muted: 0 0% 16%;
-  --muted-foreground: 0 0% 60%;
-  --accent: 0 0% 18%;
-  --accent-foreground: 0 0% 90%;
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 0 0% 24%;
-  --input: 0 0% 24%;
-  --ring: 0 0% 60%;
-  --radius: 0.5rem;
-  --sidebar-background: 0 0% 10%;
-  --sidebar-foreground: 0 0% 60%;
-  --sidebar-primary: 0 0% 75%;
-  --sidebar-primary-foreground: 0 0% 10%;
-  --sidebar-accent: 0 0% 16%;
-  --sidebar-accent-foreground: 0 0% 90%;
-  --sidebar-border: 0 0% 20%;
-  --sidebar-ring: 0 0% 60%;
+  --background: 220 14% 6%;
+  --foreground: 60 9% 92%;
+  --card: 220 12% 9%;
+  --card-foreground: 60 9% 92%;
+  --popover: 220 12% 10%;
+  --popover-foreground: 60 9% 92%;
+  --primary: 60 9% 92%;
+  --primary-foreground: 220 14% 6%;
+  --secondary: 220 10% 14%;
+  --secondary-foreground: 60 9% 92%;
+  --muted: 220 10% 12%;
+  --muted-foreground: 225 4% 62%;
+  --accent: 220 10% 15%;
+  --accent-foreground: 60 9% 92%;
+  --destructive: 12 70% 62%;
+  --destructive-foreground: 60 9% 96%;
+  --border: 220 8% 18%;
+  --input: 220 8% 20%;
+  --ring: 218 70% 72%;
+  --radius: 0.125rem;
+  --sidebar-background: 220 14% 5%;
+  --sidebar-foreground: 225 4% 62%;
+  --sidebar-primary: 60 9% 92%;
+  --sidebar-primary-foreground: 220 14% 6%;
+  --sidebar-accent: 220 10% 13%;
+  --sidebar-accent-foreground: 60 9% 92%;
+  --sidebar-border: 220 8% 16%;
+  --sidebar-ring: 218 70% 72%;
+
+  --vb-ground: #0b0d11;
+  --vb-ground-hi: #111419;
+  --vb-card: #13161c;
+  --vb-ink: #eeeef0;
+  --vb-ink2: #c2c3c8;
+  --vb-ink3: #9b9ca3;
+  --vb-ink4: #6c6e76;
+  --vb-hair: #eeeef01f;
+  --vb-hair2: #eeeef012;
+  --vb-wall: #eeeef02b;
+  --vb-rust: #ff8a65;
+  --vb-ochre: #f5c451;
+  --vb-moss: #6fdcaa;
+  --vb-teal: #5fd1cf;
+  --vb-steel: #74b7ff;
+  --vb-plum: #f29bb6;
+  --vb-clay: #e0a57c;
+  --vb-slate: #a3adb8;
 }
 
 @layer base {
   body {
     @apply bg-background text-foreground;
-    font-family: "Inter Variable", "Inter", sans-serif;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-family: var(--vb-body);
   }
 }
 

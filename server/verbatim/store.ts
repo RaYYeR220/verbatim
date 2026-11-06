@@ -300,13 +300,29 @@ export async function insertTheme(input: {
   const color = input.color ?? THEME_COLORS[existing.length % THEME_COLORS.length];
   const id = newId("thm");
   const at = nowIso();
+  // Without an explicit position, open the new theme to the right of everything on the board.
+  let x = input.x;
+  let y = input.y;
+  if (x === undefined || y === undefined) {
+    const [ext] = await db
+      .select({ maxX: sql<number>`max(${schema.notes.x})`, minY: sql<number>`min(${schema.notes.y})` })
+      .from(schema.notes)
+      .where(and(eq(schema.notes.studyId, input.studyId), sql`${schema.notes.themeId} is not null`));
+    const [thx] = await db
+      .select({ maxX: sql<number>`max(${schema.themes.x})` })
+      .from(schema.themes)
+      .where(eq(schema.themes.studyId, input.studyId));
+    const right = Math.max(Number(ext?.maxX ?? -Infinity) + CARD_W + 16, Number(thx?.maxX ?? -Infinity) + CARD_W * 3 + 64);
+    x = x ?? (Number.isFinite(right) ? Math.round(right + 56) : 0);
+    y = y ?? 0;
+  }
   await db.insert(schema.themes).values({
     id,
     studyId: input.studyId,
     name: input.name,
     color,
-    x: input.x ?? 0,
-    y: input.y ?? 0,
+    x,
+    y,
     summary: null,
     rev: newRev(),
     createdBy: input.createdBy === "user" ? "user" : "agent",
@@ -538,8 +554,13 @@ export async function liteNotesForStudy(studyId: string) {
 export async function applyLayout(studyId: string) {
   const db = getDb();
   const rows = await loadStudyRows(studyId);
+  const counts = new Map<string, number>();
+  for (const n of rows.notes) if (n.themeId) counts.set(n.themeId, (counts.get(n.themeId) ?? 0) + 1);
   const layout = layoutBoard({
-    themes: rows.themes.map((t) => ({ id: t.id })),
+    // Biggest themes first, so the board reads left to right by how many people said it.
+    themes: [...rows.themes]
+      .sort((a, b) => (counts.get(b.id) ?? 0) - (counts.get(a.id) ?? 0) || a.createdAt.localeCompare(b.createdAt))
+      .map((t) => ({ id: t.id })),
     notes: rows.notes
       .slice()
       .sort((a, b) => a.createdAt.localeCompare(b.createdAt) || a.id.localeCompare(b.id))
