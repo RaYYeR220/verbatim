@@ -20,6 +20,8 @@ Each public statement about Verbatim, tagged by how it can be checked.
 | The single prompt cited 1 interview quote that is not in any transcript; Verbatim cited 0 | REPRODUCIBLE | `results/score-baseline-8.json`, `results/score-verbatim-8.json` |
 | Anyone can try the board and the agent without signing up | VERIFIED-LIVE | https://verbatim-flame.vercel.app → Open the live board |
 | The agent's cursor follows the cards its actions touch | VERIFIED-LIVE | Try it study → Synthesize with agent |
+| A readout can be shared by link and read signed out; an agent handed the link reads it as JSON | VERIFIED-LIVE | Readout → Share → General access: Anyone with the link → open `/r/<study>` in a private window; the page's discovery script points to `/api/readout-context.json` |
+| MCP clients reach the same actions over OAuth (search-quotes, show-theme, add-source, add-comment…) | VERIFIED-LIVE | add `https://verbatim-flame.vercel.app/mcp` as a connector; the consent screen accepts a guest workspace |
 | The 500-review synthesis cost about $2.70 in model calls | MODELED | token counts of our run × list prices |
 | Verbatim's agent reads interviews better than a good single prompt | NOT CLAIMED | the benchmark shows parity |
 | The interview benchmark represents real customers | NOT CLAIMED | it is fictional and labelled as such (`fixtures/eval/README.md`) |
