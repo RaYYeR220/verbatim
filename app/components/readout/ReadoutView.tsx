@@ -45,6 +45,9 @@ export function ReadoutView({ readout, toolbar, footer }: { readout: Readout; to
                   {x.status === "anecdote" ? (
                     <span className="ml-2 font-[family-name:var(--vb-mono)] text-[11px] font-normal text-[var(--vb-ink3)]">anecdote — one voice</span>
                   ) : null}
+                  <span className="mt-1 block font-[family-name:var(--vb-mono)] text-[10.5px] font-normal tracking-normal text-[var(--vb-ink3)]">
+                    cites {x.cited} of the theme’s {s.quotes} quotes
+                  </span>
                 </p>
               ))}
               <ul className="mt-4 flex flex-col gap-3">

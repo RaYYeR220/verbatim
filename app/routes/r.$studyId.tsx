@@ -50,7 +50,7 @@ export default function SharedReadoutRoute() {
       <script type={AGENT_READABLE_RESOURCE_SCRIPT_TYPE} dangerouslySetInnerHTML={{ __html: safeJsonForHtml(discovery) }} />
       <nav className="mx-auto flex max-w-[820px] items-center justify-between px-6 pt-6 print:hidden">
         <a href="/" className="flex items-center gap-2 text-[15px] font-medium tracking-[-0.02em]">
-          <VerbatimMark />
+          <VerbatimMark className="size-[18px]" />
           Verbatim
         </a>
         <a href="/" className="inline-flex h-8 items-center rounded-full border border-[var(--vb-hair)] px-3.5 text-[13px] hover:border-[var(--vb-ink3)]">
