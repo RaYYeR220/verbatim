@@ -155,8 +155,9 @@ export function BoardCanvas(props: BoardCanvasProps) {
   useEffect(() => {
     if (!followAgent || lastShape.current === shapeKey) return;
     lastShape.current = shapeKey;
-    const t = window.setTimeout(() => fit(bounds, board.notes.length < 80 ? { minScale: 0.45 } : {}), 450);
-    // At reading size the whole board may not fit: then bring the cursor back in.
+    // While following, show the whole board taking shape (down to the mid zoom band).
+    const t = window.setTimeout(() => fit(bounds, board.notes.length < 80 ? { minScale: 0.3 } : {}), 450);
+    // If even that cannot fit everything, bring the cursor back in.
     const r = window.setTimeout(() => {
       const p = agentPosRef.current;
       if (p) reveal({ x: p.x - 180, y: p.y - 120, w: 360, h: 240 });
