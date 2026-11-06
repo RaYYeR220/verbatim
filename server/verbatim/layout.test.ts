@@ -28,7 +28,7 @@ describe("layoutBoard", () => {
     const rs = rects(layoutBoard(input));
     for (let i = 0; i < rs.length; i += 1) {
       for (let j = i + 1; j < rs.length; j += 1) {
-        expect(intersects(rs[i], rs[j]), `${rs[i].id} vs ${rs[j].id}`).toBe(false);
+        expect(intersects(rs[i]!, rs[j]!), `${rs[i]!.id} vs ${rs[j]!.id}`).toBe(false);
       }
     }
   });
@@ -36,8 +36,8 @@ describe("layoutBoard", () => {
   it("puts every note inside its theme frame", () => {
     const out = layoutBoard(input);
     for (const n of input.notes.filter((n) => n.themeId)) {
-      const f = out.themes[n.themeId!];
-      const p = out.notes[n.id];
+      const f = out.themes[n.themeId!]!;
+      const p = out.notes[n.id]!;
       expect(p.x).toBeGreaterThanOrEqual(f.x);
       expect(p.x + 240).toBeLessThanOrEqual(f.x + f.w);
       expect(p.y).toBeGreaterThanOrEqual(f.y);
@@ -47,6 +47,6 @@ describe("layoutBoard", () => {
 
   it("places unsorted notes left of x = 0", () => {
     const out = layoutBoard(input);
-    for (let i = 0; i < 5; i += 1) expect(out.notes[`u${i}`].x + 240).toBeLessThanOrEqual(0);
+    for (let i = 0; i < 5; i += 1) expect(out.notes[`u${i}`]!.x + 240).toBeLessThanOrEqual(0);
   });
 });

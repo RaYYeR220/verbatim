@@ -19,7 +19,7 @@ const VOICE_TAG = /^<v(?:\.[^\s>]+)?\s+([^>]+)>/;
 
 function toMs(stamp: string): number {
   const parts = stamp.replace(",", ".").split(":");
-  const secs = Number(parts.pop());
+  const secs = Number(parts.pop() ?? 0);
   const mins = Number(parts.pop() ?? 0);
   const hours = Number(parts.pop() ?? 0);
   return Math.round(((hours * 60 + mins) * 60 + secs) * 1000);
@@ -60,7 +60,8 @@ function parseCues(raw: string): ParsedSource {
     const lines = block.split("\n");
     const timingIndex = lines.findIndex((l) => TIMING.test(l));
     if (timingIndex === -1) continue;
-    const tMs = toMs(TIMING.exec(lines[timingIndex])![1]);
+    const stamp = TIMING.exec(lines[timingIndex] ?? "")?.[1];
+    const tMs = stamp ? toMs(stamp) : null;
     let body = lines
       .slice(timingIndex + 1)
       .map((l) => l.trim())
@@ -68,14 +69,14 @@ function parseCues(raw: string): ParsedSource {
       .join(" ");
     const voice = VOICE_TAG.exec(body);
     if (voice) {
-      speaker = voice[1].trim();
+      speaker = (voice[1] ?? "").trim() || speaker;
       body = body.slice(voice[0].length);
     }
     body = body.replace(/<[^>]+>/g, "").trim();
     const prefixed = !voice ? SPEAKER_PREFIX.exec(body) : null;
     if (prefixed) {
-      speaker = prefixed[1].trim();
-      body = prefixed[2].trim();
+      speaker = (prefixed[1] ?? "").trim() || speaker;
+      body = (prefixed[2] ?? "").trim();
     }
     pieces.push({ body, speaker, tMs });
   }
@@ -99,8 +100,8 @@ function parsePlain(raw: string): ParsedSource {
     if (!trimmed) continue;
     const m = SPEAKER_PREFIX.exec(trimmed);
     if (m) {
-      speaker = m[1].trim();
-      pieces.push({ body: m[2].trim(), speaker, tMs: null });
+      speaker = (m[1] ?? "").trim() || speaker;
+      pieces.push({ body: (m[2] ?? "").trim(), speaker, tMs: null });
     } else {
       pieces.push({ body: trimmed, speaker, tMs: null });
     }

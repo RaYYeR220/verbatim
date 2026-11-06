@@ -16,7 +16,7 @@ export type LocateResult =
   | {
       ok: false;
       reason: "not_found" | "not_contiguous" | "too_short" | "too_long";
-      nearest?: string;
+      nearest?: string | undefined;
     };
 
 export interface LocateOptions {
@@ -56,7 +56,7 @@ export function normalizeForMatch(s: string): { norm: string; map: number[]; end
     i += ch.length;
     if (ZERO_WIDTH.has(ch)) continue;
     if (/\s/.test(ch)) {
-      if (lastWasSpace) {
+      if (lastWasSpace && ends.length > 0) {
         ends[ends.length - 1] = i;
         continue;
       }
@@ -130,6 +130,7 @@ export function locateQuote(source: string, rawQuote: string, opts: LocateOption
     for (let from = src.norm.indexOf(q); from !== -1; from = src.norm.indexOf(q, from + 1)) {
       const start = src.map[from];
       const end = src.ends[from + q.length - 1];
+      if (start === undefined || end === undefined) continue;
       if (!overlapsTaken(start, end, taken)) {
         return { ok: true, start, end, text: source.slice(start, end), match: "normalized" };
       }

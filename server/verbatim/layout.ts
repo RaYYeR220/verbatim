@@ -56,9 +56,10 @@ export function layoutBoard(
     const rows = Math.max(1, Math.ceil(ids.length / cols));
     const h = FRAME_HEADER + rows * cardH + (rows - 1) * gap + FRAME_PAD;
     let col = 0;
-    for (let c = 1; c < boardCols; c += 1) if (colHeights[c] < colHeights[col]) col = c;
-    const frame = { x: col * (frameW + FRAME_GAP), y: colHeights[col], w: frameW, h };
-    colHeights[col] += h + FRAME_GAP;
+    for (let c = 1; c < boardCols; c += 1) if ((colHeights[c] ?? 0) < (colHeights[col] ?? 0)) col = c;
+    const top = colHeights[col] ?? 0;
+    const frame = { x: col * (frameW + FRAME_GAP), y: top, w: frameW, h };
+    colHeights[col] = top + h + FRAME_GAP;
     out.themes[t.id] = frame;
     ids.forEach((id, i) => {
       out.notes[id] = {

@@ -31,11 +31,11 @@ describe("parseTranscript", () => {
       "Thanks for joining. How did the first week go?\nSetup was painful. Honestly I almost gave up.\nThe receipts never uploaded on the train.",
     );
     expect(p.segments[1]).toMatchObject({ speaker: "Dana Okafor", tMs: 65200 });
-    expect(p.text.slice(p.segments[1].start, p.segments[1].end)).toBe(
+    expect(p.text.slice(p.segments[1]!.start, p.segments[1]!.end)).toBe(
       "Setup was painful. Honestly I almost gave up.",
     );
     // a cue without a voice tag keeps the previous speaker
-    expect(p.segments[2].speaker).toBe("Dana Okafor");
+    expect(p.segments[2]!.speaker).toBe("Dana Okafor");
     expect(p.speakers).toEqual(["Interviewer", "Dana Okafor"]);
   });
 
@@ -43,7 +43,7 @@ describe("parseTranscript", () => {
     const p = parseTranscript(SRT);
     expect(p.segments).toHaveLength(2);
     expect(p.segments[1]).toMatchObject({ speaker: "Sam", tMs: 4000 });
-    expect(p.text.slice(p.segments[1].start, p.segments[1].end)).toBe(
+    expect(p.text.slice(p.segments[1]!.start, p.segments[1]!.end)).toBe(
       "Spreadsheets, mostly. It's a mess.",
     );
   });
