@@ -35,13 +35,13 @@ Each capability is one `defineAction()` in `actions/`, so the board UI, the in-a
 |---|---|
 | Board UI | Drag, lasso, rename, comment, select passages in a source to add them |
 | In-app agent | Extracts, sorts, writes insights, answers comments, keeps going until `check-board` is done |
-| Claude / ChatGPT (MCP) | `search-quotes`, `show-theme` (renders the live theme card inline), `add-source`, `add-comment` |
+| Claude / ChatGPT (MCP) | `search-quotes`, `show-theme` (a theme's insight and exact quotes, linked to the board), `add-source`, `add-comment` |
 | Other agents (A2A) | Ask a study for evidence or add a source to it |
 | Automations | Board events (`verbatim.source.added`, `verbatim.notes.added`, `verbatim.insight.written`) and webhook inboxes |
 | Share link | The readout at `/r/<study>` for anyone with the link (framework sharing); an agent handed the link reads the same report as JSON |
 | CLI | `pnpm action search-quotes --query "offline"` |
 
-Agent-Native pieces in use: shared actions, application state (the agent sees the board and your selection), live sync, collaborative presence (the agent's cursor), `saveIfCurrent` (human and agent edits never silently overwrite each other), approval gates (the agent asks before deleting or merging a theme a person made), MCP Apps, the event bus, framework sharing with agent-readable links, and the MCP client (Clips import).
+Agent-Native pieces in use: shared actions, application state (the agent sees the board and your selection), live sync, collaborative presence (the agent's cursor), `saveIfCurrent` (human and agent edits never silently overwrite each other), approval gates (the agent asks before deleting or merging a theme a person made), the MCP server, the event bus, framework sharing with agent-readable links, and the MCP client (Clips import).
 
 ## Run it
 

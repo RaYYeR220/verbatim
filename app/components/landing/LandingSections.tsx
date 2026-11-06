@@ -273,13 +273,13 @@ const SURFACES: { name: string; how: string; actions: string[] }[] = [
   },
   {
     name: "Claude, ChatGPT",
-    how: "over MCP; theme cards render inline",
+    how: "over MCP; exact quotes with a link to the board",
     actions: ["show-theme", "search-quotes"],
   },
   { name: "Other agents", how: "over A2A", actions: ["search-quotes"] },
   {
     name: "Automations",
-    how: "webhook in → filed on the board; Slack digest",
+    how: "board events and webhook inboxes",
     actions: ["add-notes"],
   },
   {

@@ -5,7 +5,7 @@ import { getBoard, getTheme, searchQuotes } from "../server/verbatim/store.js";
 
 export default defineAction({
   description:
-    "Show one theme with its insight and the customers' exact quotes (speaker, timestamp, source). Pass a themeId, or a topic to find the best-matching theme across the studies you can open. In Claude or ChatGPT this opens the live theme card from the Verbatim board.",
+    "Show one theme with its insight and the customers' exact quotes (speaker, timestamp, source). Pass a themeId, or a topic to find the best-matching theme across the studies you can open. The result links to the theme on the Verbatim board.",
   schema: z.object({
     themeId: z.string().optional(),
     topic: z.string().min(2).max(160).optional().describe("Find the theme about this topic, e.g. 'offline receipts'"),
@@ -64,7 +64,7 @@ export default defineAction({
   link: ({ result }) => {
     const r = result as { id?: string; studyId?: string; name?: string; error?: string } | undefined;
     if (!r?.id || !r.studyId) return null;
-    // The theme card route doubles as the MCP Apps embed target.
-    return { url: `/embed/theme/${r.id}`, label: `Open "${r.name}" in Verbatim`, view: "board" };
+    // Opens the board on this theme (the person's own session decides access).
+    return { url: `/studies/${r.studyId}?theme=${r.id}`, label: `Open "${r.name}" in Verbatim`, view: "board" };
   },
 });

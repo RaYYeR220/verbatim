@@ -39,28 +39,7 @@ const INITIAL_TOOL_NAMES = [
 export default createAgentChatPlugin({
   appId: "verbatim",
   actions: loadActionsFromStaticRegistry(actionsRegistry),
-  mcp: {
-    connectorCatalog: [],
-    appApprovalPage: true,
-    // In MCP Apps hosts (Claude, ChatGPT) show-theme's result opens the theme
-    // card route inline, on a short-lived embed session scoped to that one theme.
-    directoryProfile: {
-      // No separate app-directory catalog; this profile only scopes the card.
-      connectorCatalog: [],
-      directoryRoute: false,
-      widgetTargets: {
-        "show-theme": (_args, result) => {
-          const id = (result as { id?: unknown } | null)?.id;
-          return typeof id === "string"
-            ? { targetPath: `/embed/theme/${encodeURIComponent(id)}`, resourceIds: { themeId: id } }
-            : null;
-        },
-      },
-      widgetReadActionArguments: {
-        "show-theme": { themeId: "themeId", limit: { type: "integerRange", min: 1, max: 40 } },
-      },
-    },
-  },
+  mcp: { connectorCatalog: [], appApprovalPage: true },
   frameworkTools: {
     preset: "minimal",
     database: "read",
