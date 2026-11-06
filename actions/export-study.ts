@@ -10,13 +10,26 @@ export default defineAction({
     "Export a study as JSON (every source with its full text, every verbatim note with its exact character span, themes and insights) or as a Markdown readout. Use it to take the evidence elsewhere.",
   schema: z.object({
     studyId: z.string(),
-    format: z.enum(["json", "markdown"]).default("json"),
+    format: z.enum(["json", "markdown", "rows"]).default("json").describe("rows = every stored row, for moving a study to another deployment"),
   }),
   http: { method: "GET" },
   readOnly: true,
   mcpTool: true,
   run: async ({ studyId, format }) => {
     const board = await getBoard(studyId);
+    if (format === "rows") {
+      const db = getDb();
+      const [study] = await db.select().from(schema.studies).where(eq(schema.studies.id, studyId));
+      return {
+        version: 1,
+        study,
+        participants: await db.select().from(schema.participants).where(eq(schema.participants.studyId, studyId)),
+        sources: await db.select().from(schema.sources).where(eq(schema.sources.studyId, studyId)),
+        themes: await db.select().from(schema.themes).where(eq(schema.themes.studyId, studyId)),
+        notes: await db.select().from(schema.notes).where(eq(schema.notes.studyId, studyId)),
+        insights: await db.select().from(schema.insights).where(eq(schema.insights.studyId, studyId)),
+      };
+    }
     const sources = await getDb()
       .select({ id: schema.sources.id, title: schema.sources.title, kind: schema.sources.kind, text: schema.sources.text, participantId: schema.sources.participantId })
       .from(schema.sources)
