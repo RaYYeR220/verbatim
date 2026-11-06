@@ -6,7 +6,7 @@ import { and, desc, eq, ilike, inArray, or, sql } from "drizzle-orm";
 
 import { getDb, schema } from "../db/index.js";
 import type { Actor } from "./actor.js";
-import { layoutBoard } from "./layout.js";
+import { layoutBoard, unsortedSlot } from "./layout.js";
 import type { Segment } from "./parse-source.js";
 import { computeBoardHealth, evaluateInsight, voiceOf, type NoteLite } from "./rules.js";
 import { THEME_COLORS, type BoardNote, type BoardPayload } from "./types.js";
@@ -264,10 +264,7 @@ export async function nextSlots(studyId: string, themeId: string | null, count: 
     );
   const start = Number(existing[0]?.n ?? 0);
   if (!themeId) {
-    return Array.from({ length: count }, (_, i) => ({
-      x: -(CARD_W + 72),
-      y: (start + i) * (CARD_H + SLOT_GAP),
-    }));
+    return Array.from({ length: count }, (_, i) => unsortedSlot(start + i, CARD_W, CARD_H, SLOT_GAP));
   }
   const theme = await getTheme(themeId);
   return Array.from({ length: count }, (_, i) => {

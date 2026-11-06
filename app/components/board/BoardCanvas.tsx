@@ -357,7 +357,10 @@ export function BoardCanvas(props: BoardCanvasProps) {
   );
 
   const hoverNote = hover ? noteById.get(hover.id) : undefined;
-  const unsortedCount = board.notes.filter((n) => !n.themeId).length;
+  const unsortedNotes = board.notes.filter((n) => !n.themeId);
+  const unsortedCount = unsortedNotes.length;
+  const unsortedLeft = unsortedNotes.reduce((m, n) => Math.min(m, n.x), Infinity);
+  const unsortedTop = unsortedNotes.reduce((m, n) => Math.min(m, n.y), Infinity);
 
   return (
     <div
@@ -376,7 +379,7 @@ export function BoardCanvas(props: BoardCanvasProps) {
     >
       <div className="vb-world" style={{ transform: `translate(${vp.x}px, ${vp.y}px) scale(${vp.scale})` }}>
         {unsortedCount > 0 ? (
-          <div className="vb-column-label" style={{ left: -(CARD_W + 72), top: -28 }}>
+          <div className="vb-column-label" style={{ left: unsortedLeft, top: unsortedTop - 28 }}>
             UNSORTED · {unsortedCount}
           </div>
         ) : null}

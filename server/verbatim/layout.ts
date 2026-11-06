@@ -22,6 +22,15 @@ export const FRAME_HEADER = 56;
 export const FRAME_PAD = 16;
 export const FRAME_GAP = 56;
 const UNSORTED_GAP = 72;
+/** Unsorted notes sit in a block this many cards wide, left of x = 0. */
+export const UNSORTED_COLS = 4;
+
+/** Where the i-th unsorted note goes: rows of UNSORTED_COLS cards, the block ending just left of x = 0. */
+export function unsortedSlot(i: number, cardW = 240, cardH = 120, gap = 16): { x: number; y: number } {
+  const c = i % UNSORTED_COLS;
+  const r = Math.floor(i / UNSORTED_COLS);
+  return { x: -(UNSORTED_GAP + cardW + (UNSORTED_COLS - 1 - c) * (cardW + gap)), y: r * (cardH + gap) };
+}
 
 /** Note columns for a theme: 3 for small themes, wider for big ones so frames stay roughly square. */
 export function columnsFor(count: number): number {
@@ -32,7 +41,7 @@ export function columnsFor(count: number): number {
 /**
  * Deterministic board layout: theme frames shelf-packed left to right in the
  * order given (wrapping at `maxRowWidth`), notes in a grid inside their frame,
- * unsorted notes in a column left of x = 0.
+ * unsorted notes in a block left of x = 0.
  */
 export function layoutBoard(
   input: { themes: { id: string }[]; notes: { id: string; themeId: string | null }[] },
@@ -88,7 +97,7 @@ export function layoutBoard(
     rowH = Math.max(rowH, s.h);
   }
   unsorted.forEach((id, i) => {
-    out.notes[id] = { x: -(cardW + UNSORTED_GAP), y: i * (cardH + gap) };
+    out.notes[id] = unsortedSlot(i, cardW, cardH, gap);
   });
   return out;
 }

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { layoutBoard } from "./layout.js";
+import { layoutBoard, unsortedSlot } from "./layout.js";
 
 const rects = (out: ReturnType<typeof layoutBoard>, w = 240, h = 120) =>
   Object.entries(out.notes).map(([id, p]) => ({ id, x: p.x, y: p.y, w, h }));
@@ -48,5 +48,12 @@ describe("layoutBoard", () => {
   it("places unsorted notes left of x = 0", () => {
     const out = layoutBoard(input);
     for (let i = 0; i < 5; i += 1) expect(out.notes[`u${i}`]!.x + 240).toBeLessThanOrEqual(0);
+  });
+
+  it("packs unsorted notes into a block four cards wide that never overlaps", () => {
+    const slots = Array.from({ length: 10 }, (_, i) => unsortedSlot(i));
+    expect(new Set(slots.map((s) => s.x)).size).toBe(4);
+    expect(new Set(slots.map((s) => `${s.x}:${s.y}`)).size).toBe(10);
+    expect(Math.max(...slots.map((s) => s.x)) + 240).toBeLessThanOrEqual(0);
   });
 });
