@@ -2,8 +2,8 @@
   "label": "Single prompt (claude-sonnet-5-5)",
   "participants": 8,
   "quotes": 83,
-  "quoteFidelity": 0.963855421686747,
-  "inventedQuotes": 3,
+  "quoteFidelity": 0.9879518072289156,
+  "inventedQuotes": 1,
   "misattributed": 0,
   "interviewerQuotedAsCustomer": 0,
   "themesPredicted": 17,
@@ -59,8 +59,9 @@
     {
       "name": "Silent receipt upload failures in low-signal areas",
       "keyTheme": "T1",
-      "overlapChars": 305,
+      "overlapChars": 359,
       "voices": [
+        "p1",
         "p2",
         "p3",
         "p5",

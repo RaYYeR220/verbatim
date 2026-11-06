@@ -4,7 +4,9 @@
 
 Drop in interviews, calls and feedback. Verbatim's agent cuts every source into exact quotes and sorts them into themes with you, live, on one board. Nothing on it is paraphrased: a note can only be a passage the source actually contains, and every count on the board opens to the people behind it.
 
-Built on [Agent-Native](https://github.com/BuilderIO/agent-native).
+Built on [Agent-Native](https://github.com/BuilderIO/agent-native). **Try it live, no sign-up: https://verbatim-flame.vercel.app**
+
+Reviewing? Start with [JUDGES.md](JUDGES.md) (five minutes), [CLAIMS.md](CLAIMS.md) (every claim and how to check it) and [results/SUMMARY.md](results/SUMMARY.md) (every number, rendered from the run files).
 
 ## Why
 
@@ -67,11 +69,11 @@ node --import tsx scripts/eval/score.ts results/verbatim-8.json
 node --import tsx scripts/eval/reviews.ts score results/reviews-baseline-500.json
 ```
 
-`score.ts` checks every quote with the same locator the app uses and reports quote fidelity, speaker attribution, theme recall, the minority theme, both sides of the disagreement, and decoy themes. Results from our runs are in `results/`.
+`score.ts` checks every quote with the same locator the app uses and reports quote fidelity, speaker attribution, theme recall, the minority theme, both sides of the disagreement, and decoy themes. Results from our runs are in `results/`; `node scripts/eval/report.mjs` renders them into [results/SUMMARY.md](results/SUMMARY.md). `python -I scripts/data/verify_key.py` checks the answer key against the transcripts.
 
 ## Honest limits
 
-- The agent's synthesis is not smarter than a good single prompt on a small, clean set; on our 8-interview benchmark the single prompt found all 7 themes. Verbatim's difference is that the result is a board you can check and change, not that the model reads better.
+- The agent's synthesis is not smarter than a good single prompt on a small, clean set: on our 8-interview benchmark both found all 7 planted themes (the single prompt cited 82 of 83 quotes verbatim, Verbatim 49 of 49). Verbatim's difference is that the result is a board you can check and change, not that the model reads better.
 - Reviews have no timestamps, so review notes carry author, rating and date instead.
 - Theme colours cycle after eight themes.
 

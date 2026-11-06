@@ -1,0 +1,59 @@
+{
+  "label": "Verbatim agent",
+  "study": "Notion iOS — what 500 App Store reviewers say",
+  "sources": 500,
+  "sourcesOnBoard": 500,
+  "voicesOnBoard": 500,
+  "notes": 542,
+  "notesMatchingSource": 542,
+  "themes": 13,
+  "themesWithOpenableCounts": 13,
+  "insights": 13,
+  "verifiedInsights": 13,
+  "anecdotes": 0,
+  "health": 100,
+  "refused": 9,
+  "refusedByReason": {
+    "too_short": 7,
+    "not_found": 2
+  },
+  "refusedQuotes": [
+    {
+      "quote": "用起来不错\n真的很好用",
+      "reason": "too_short"
+    },
+    {
+      "quote": "用起来不错\n真的很好用",
+      "reason": "too_short"
+    },
+    {
+      "quote": "Türkçe desteği yok maalesef olsa alacaktim",
+      "reason": "not_found"
+    },
+    {
+      "quote": ".\nnice app",
+      "reason": "too_short"
+    },
+    {
+      "quote": "真的很好用",
+      "reason": "too_short"
+    },
+    {
+      "quote": "Идея не плохая объединить несколько иишек в одну.",
+      "reason": "not_found"
+    },
+    {
+      "quote": ".\nnice app",
+      "reason": "too_short"
+    },
+    {
+      "quote": "life saver",
+      "reason": "too_short"
+    },
+    {
+      "quote": "终于找到了",
+      "reason": "too_short"
+    }
+  ],
+  "agentActions": 42
+}

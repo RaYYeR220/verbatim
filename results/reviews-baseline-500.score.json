@@ -3,21 +3,8 @@
   "reviews": 500,
   "themes": 33,
   "quotes": 192,
-  "quoteFidelity": 0.984375,
-  "notInAnyReview": 3,
+  "quoteFidelity": 1,
+  "notInAnyReview": 0,
   "creditedToWrongReviewer": 0,
-  "invented": [
-    {
-      "theme": "Learning curve is worth it",
-      "text": "once you’re able to figure out how everything works and displays… chefs kiss honestly."
-    },
-    {
-      "theme": "Learning curve is worth it",
-      "text": "Stick with it... it’s worth it!"
-    },
-    {
-      "theme": "All-in-one second brain for life and work",
-      "text": "this thing organizes my personal life, my work, my business, school, my childcare…"
-    }
-  ]
+  "invented": []
 }

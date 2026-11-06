@@ -100,7 +100,10 @@ ${corpus}`;
   console.log(invented.slice(0, 8));
 } else if (mode === "score") {
   const pred = JSON.parse(readFileSync(argv[1]!, "utf8"));
-  const { invented, ...head } = scoreReviews(pred);
+  const result = scoreReviews(pred);
+  writeFileSync(argv[1]!.replace(/\.json$/, ".score.json"), `${JSON.stringify(result, null, 2)}
+`);
+  const { invented, ...head } = result;
   console.log(JSON.stringify(head, null, 2));
   console.log(invented.slice(0, 8));
 }
