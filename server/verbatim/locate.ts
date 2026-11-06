@@ -114,7 +114,10 @@ export function locateQuote(source: string, rawQuote: string, opts: LocateOption
   const maxChars = opts.maxChars ?? 600;
   const quote = rawQuote.replace(TRIM_CHARS, "");
 
-  if (quote.length < minChars) return { ok: false, reason: "too_short" };
+  // A tiny source ("nice app", "Yay (:") can be quoted whole; otherwise short
+  // fragments are too thin to stand alone as evidence.
+  const tinySource = source.replace(/\s+/g, " ").trim().length < minChars * 2;
+  if (quote.length < minChars && !(tinySource && quote.trim().length >= 2)) return { ok: false, reason: "too_short" };
   if (quote.length > maxChars) return { ok: false, reason: "too_long" };
 
   for (let from = source.indexOf(quote); from !== -1; from = source.indexOf(quote, from + 1)) {

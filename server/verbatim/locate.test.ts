@@ -72,8 +72,16 @@ describe("locateQuote", () => {
     expect(r.nearest).toContain("onboarding took forever");
   });
 
-  it("rejects quotes shorter than the minimum", () => {
-    expect(locateQuote("ok fine", "ok")).toMatchObject({ ok: false, reason: "too_short" });
+  it("rejects short fragments of a normal-length source", () => {
+    expect(locateQuote("ok fine, but the sync keeps failing on my phone", "ok fine")).toMatchObject({
+      ok: false,
+      reason: "too_short",
+    });
+  });
+
+  it("lets a tiny source be quoted whole", () => {
+    expect(locateQuote(".\nnice app", "nice app")).toMatchObject({ ok: true, text: "nice app" });
+    expect(locateQuote("Yay\n(:", "Yay")).toMatchObject({ ok: true });
   });
 
   it("rejects quotes longer than the maximum", () => {
