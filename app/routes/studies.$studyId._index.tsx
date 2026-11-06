@@ -13,6 +13,7 @@ import { BoardPanel } from "@/components/board/BoardPanel";
 import { ImportDialog } from "@/components/board/ImportDialog";
 import { themeHue } from "@/components/board/theme-colors";
 import { useBoard } from "@/components/board/use-board";
+import { useAgentSidebarOpen } from "@/components/board/use-agent-sidebar-open";
 import { useBoardPresence } from "@/components/board/use-board-presence";
 import { cn } from "@/lib/utils";
 
@@ -39,7 +40,12 @@ export default function StudyBoardRoute() {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [selectedThemeId, setSelectedThemeId] = useState<string | null>(null);
   const [followAgent, setFollowAgent] = useState(true);
-  const [panelOpen, setPanelOpen] = useState(true);
+  const [panelPref, setPanelPref] = useState(true);
+  const [panelWithAgent, setPanelWithAgent] = useState(false);
+  const agentOpen = useAgentSidebarOpen();
+  // The insights panel steps aside while the agent chat is open, so the board keeps its width.
+  const panelOpen = agentOpen ? panelWithAgent : panelPref;
+  const togglePanel = () => (agentOpen ? setPanelWithAgent(!panelOpen) : setPanelPref(!panelOpen));
   const [importOpen, setImportOpen] = useState(false);
   const [commentDraft, setCommentDraft] = useState<string | null>(null);
   const [themeDraft, setThemeDraft] = useState<string | null>(null);
@@ -276,7 +282,7 @@ export default function StudyBoardRoute() {
         >
           {empty || unread ? "Synthesize with agent" : "Review with agent"}
         </button>
-        <button type="button" onClick={() => setPanelOpen((v) => !v)} className="h-8 px-2 text-[13px] text-[var(--vb-ink3)] hover:text-[var(--vb-ink)]" aria-pressed={panelOpen}>
+        <button type="button" onClick={togglePanel} className="h-8 px-2 text-[13px] text-[var(--vb-ink3)] hover:text-[var(--vb-ink)]" aria-pressed={panelOpen}>
           {panelOpen ? "Hide panel" : "Insights"}
         </button>
       </div>

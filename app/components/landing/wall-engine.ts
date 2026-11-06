@@ -8,6 +8,8 @@
  * a text atlas so a frame is only image blits.
  */
 
+import { formatDay } from "./format";
+
 export interface WallData {
   v: number;
   study: string;
@@ -155,12 +157,6 @@ const FLY = 1.2;
 const HOLD = 9.5;
 const REFILL = 1.5;
 const REST = 0.58;
-
-const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-export function formatDay(iso: string): string {
-  return `${MON[Number(iso.slice(5, 7)) - 1] ?? ""} ${Number(iso.slice(8, 10))}`;
-}
 
 const easeInOut = (p: number) => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2);
 const bez = (p0: number, p1: number, p2: number, p3: number, t: number) => {
@@ -1154,7 +1150,7 @@ export function mountWall(root: HTMLElement, opts: WallOptions): Wall {
   }
   emitCards();
   // the copy settles after its entrance; re-cut the clearing where it landed
-  timers.push(window.setTimeout(refreshGeometry, reduce ? 0 : 1500));
+  timers.push(window.setTimeout(refreshGeometry, reduce ? 120 : 1500));
   void document.fonts?.ready.then(() => timers.push(window.setTimeout(refreshGeometry, 50)));
 
   root.addEventListener("pointermove", onMove);

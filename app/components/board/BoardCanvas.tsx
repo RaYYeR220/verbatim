@@ -31,6 +31,35 @@ export interface BoardCanvasProps {
   toolbar?: React.ReactNode;
 }
 
+const SLOT_GAP = 16;
+
+/**
+ * Drops notes into the free grid slots of a theme frame nearest to where they
+ * were let go, so a drop never lands one card on top of another.
+ */
+function snapIntoFrame(frame: ThemeFrame, moving: BoardNote[], dx: number, dy: number, movingIds: string[]) {
+  const ox = frame.x + 16;
+  const oy = frame.y + 56;
+  const stepX = CARD_W + SLOT_GAP;
+  const stepY = CARD_H + SLOT_GAP;
+  const staying = frame.notes.filter((n) => !movingIds.includes(n.id));
+  const taken = new Set(staying.map((n) => `${Math.round((n.x - ox) / stepX)}:${Math.round((n.y - oy) / stepY)}`));
+  const cols = Math.max(3, Math.round(frame.w / stepX));
+  return moving.map((n) => {
+    const want = { c: Math.round((n.x + dx - ox) / stepX), r: Math.round((n.y + dy - oy) / stepY) };
+    let best = { c: 0, r: 0, d: Infinity };
+    for (let r = 0; r <= Math.ceil((staying.length + moving.length) / cols) + 2; r += 1) {
+      for (let c = 0; c < cols; c += 1) {
+        if (taken.has(`${c}:${r}`)) continue;
+        const dist = Math.hypot(c - want.c, r - want.r);
+        if (dist < best.d) best = { c, r, d: dist };
+      }
+    }
+    taken.add(`${best.c}:${best.r}`);
+    return { noteId: n.id, themeId: frame.theme.id, x: ox + best.c * stepX, y: oy + best.r * stepY };
+  });
+}
+
 const zoomBand = (scale: number) => (scale >= 0.55 ? "near" : scale >= 0.28 ? "mid" : "far");
 
 export function BoardCanvas(props: BoardCanvasProps) {
@@ -246,10 +275,10 @@ export function BoardCanvas(props: BoardCanvasProps) {
       const dx = w.x - d.startX;
       const dy = w.y - d.startY;
       const f = frameAt(w.x, w.y);
-      const moves = d.ids
-        .map((id) => noteById.get(id))
-        .filter((n): n is BoardNote => !!n)
-        .map((n) => ({ noteId: n.id, themeId: f ? f.theme.id : null, x: Math.round(n.x + dx), y: Math.round(n.y + dy) }));
+      const moving = d.ids.map((id) => noteById.get(id)).filter((n): n is BoardNote => !!n);
+      const moves = f
+        ? snapIntoFrame(f, moving, dx, dy, d.ids)
+        : moving.map((n) => ({ noteId: n.id, themeId: null, x: Math.round(n.x + dx), y: Math.round(n.y + dy) }));
       setDraggedTransform(d.ids, 0, 0, false);
       props.onMoveNotes(moves);
     } else if (d.kind === "theme") {
