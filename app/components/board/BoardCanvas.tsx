@@ -156,8 +156,29 @@ export function BoardCanvas(props: BoardCanvasProps) {
     if (!followAgent || lastShape.current === shapeKey) return;
     lastShape.current = shapeKey;
     const t = window.setTimeout(() => fit(bounds, board.notes.length < 80 ? { minScale: 0.45 } : {}), 450);
+    // At reading size the whole board may not fit: then bring the cursor back in.
+    const r = window.setTimeout(() => {
+      const p = agentPosRef.current;
+      if (p) reveal({ x: p.x - 180, y: p.y - 120, w: 360, h: 240 });
+    }, 900);
+    return () => {
+      window.clearTimeout(t);
+      window.clearTimeout(r);
+    };
+  }, [shapeKey, followAgent, fit, reveal, bounds, board.notes.length]);
+
+  // ...and keep the agent's cursor on screen as it moves between cards.
+  const agentPos = agents[0] ? positionFor(agents[0]) : null;
+  const agentPosRef = useRef(agentPos);
+  agentPosRef.current = agentPos;
+  const agentPosKey = agentPos ? `${Math.round(agentPos.x / 40)}:${Math.round(agentPos.y / 40)}` : "";
+  useEffect(() => {
+    if (!followAgent || !agentPos) return;
+    const t = window.setTimeout(() => reveal({ x: agentPos.x - 180, y: agentPos.y - 120, w: 360, h: 240 }), 300);
     return () => window.clearTimeout(t);
-  }, [shapeKey, followAgent, fit, bounds, board.notes.length]);
+    // keyed on the cursor's coarse position, not on every render
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [agentPosKey, followAgent]);
 
   const frameAt = useCallback(
     (wx: number, wy: number) => frames.find((f) => wx >= f.x && wx <= f.x + f.w && wy >= f.y && wy <= f.y + f.h) ?? null,
@@ -312,7 +333,9 @@ export function BoardCanvas(props: BoardCanvasProps) {
   };
 
   const onDoubleClick = (e: React.MouseEvent) => {
-    const target = e.target as HTMLElement;
+    // Pointer capture on the board retargets click and dblclick to the board
+    // itself, so look up what is actually under the pointer.
+    const target = (document.elementFromPoint(e.clientX, e.clientY) as HTMLElement | null) ?? (e.target as HTMLElement);
     const rename = target.closest<HTMLElement>("[data-rename]");
     if (rename) {
       setRenamingId(rename.dataset.rename!);

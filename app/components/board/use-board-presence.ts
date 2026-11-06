@@ -1,5 +1,5 @@
 import { useCollaborativeDoc, usePresence, type CollabUser } from "@agent-native/core/client/collab";
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { TAB_ID } from "@/lib/tab-id";
 
@@ -17,10 +17,18 @@ export interface AgentOnBoard {
   at: number;
 }
 
+/** How long the agent's cursor stays where it last worked once its action ends. */
+const LINGER_MS = 8000;
+
 /**
  * Who is on this board right now, and where the agent is working. The agent's
  * position comes from the actions it runs (`withAgentOnBoard` on the server),
  * so its cursor always sits on a card it is actually changing.
+ *
+ * Each action publishes presence only while it runs, and an agent turn is a
+ * chain of short actions. Between them the cursor stays on the last card it
+ * touched (while the run is active, and briefly after), so it glides from one
+ * change to the next instead of blinking out.
  */
 export function useBoardPresence(studyId: string, user?: CollabUser) {
   const { awareness, ydoc, activeUsers, agentPresent, agentActive } = useCollaborativeDoc({
@@ -32,7 +40,7 @@ export function useBoardPresence(studyId: string, user?: CollabUser) {
   });
   const { others, setPresence } = usePresence(awareness, ydoc?.clientID ?? null);
 
-  const agents = useMemo<AgentOnBoard[]>(
+  const live = useMemo<AgentOnBoard[]>(
     () =>
       others
         .filter((o) => o.isAgent)
@@ -47,6 +55,23 @@ export function useBoardPresence(studyId: string, user?: CollabUser) {
         }),
     [others],
   );
+
+  const last = useRef<{ agent: AgentOnBoard; seenAt: number } | null>(null);
+  const [, setTick] = useState(0);
+  const withPointer = live.find((a) => a.pointer) ?? live[0];
+  if (withPointer) last.current = { agent: withPointer, seenAt: Date.now() };
+
+  // Re-render once the linger window closes, so the cursor leaves on time.
+  useEffect(() => {
+    if (live.length > 0 || !last.current || agentActive) return;
+    const left = LINGER_MS - (Date.now() - last.current.seenAt);
+    if (left <= 0) return;
+    const t = window.setTimeout(() => setTick((n) => n + 1), left + 50);
+    return () => window.clearTimeout(t);
+  }, [live.length, agentActive]);
+
+  const lingering = !!last.current && (agentActive || Date.now() - last.current.seenAt < LINGER_MS);
+  const agents = live.length > 0 ? live : lingering && last.current ? [last.current.agent] : [];
 
   const people = useMemo(() => others.filter((o) => !o.isAgent), [others]);
 
