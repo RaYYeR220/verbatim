@@ -80,7 +80,15 @@ export function useViewport(container: RefObject<HTMLElement | null>) {
       const bottom = top + rect.h * v.scale;
       const margin = 60;
       if (left >= margin && top >= margin && right <= width - margin && bottom <= height - margin) return;
-      setVp({ ...v, x: width / 2 - (rect.x + rect.w / 2) * v.scale, y: height / 2 - (rect.y + rect.h / 2) * v.scale });
+      // Pan only as far as needed, so the rest of the board stays where it was.
+      // A rect bigger than the view lines up with its top-left edge instead.
+      const along = (start: number, end: number, size: number) => {
+        if (end - start > size - margin * 2) return margin - start;
+        if (start < margin) return margin - start;
+        if (end > size - margin) return size - margin - end;
+        return 0;
+      };
+      setVp({ ...v, x: v.x + along(left, right, width), y: v.y + along(top, bottom, height) });
     },
     [container],
   );
