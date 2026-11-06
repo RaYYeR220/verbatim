@@ -324,3 +324,9 @@
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--muted-foreground) / 0.34);
 }
+
+/* Verbatim sets no analytics or advertising cookies, so the framework's
+   cookie-consent prompt has nothing to ask about. */
+[data-agent-native-consent-banner] {
+  display: none !important;
+}

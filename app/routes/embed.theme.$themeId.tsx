@@ -8,6 +8,7 @@ interface ThemeCard {
   studyId: string;
   study: string;
   name: string;
+  colorIndex: number;
   summary: string | null;
   notes: number;
   voices: number;
@@ -35,7 +36,7 @@ export default function EmbedThemeRoute() {
   if (isLoading) return <div className="p-6 font-[family-name:var(--vb-mono)] text-[12px] text-[var(--vb-ink3)]">Loading theme…</div>;
   if (!t || t.error) return <div className="p-6 text-[14px] text-[var(--vb-ink2)]">{t?.error ?? "This theme isn't available."}</div>;
 
-  const hue = themeHue(undefined, 0);
+  const hue = themeHue(undefined, t.colorIndex ?? 0);
   return (
     <div className="min-h-screen bg-[var(--vb-ground)] p-5">
       <div className="flex items-center gap-2 font-[family-name:var(--vb-mono)] text-[10.5px] text-[var(--vb-ink3)]">

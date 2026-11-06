@@ -2,6 +2,7 @@ import { configureTracking } from "@agent-native/core/client/analytics";
 import { appPath } from "@agent-native/core/client/api-path";
 import { useDbSync } from "@agent-native/core/client/hooks";
 import { createAgentNativeQueryClient } from "@agent-native/core/client/hooks";
+import { getEmbedAuthToken } from "@agent-native/core/client/host";
 import { getLocaleInitScript, useT } from "@agent-native/core/client/i18n";
 import { getThemeInitScript } from "@agent-native/core/client/theme";
 import { AppProviders } from "@agent-native/toolkit/app/providers";
@@ -201,11 +202,15 @@ export default function Root() {
   // Public pages (the landing, shared readouts) render on the server for
   // everyone, signed in or not, without the app shell.
   const isPublicPage = pathname === "/" || pathname.startsWith("/r/");
+  // Inside Claude or ChatGPT the theme card runs on a signed embed session
+  // instead of the app's sign-in; the server still checks access per action.
+  const sessionBypass = Boolean(getEmbedAuthToken());
   return (
     <AppToolkitProvider>
       <AppProviders
         queryClient={queryClient}
         isPublicPath={isPublicPage}
+        sessionBypass={sessionBypass}
         skeletonLayout={skeletonLayoutForPath(pathname)}
         i18n={{ catalog: i18nCatalog }}
       >

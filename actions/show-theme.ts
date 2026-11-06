@@ -33,7 +33,8 @@ export default defineAction({
     if (!themeId) return { error: "No theme matches that topic yet." };
     const theme = await getTheme(themeId);
     const board = await getBoard(theme.studyId);
-    const t = board.themes.find((x) => x.id === themeId)!;
+    const index = board.themes.findIndex((x) => x.id === themeId);
+    const t = board.themes[index]!;
     const sourceById = new Map(board.sources.map((s) => [s.id, s]));
     const quotes = board.notes
       .filter((n) => n.themeId === themeId)
@@ -43,13 +44,17 @@ export default defineAction({
         quote: n.text,
         speaker: n.speaker,
         tMs: n.tMs,
-        source: sourceById.get(n.sourceId)?.title ?? null,
+        // Interview titles already lead with the speaker's name.
+        source: ((title) => (title && n.speaker && title.startsWith(n.speaker) ? null : title))(
+          sourceById.get(n.sourceId)?.title ?? null,
+        ),
       }));
     return {
       id: t.id,
       studyId: board.study.id,
       study: board.study.title,
       name: t.name,
+      colorIndex: index,
       summary: t.summary,
       notes: t.noteCount,
       voices: t.voiceCount,
