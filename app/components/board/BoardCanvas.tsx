@@ -169,7 +169,9 @@ export function BoardCanvas(props: BoardCanvasProps) {
   }, [shapeKey, followAgent, fit, reveal, bounds, board.notes.length]);
 
   // ...and keep the agent's cursor on screen as it moves between cards.
-  const agentPos = agents[0] ? positionFor(agents[0]) : null;
+  // Only a cursor on a real target (cards or a theme) moves the camera.
+  const targeted = agents.find((a) => (a.pointer?.noteIds?.length ?? 0) > 0 || a.pointer?.themeId);
+  const agentPos = targeted ? positionFor(targeted) : null;
   const agentPosRef = useRef(agentPos);
   agentPosRef.current = agentPos;
   const agentPosKey = agentPos ? `${Math.round(agentPos.x / 40)}:${Math.round(agentPos.y / 40)}` : "";

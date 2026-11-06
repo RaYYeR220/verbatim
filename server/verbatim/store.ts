@@ -9,7 +9,7 @@ import type { Actor } from "./actor.js";
 import { layoutBoard, unsortedSlot } from "./layout.js";
 import type { Segment } from "./parse-source.js";
 import { computeBoardHealth, evaluateInsight, voiceOf, type NoteLite } from "./rules.js";
-import { THEME_COLORS, type BoardNote, type BoardPayload } from "./types.js";
+import { THEME_COLORS, type BoardAgentTrail, type BoardNote, type BoardPayload } from "./types.js";
 
 export const newId = (prefix: string) => `${prefix}_${crypto.randomUUID().replace(/-/g, "").slice(0, 16)}`;
 export const nowIso = () => new Date().toISOString();
@@ -452,6 +452,34 @@ export async function getSharedBoard(studyId: string, opts: { trusted?: boolean 
   return boardFor(study);
 }
 
+const AGENT_TRAIL_MS = 25_000;
+
+/**
+ * The latest machine-made change on a board, if it is recent. Presence from a
+ * serverless action lasts only while that request runs; the trail lives in the
+ * board's own data, so every open board can keep the agent's cursor on the
+ * cards it last changed between one action and the next.
+ */
+async function agentTrailFor(studyId: string): Promise<BoardAgentTrail | null> {
+  const since = new Date(Date.now() - AGENT_TRAIL_MS).toISOString();
+  const rows = await getDb()
+    .select()
+    .from(schema.boardEvents)
+    .where(and(eq(schema.boardEvents.studyId, studyId), sql`${schema.boardEvents.createdAt} >= ${since}`))
+    .orderBy(desc(schema.boardEvents.createdAt))
+    .limit(8);
+  const e = rows.find((r) => r.actor !== "user");
+  if (!e) return null;
+  const p = parseJson<Record<string, unknown>>(e.payloadJson, {});
+  const moves = Array.isArray(p.moves) ? (p.moves as Array<{ noteId?: unknown; themeId?: unknown }>) : [];
+  const noteIds = (Array.isArray(p.noteIds) ? (p.noteIds as unknown[]) : moves.map((m) => m.noteId)).filter(
+    (x): x is string => typeof x === "string",
+  );
+  const lastMoveTheme = moves[moves.length - 1]?.themeId;
+  const themeId = typeof p.themeId === "string" ? p.themeId : typeof lastMoveTheme === "string" ? lastMoveTheme : typeof p.keep === "string" ? p.keep : null;
+  return { actor: e.actor, summary: e.summary, noteIds: noteIds.slice(-6), themeId, ageMs: Math.max(0, Date.now() - Date.parse(e.createdAt)) };
+}
+
 /** Board data for a study the caller has already been allowed to read. */
 async function boardFor(study: typeof schema.studies.$inferSelect): Promise<BoardPayload> {
   const studyId = study.id;
@@ -558,6 +586,7 @@ async function boardFor(study: typeof schema.studies.$inferSelect): Promise<Boar
       createdAt: c.createdAt,
     })),
     health,
+    agentTrail: await agentTrailFor(studyId),
   };
 }
 

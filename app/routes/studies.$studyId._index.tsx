@@ -23,8 +23,9 @@ export function meta() {
   return [{ title: "Board · Verbatim" }];
 }
 
+/** Each job handed to the agent from the board gets its own chat, so a new ask never lands in a run that is still finishing. */
 function askAgent(message: string, context?: string) {
-  sendToAgentChat({ message, ...(context ? { context } : {}), submit: true });
+  sendToAgentChat({ message, ...(context ? { context } : {}), submit: true, newTab: true, reuseEmptyTab: true });
   focusAgentChat();
 }
 
@@ -36,7 +37,7 @@ export default function StudyBoardRoute() {
   useDbSync({ queryClient: qc, realtime: { reason: "the agent and teammates edit this board live" } });
 
   const { query, board, frames, moveNotes, moveTheme } = useBoard(studyId);
-  const { agents } = useBoardPresence(studyId);
+  const { agents } = useBoardPresence(studyId, board?.agentTrail);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [selectedThemeId, setSelectedThemeId] = useState<string | null>(null);
   const [followAgent, setFollowAgent] = useState(true);

@@ -79,7 +79,7 @@ export default defineAction({
         actor,
         action: args.insightId ? "update-insight" : "write-insight",
         summary: `${args.insightId ? "Updated" : "Wrote"} ${check.status === "verified" ? "an insight" : "an anecdote"} citing ${args.noteIds.length} notes from ${check.participants} voice${check.participants === 1 ? "" : "s"}`,
-        payload: { insightId: saved.id, status: check.status },
+        payload: { insightId: saved.id, status: check.status, themeId: args.themeId ?? null, noteIds: args.noteIds },
       });
       emitBoardEvent("insightWritten", {
         studyId: args.studyId,

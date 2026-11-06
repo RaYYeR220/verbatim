@@ -99,4 +99,15 @@ export interface BoardPayload {
   insights: BoardInsight[];
   comments: BoardComment[];
   health: BoardHealth;
+  /** The agent's (or another machine caller's) latest change in the last few seconds: where its cursor belongs. */
+  agentTrail: BoardAgentTrail | null;
+}
+
+export interface BoardAgentTrail {
+  actor: string;
+  summary: string;
+  noteIds: string[];
+  themeId: string | null;
+  /** How long ago the change was made, when the board was read. */
+  ageMs: number;
 }
