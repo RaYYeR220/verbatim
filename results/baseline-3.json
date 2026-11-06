@@ -1,0 +1,309 @@
+{
+  "label": "Single prompt (claude-sonnet-5-5)",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+    "prompt_tokens": 12640,
+    "completion_tokens": 7144,
+    "total_tokens": 19784,
+    "prompt_tokens_details": {
+      "cached_tokens": 2428
+    },
+    "cache_read_input_tokens": 2428
+  },
+  "themes": [
+    {
+      "name": "Silent receipt upload failures in low connectivity",
+      "insight": "Receipt photos taken offline or on weak signal silently fail to upload with no error or retry, so users believe they are done, discard the paper, and finance later finds receipts missing.",
+      "quotes": [
+        {
+          "speaker": "Dana Okafor",
+          "text": "So someone buys props or lunch for the crew, they take a picture of the receipt in the app, it looks like it worked, and then the next day it's just not there."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "Meaning it never made it to me. There's no draft, there's no error, it's just... gone."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "So they take the photo, it sits there spinning, and they put the phone down and drive."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "Half the time the photo's not in the app anymore."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "Later I check and the expense is there but the receipt isn't on it."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "Things just quietly don't go through."
+        }
+      ]
+    },
+    {
+      "name": "Fallback to old channels creates double work",
+      "insight": "When the app feels unreliable, users and admins revert to email, texts, paper and personal cards, so finance ends up running two systems and the promised efficiency disappears.",
+      "quotes": [
+        {
+          "speaker": "Dana Okafor",
+          "text": "If people don't believe the photo went through, they go back to emailing me, and then I've got two systems."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "I ended up telling the producers to keep the paper in an envelope until they see it show up on their list. Which kind of defeats the purpose, right?"
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "A few just text me photos of receipts now. Which, fine, I forward them in, but that's me doing data entry at night."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "He paid with his own card and I reimbursed him through the old way. Which, again, is the thing we were trying to get rid of."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "My manager was great, actually. She offered to have finance accept my receipts by email again, as an exception."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "Honestly, really well, by accident. It was just email, and email I can do in my sleep."
+        }
+      ]
+    },
+    {
+      "name": "Approval chain too heavy for small teams",
+      "insight": "The rigid multi-step approval chain is built for large companies, forces workarounds at a 48-person firm, and stalls small purchases with no way to skip steps.",
+      "quotes": [
+        {
+          "speaker": "Dana Okafor",
+          "text": "When we set it up, the approval flow wants a chain. Submitter, then their manager, then a department head, then finance."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "Kind of. Lena made a placeholder user called \"Studio Approvals\" so the chain would save."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "A nine-dollar parking ticket goes through the exact same three steps as a two-thousand-dollar equipment rental."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "So little stuff sits there for a week because somebody's on vacation and nobody else can sign off."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "You can rename the steps, you can add steps, but you can't really take them away below a certain point. Or if you can, I couldn't find it."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "Let me turn off steps for small amounts."
+        }
+      ]
+    },
+    {
+      "name": "Accounting export mapping errors",
+      "insight": "Expenses pushed to Xero arrive miscoded and without client tracking even though the mapping screen looks correct, forcing manual rework at month-end.",
+      "quotes": [
+        {
+          "speaker": "Dana Okafor",
+          "text": "In practice, the first month I had to redo, I want to say, a third of the coded lines."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "The categories in Ledgerly don't line up with our chart of accounts the way they look like they do."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "And our tracking categories — we track by client — those just didn't come through at all. Every line showed up with no client attached."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "But the mapping screen says everything is mapped correctly. That's the confusing part. It looks right and the result is wrong."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "Two evenings, roughly. We had to export to a spreadsheet, fix the codes, and re-import into Xero by hand."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "Which is exactly the thing we bought Ledgerly to stop doing."
+        }
+      ]
+    },
+    {
+      "name": "Confusing card limits and surprise declines",
+      "insight": "Multiple overlapping limits and an unintuitive reset date, with only one number displayed, cause unexpected declines and constant escalations to the admin.",
+      "quotes": [
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "Everybody got a card with a limit on it. And nobody understands what the limit is."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "And the screen only shows one number. So I'm looking at four hundred and he's standing at a pump in the middle of nowhere with a truck that's empty."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "Declines? I'd say six or seven in three weeks."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "I thought the limit reset on the first of the month. It doesn't."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "But I can't explain it to forty drivers. I can barely explain it to myself."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "One number. Show me one number that's the real amount they can spend right now."
+        }
+      ]
+    },
+    {
+      "name": "Mobile app unsuited to field workers and weak adoption",
+      "insight": "For gloved, mobile drivers the app has tiny controls, frequent logouts and too many screens, and it is treated as optional, so training and adoption fall flat.",
+      "quotes": [
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "The buttons are tiny. These guys are wearing work gloves half the day."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "And it logs them out. Not every day, but like every few days they open it and it wants a password."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "Too many screens to get to one thing. I gave up on it after a couple of days."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "This one feels optional to them."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "We did a training in the break room with pizza. Six people came. Pizza was good though."
+        }
+      ]
+    },
+    {
+      "name": "Accessibility blocker on the receipt capture button",
+      "insight": "The unlabeled receipt and shutter buttons make the core capture action unusable with a screen reader, forcing a slow workaround and a delayed fix.",
+      "quotes": [
+        {
+          "speaker": "Hannah Cho",
+          "text": "But the button to take a picture of a receipt — the screen reader just says \"button.\" That's it. No label."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "And on the camera screen itself, the shutter doesn't say anything at all. I'm swiping around trying to find it and it just skips over it."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "The first week, I asked a colleague to take the photos for me at dinner, which — I mean, it's fine, people are nice."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "It's maybe six extra steps. But it means I'm doing receipts at night in the hotel instead of right there."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "If I can't do the main thing, I can't use the product the way it's meant to be used. I have to use it some other, worse way."
+        }
+      ]
+    },
+    {
+      "name": "Support is polite but does not resolve issues",
+      "insight": "Support replies are friendly but deflect with articles or promises to pass feedback on, leaving problems unresolved or learned only after the fact.",
+      "quotes": [
+        {
+          "speaker": "Dana Okafor",
+          "text": "Yeah, and to be fair they were nice. They sent me an article about the mapping screen."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "It resets thirty days from when the card was issued, I think? So half the guys reset on the twelfth and half on the fifteenth. I didn't know that till support told me."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "I got a nice reply saying they'd pass it on. That was three weeks ago."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "It's frustrating because it's literally one label."
+        }
+      ]
+    },
+    {
+      "name": "Web and desktop flows work well (disagreement with mobile experience)",
+      "insight": "Office-based desktop use is quick and fine, which contrasts sharply with the mobile and field experience where most problems occur.",
+      "quotes": [
+        {
+          "speaker": "Dana Okafor",
+          "text": "Dragged the PDF in, picked the category, done."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "That part's honestly fine. It's quick. My problems are more about what happens after I hit submit."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "I use the website on the laptop. I tried the app on my phone, but it's not built for someone like me either, honestly."
+        }
+      ]
+    },
+    {
+      "name": "Bright spots: setup, cards and reporting",
+      "insight": "Setup, card distribution, own-card ownership and reporting dashboards were well received, so initial onboarding is not where teams stall.",
+      "quotes": [
+        {
+          "speaker": "Dana Okafor",
+          "text": "The setup itself was quicker than I expected, like, the card ordering and inviting people, that part was fine."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "The cards themselves. People like having their own card instead of borrowing mine."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "No, that part was fine. They came in a box, I handed them out at the morning meeting like report cards."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "The reporting on the website is nice. I can see spend by truck, which I've never been able to do."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "Some people like the cards. The partners like the dashboards, I hear."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "That part's okay. The fields are labeled, so VoiceOver reads them out, and I can pick the client from a list."
+        }
+      ]
+    },
+    {
+      "name": "Non-product context and conditional commitment",
+      "insight": "Office moves, new hires and a trial contract add noise and risk, so not every early friction is attributable to the product and retention is not guaranteed.",
+      "quotes": [
+        {
+          "speaker": "Dana Okafor",
+          "text": "We're also moving offices in December, so everyone's a bit frazzled. I wouldn't blame Ledgerly for everyone's mood."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "Oh, and we hired four people last month, so a lot of folks are new to everything, not just this."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "Well, we're on a trial contract through December. I'm not saying we're leaving."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "My boss liked that. That's probably why we're keeping it, if we keep it."
+        }
+      ]
+    }
+  ]
+}

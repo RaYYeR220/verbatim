@@ -1,0 +1,320 @@
+WEBVTT
+
+NOTE
+SYNTHETIC BENCHMARK FIXTURE. Fictional interview for the Verbatim eval set (Ledgerly study).
+Participant p2: Marcus Lindqvist, Operations Manager, Northgate Freight & Storage (regional logistics), 120 employees. Not a real person.
+
+00:00:02.648 --> 00:00:05.596
+<v Interviewer>Hey Marcus, can you hear me okay?
+
+00:00:06.291 --> 00:00:13.454
+<v Marcus Lindqvist>Yeah, I got you. I'm in the truck, so if I cut out, that's why. I'm parked, don't worry.
+
+00:00:14.212 --> 00:00:21.510
+<v Interviewer>Ha, good. Thanks for doing this. It'll be about fifteen minutes and we'll record, if that's alright.
+
+00:00:22.612 --> 00:00:24.033
+<v Marcus Lindqvist>Sure, go ahead.
+
+00:00:24.821 --> 00:00:29.019
+<v Interviewer>Could you tell me a bit about what you do?
+
+00:00:29.512 --> 00:00:38.327
+<v Marcus Lindqvist>So I run operations at Northgate. We do freight and storage, two warehouses, about a hundred and twenty people total if you count drivers.
+
+00:00:38.622 --> 00:00:43.736
+<v Marcus Lindqvist>I've got maybe thirty-five people who'd actually spend money on a card.
+
+00:00:43.967 --> 00:00:49.810
+<v Marcus Lindqvist>Fuel, tolls, a tire here and there, pallets when we run short. That kind of thing.
+
+00:00:51.055 --> 00:00:53.055
+<v Interviewer>And where does Ledgerly fit?
+
+00:00:53.732 --> 00:00:57.759
+<v Marcus Lindqvist>We rolled it out, uh, about three weeks ago.
+
+00:00:57.935 --> 00:01:08.880
+<v Marcus Lindqvist>Before that the drivers had fuel cards from a different company and everything else was petty cash and a clipboard. Literally a clipboard in my office.
+
+00:01:09.537 --> 00:01:11.857
+<v Interviewer>How's it going so far?
+
+00:01:12.963 --> 00:01:14.341
+<v Marcus Lindqvist>Honestly? Rough start.
+
+00:01:14.507 --> 00:01:21.887
+<v Marcus Lindqvist>I want it to work, I really do, because the clipboard was a nightmare. But the guys are not happy.
+
+00:01:22.258 --> 00:01:24.665
+<v Interviewer>Tell me more about that.
+
+00:01:25.234 --> 00:01:27.836
+<v Marcus Lindqvist>Okay so, first thing. The cards.
+
+00:01:28.049 --> 00:01:33.910
+<v Marcus Lindqvist>Everybody got a card with a limit on it. And nobody understands what the limit is.
+
+00:01:34.221 --> 00:01:41.558
+<v Marcus Lindqvist>Like, Derek — one of my drivers — he fills up on a Tuesday, card goes through.
+
+00:01:41.851 --> 00:01:50.521
+<v Marcus Lindqvist>Thursday, declined at the pump. He calls me, I log in, and the screen says he's got four hundred available.
+
+00:01:51.747 --> 00:01:53.593
+<v Interviewer>So what was happening?
+
+00:01:54.787 --> 00:01:57.837
+<v Marcus Lindqvist>Took me two days to figure it out.
+
+00:01:57.957 --> 00:02:06.661
+<v Marcus Lindqvist>There's the monthly limit, and then there's a per-transaction limit, and then there's this... I think it's called a category limit?
+
+00:02:06.913 --> 00:02:14.271
+<v Marcus Lindqvist>Fuel had its own cap that I didn't set. Or I set it and didn't know I set it.
+
+00:02:14.435 --> 00:02:26.745
+<v Marcus Lindqvist>And the screen only shows one number. So I'm looking at four hundred and he's standing at a pump in the middle of nowhere with a truck that's empty.
+
+00:02:27.100 --> 00:02:29.005
+<v Interviewer>What did he do?
+
+00:02:29.814 --> 00:02:41.166
+<v Marcus Lindqvist>He paid with his own card and I reimbursed him through the old way. Which, again, is the thing we were trying to get rid of.
+
+00:02:41.904 --> 00:02:44.699
+<v Interviewer>How many times has that happened?
+
+00:02:45.396 --> 00:02:48.769
+<v Marcus Lindqvist>Declines? I'd say six or seven in three weeks.
+
+00:02:49.081 --> 00:02:54.993
+<v Marcus Lindqvist>Every one of them is a phone call to me. Sometimes at five in the morning.
+
+00:02:55.920 --> 00:02:56.521
+<v Interviewer>Oof.
+
+00:02:56.953 --> 00:02:59.324
+<v Marcus Lindqvist>Yeah. And then the reset.
+
+00:02:59.524 --> 00:03:05.015
+<v Marcus Lindqvist>I thought the limit reset on the first of the month. It doesn't.
+
+00:03:05.353 --> 00:03:18.905
+<v Marcus Lindqvist>It resets thirty days from when the card was issued, I think? So half the guys reset on the twelfth and half on the fifteenth. I didn't know that till support told me.
+
+00:03:20.054 --> 00:03:21.855
+<v Interviewer>Did knowing that help?
+
+00:03:22.942 --> 00:03:29.613
+<v Marcus Lindqvist>A little. But I can't explain it to forty drivers. I can barely explain it to myself.
+
+00:03:30.764 --> 00:03:35.616
+<v Interviewer>How did the old fuel cards handle that, if you remember?
+
+00:03:36.842 --> 00:03:45.860
+<v Marcus Lindqvist>The old ones were dumb, honestly, but simple. Each card had one number, and the pump printed what was left on the slip.
+
+00:03:46.049 --> 00:03:51.666
+<v Marcus Lindqvist>Nobody loved them. But nobody ever called me at five a.m. about them either.
+
+00:03:52.775 --> 00:03:59.058
+<v Interviewer>Let's switch for a second. When someone buys something, what happens with the receipt?
+
+00:03:59.618 --> 00:04:05.971
+<v Marcus Lindqvist>That's the other mess. They're supposed to snap it in the app. And they do, mostly.
+
+00:04:06.317 --> 00:04:16.424
+<v Marcus Lindqvist>But a lot of our stops are out past where there's any signal. Like, you're in a valley, you're at a truck stop that's basically a shed.
+
+00:04:16.742 --> 00:04:23.251
+<v Marcus Lindqvist>So they take the photo, it sits there spinning, and they put the phone down and drive.
+
+00:04:23.450 --> 00:04:31.895
+<v Marcus Lindqvist>By the time they're back in coverage, I don't know, it's either uploaded or it isn't. Most of the time it isn't.
+
+00:04:32.516 --> 00:04:35.131
+<v Interviewer>How do you know it isn't?
+
+00:04:36.431 --> 00:04:43.763
+<v Marcus Lindqvist>Because I get the "missing receipt" report at the end of the week and it's like twenty lines long.
+
+00:04:44.016 --> 00:04:49.486
+<v Marcus Lindqvist>And the guys swear they took the picture. And I believe them, honestly.
+
+00:04:49.699 --> 00:04:59.817
+<v Marcus Lindqvist>Inside the warehouse it's the same thing at the back dock. There's a dead corner by the cold storage. Phone just doesn't connect back there.
+
+00:05:00.850 --> 00:05:03.275
+<v Interviewer>And when they do try again?
+
+00:05:04.365 --> 00:05:08.153
+<v Marcus Lindqvist>Half the time the photo's not in the app anymore.
+
+00:05:08.404 --> 00:05:15.661
+<v Marcus Lindqvist>They'd have to go find the paper, which is in the truck, under a coffee cup, you know.
+
+00:05:16.650 --> 00:05:20.621
+<v Interviewer>Right. How would you describe the app itself to someone?
+
+00:05:21.831 --> 00:05:26.695
+<v Marcus Lindqvist>The app? For my guys it's unusable. I'm sorry, but it is.
+
+00:05:26.956 --> 00:05:32.775
+<v Marcus Lindqvist>The buttons are tiny. These guys are wearing work gloves half the day.
+
+00:05:33.056 --> 00:05:40.297
+<v Marcus Lindqvist>They're not going to take the gloves off to tap a little plus sign in the corner.
+
+00:05:40.525 --> 00:05:48.145
+<v Marcus Lindqvist>And it logs them out. Not every day, but like every few days they open it and it wants a password.
+
+00:05:48.296 --> 00:05:54.442
+<v Marcus Lindqvist>And nobody remembers the password because they set it up once three weeks ago.
+
+00:05:55.436 --> 00:05:58.306
+<v Interviewer>Have any of them stopped using it?
+
+00:05:59.525 --> 00:06:07.873
+<v Marcus Lindqvist>A few just text me photos of receipts now. Which, fine, I forward them in, but that's me doing data entry at night.
+
+00:06:08.675 --> 00:06:12.341
+<v Interviewer>What about you personally? Do you use the app?
+
+00:06:12.852 --> 00:06:23.346
+<v Marcus Lindqvist>I use the website on the laptop. I tried the app on my phone, but it's not built for someone like me either, honestly.
+
+00:06:23.571 --> 00:06:30.631
+<v Marcus Lindqvist>Too many screens to get to one thing. I gave up on it after a couple of days.
+
+00:06:31.402 --> 00:06:33.388
+<v Interviewer>Okay. Anything that's working well?
+
+00:06:34.465 --> 00:06:43.257
+<v Marcus Lindqvist>The reporting on the website is nice. I can see spend by truck, which I've never been able to do.
+
+00:06:43.601 --> 00:06:48.758
+<v Marcus Lindqvist>My boss liked that. That's probably why we're keeping it, if we keep it.
+
+00:06:49.155 --> 00:06:50.967
+<v Interviewer>If you keep it?
+
+00:06:51.658 --> 00:06:56.812
+<v Marcus Lindqvist>Well, we're on a trial contract through December. I'm not saying we're leaving.
+
+00:06:57.073 --> 00:07:00.606
+<v Marcus Lindqvist>I'm saying the drivers are a tough crowd.
+
+00:07:01.348 --> 00:07:06.124
+<v Interviewer>How did you decide who got a card in the first place?
+
+00:07:06.669 --> 00:07:14.971
+<v Marcus Lindqvist>Pretty much anyone who's ever handed me a receipt. The drivers, the two dock leads, the guy who runs maintenance.
+
+00:07:15.277 --> 00:07:21.277
+<v Marcus Lindqvist>The office folks mostly don't buy anything. Except coffee filters. Somebody's always buying coffee filters.
+
+00:07:22.450 --> 00:07:27.212
+<v Interviewer>Did the cards arrive okay? Any trouble getting them out to people?
+
+00:07:28.328 --> 00:07:35.918
+<v Marcus Lindqvist>No, that part was fine. They came in a box, I handed them out at the morning meeting like report cards.
+
+00:07:36.004 --> 00:07:47.125
+<v Marcus Lindqvist>A couple of the younger guys were genuinely excited. One of them asked if it had his name on it, and it did, and he took a picture of it.
+
+00:07:48.215 --> 00:07:53.585
+<v Interviewer>[laughs] Fair. Little tangent, but how do the drivers usually learn new tools?
+
+00:07:54.049 --> 00:07:55.537
+<v Marcus Lindqvist>Ha. They don't.
+
+00:07:55.740 --> 00:08:04.434
+<v Marcus Lindqvist>I mean, they learn the stuff that matters for the job. The logbook tablet, the dispatch app. Those they have to use.
+
+00:08:04.519 --> 00:08:07.022
+<v Marcus Lindqvist>This one feels optional to them.
+
+00:08:07.217 --> 00:08:14.133
+<v Marcus Lindqvist>We did a training in the break room with pizza. Six people came. Pizza was good though.
+
+00:08:15.291 --> 00:08:17.699
+<v Interviewer>[laughs] What kind of pizza?
+
+00:08:18.926 --> 00:08:24.485
+<v Marcus Lindqvist>Sausage and peppers from the place on Route 9. That's the real retention strategy.
+
+00:08:25.631 --> 00:08:29.331
+<v Interviewer>Noted. And how's the season been otherwise? Busy?
+
+00:08:30.543 --> 00:08:36.199
+<v Marcus Lindqvist>Busy, yeah. Fall's always heavy for us, everybody's stocking up before the holidays.
+
+00:08:36.460 --> 00:08:41.633
+<v Marcus Lindqvist>And we lost a forklift last week. Not lost lost, it just died.
+
+00:08:41.811 --> 00:08:48.137
+<v Marcus Lindqvist>So I've been on the phone with the dealer more than with my wife.
+
+00:08:48.658 --> 00:08:52.114
+<v Interviewer>Oof. And outside of work, anything keeping you sane?
+
+00:08:53.208 --> 00:09:02.653
+<v Marcus Lindqvist>My kid plays hockey, so my weekends are cold rinks and bad coffee. I love it, though. He's a goalie, which is terrifying.
+
+00:09:03.898 --> 00:09:10.989
+<v Interviewer>Ha. How does the end of the month look for you now, compared to the clipboard days?
+
+00:09:12.278 --> 00:09:18.188
+<v Marcus Lindqvist>Better on paper. I'm not adding up slips with a calculator anymore, which, thank God.
+
+00:09:18.369 --> 00:09:25.217
+<v Marcus Lindqvist>But I spend that time chasing the missing ones instead. So it's like, a different kind of annoying.
+
+00:09:25.974 --> 00:09:29.459
+<v Interviewer>Who else in the company looks at this stuff?
+
+00:09:30.530 --> 00:09:38.824
+<v Marcus Lindqvist>Our owner, Frank, and an outside accountant who comes in quarterly. Frank mostly wants to know if fuel spend is going up.
+
+00:09:38.998 --> 00:09:42.237
+<v Marcus Lindqvist>It is, by the way. It always is.
+
+00:09:42.499 --> 00:09:44.805
+<v Marcus Lindqvist>That's not Ledgerly's fault. [laughs]
+
+00:09:46.001 --> 00:09:49.900
+<v Interviewer>[laughs] Fair. Do the drivers ever give you feedback directly?
+
+00:09:51.154 --> 00:09:56.050
+<v Marcus Lindqvist>Oh, they give me feedback. Not always in words I can repeat.
+
+00:09:56.271 --> 00:10:02.460
+<v Marcus Lindqvist>Derek told me the old system was "dumb but honest." I think about that a lot, actually.
+
+00:10:02.606 --> 00:10:07.102
+<v Marcus Lindqvist>He meant he always knew where he stood with it.
+
+00:10:08.191 --> 00:10:12.702
+<v Interviewer>Okay, so, if you could change one thing about Ledgerly tomorrow?
+
+00:10:13.766 --> 00:10:20.420
+<v Marcus Lindqvist>One number. Show me one number that's the real amount they can spend right now.
+
+00:10:20.584 --> 00:10:25.131
+<v Marcus Lindqvist>And show it to the driver too, before they're at the pump.
+
+00:10:25.363 --> 00:10:31.730
+<v Marcus Lindqvist>And make the photo thing keep the picture until it's actually sent. Don't make them start over.
+
+00:10:32.686 --> 00:10:36.395
+<v Interviewer>That's really helpful. Anything else on your mind?
+
+00:10:36.867 --> 00:10:40.592
+<v Marcus Lindqvist>Nah. I've got to get back to the yard.
+
+00:10:40.786 --> 00:10:43.132
+<v Marcus Lindqvist>Thanks for listening, though. Seriously.
+
+00:10:44.199 --> 00:10:45.584
+<v Interviewer>Thank you, Marcus.

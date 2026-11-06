@@ -1,0 +1,101 @@
+{
+  "synthetic": true,
+  "notice": "SYNTHETIC, LABELLED benchmark fixture. All participants, companies and the product 'Ledgerly' are fictional. Any resemblance to real people or companies is coincidental.",
+  "study": {
+    "product": "Ledgerly (fictional mid-market SaaS: team expense cards & receipts)",
+    "researchQuestion": "Why do new teams stall during their first month?",
+    "method": "8 x semi-structured 1:1 video interviews, ~10 min each (WebVTT, interviewer + one participant)",
+    "interviewWindow": "2026-10-20 / 2026-10-30"
+  },
+  "participants": [
+    {
+      "pid": "p1",
+      "name": "Dana Okafor",
+      "role": "Finance Lead",
+      "company": "Brightwater Studio (brand & design agency)",
+      "companySize": 48,
+      "segment": "finance lead",
+      "ledgerlyTenure": "5.5 weeks",
+      "accounting": "Xero",
+      "interviewDate": "2026-10-20"
+    },
+    {
+      "pid": "p2",
+      "name": "Marcus Lindqvist",
+      "role": "Operations Manager",
+      "company": "Northgate Freight & Storage (regional logistics)",
+      "companySize": 120,
+      "segment": "ops manager",
+      "ledgerlyTenure": "3 weeks",
+      "accounting": null,
+      "interviewDate": "2026-10-21"
+    },
+    {
+      "pid": "p3",
+      "name": "Priya Raman",
+      "role": "Territory Sales Representative",
+      "company": "Calloway Medical Supply (medical distribution)",
+      "companySize": 300,
+      "segment": "employee",
+      "ledgerlyTenure": "4 weeks",
+      "accounting": null,
+      "interviewDate": "2026-10-22"
+    },
+    {
+      "pid": "p4",
+      "name": "Tomás Herrera",
+      "role": "IT & Systems Administrator",
+      "company": "Kessler Ward Architects",
+      "companySize": 85,
+      "segment": "admin",
+      "ledgerlyTenure": "4 weeks",
+      "accounting": null,
+      "interviewDate": "2026-10-23"
+    },
+    {
+      "pid": "p5",
+      "name": "Grace Whitfield",
+      "role": "Controller",
+      "company": "Ironbridge Mechanical (commercial HVAC & plumbing subcontractor)",
+      "companySize": 210,
+      "segment": "finance lead",
+      "ledgerlyTenure": "6 weeks",
+      "accounting": "QuickBooks Online",
+      "interviewDate": "2026-10-26"
+    },
+    {
+      "pid": "p6",
+      "name": "Jordan Mbeki",
+      "role": "Operations Manager",
+      "company": "Riverside Youth Arts (nonprofit)",
+      "companySize": 22,
+      "segment": "ops manager",
+      "ledgerlyTenure": "4 weeks",
+      "accounting": "QuickBooks Online",
+      "interviewDate": "2026-10-27"
+    },
+    {
+      "pid": "p7",
+      "name": "Hannah Cho",
+      "role": "Senior Consultant",
+      "company": "Fairlight Advisory (operations consulting)",
+      "companySize": 65,
+      "segment": "employee",
+      "ledgerlyTenure": "4 weeks",
+      "accounting": null,
+      "notes": "Blind; uses VoiceOver on iPhone",
+      "interviewDate": "2026-10-29"
+    },
+    {
+      "pid": "p8",
+      "name": "Ravi Desai",
+      "role": "Co-founder & COO (Ledgerly admin)",
+      "company": "Tandem Labs (B2B scheduling software startup)",
+      "companySize": 15,
+      "segment": "admin",
+      "ledgerlyTenure": "5 weeks",
+      "accounting": null,
+      "interviewDate": "2026-10-30"
+    }
+  ]
+}

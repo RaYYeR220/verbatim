@@ -1,0 +1,293 @@
+WEBVTT
+
+NOTE
+SYNTHETIC BENCHMARK FIXTURE. Fictional interview for the Verbatim eval set (Ledgerly study).
+Participant p8: Ravi Desai, Co-founder & COO (Ledgerly admin), Tandem Labs (B2B scheduling software startup), 15 employees. Not a real person.
+
+00:00:05.285 --> 00:00:09.486
+<v Interviewer>Hey Ravi, thanks for jumping on. Can you hear me?
+
+00:00:09.920 --> 00:00:16.827
+<v Ravi Desai>Yeah, all good. Sorry, I'm in our office's one phone booth, it's like being in a fridge.
+
+00:00:17.082 --> 00:00:18.072
+<v Ravi Desai>Very cozy.
+
+00:00:19.348 --> 00:00:23.040
+<v Interviewer>[laughs] We'll record, if that's okay? About fifteen minutes.
+
+00:00:23.928 --> 00:00:25.899
+<v Ravi Desai>Sure, go for it.
+
+00:00:26.322 --> 00:00:29.578
+<v Interviewer>Tell me about yourself and the company.
+
+00:00:29.970 --> 00:00:35.966
+<v Ravi Desai>I'm co-founder and COO at Tandem Labs. We build scheduling software for physical therapy clinics.
+
+00:00:36.224 --> 00:00:42.985
+<v Ravi Desai>We're fifteen people. Well, fifteen and a half, we have an intern two days a week.
+
+00:00:43.144 --> 00:00:49.467
+<v Ravi Desai>As COO I do, like, everything that isn't product or sales. Finance, hiring, the lease, buying snacks.
+
+00:00:49.671 --> 00:00:52.330
+<v Ravi Desai>I'm also, apparently, the Ledgerly admin.
+
+00:00:53.014 --> 00:00:55.969
+<v Interviewer>How did you end up choosing Ledgerly?
+
+00:00:56.516 --> 00:01:04.452
+<v Ravi Desai>Our accountant recommended a couple of options, and I liked Ledgerly's app the most when I tried the demo.
+
+00:01:04.600 --> 00:01:08.829
+<v Ravi Desai>We went live about a month ago, maybe a little more.
+
+00:01:09.963 --> 00:01:13.046
+<v Interviewer>Before Ledgerly, what did you do for expenses?
+
+00:01:13.715 --> 00:01:24.353
+<v Ravi Desai>Everyone used their own cards and sent me a spreadsheet at the end of the month. Or forgot to, and sent it three months later.
+
+00:01:24.547 --> 00:01:32.996
+<v Ravi Desai>I once reimbursed a whole offsite in one go, like, nine people's worth of receipts on a Saturday. Never again.
+
+00:01:34.093 --> 00:01:36.091
+<v Interviewer>[laughs] What happened that Saturday?
+
+00:01:36.986 --> 00:01:45.603
+<v Ravi Desai>We'd done a two-day offsite at a rented cabin, and everyone paid for random things. Groceries, firewood, a karaoke machine rental.
+
+00:01:45.710 --> 00:01:55.949
+<v Ravi Desai>I spent six hours matching photos of crumpled receipts to bank lines. That was the day I decided we needed a real tool.
+
+00:01:57.011 --> 00:02:00.439
+<v Interviewer>How did you roll Ledgerly out to the team?
+
+00:02:00.977 --> 00:02:10.106
+<v Ravi Desai>Fifteen-minute demo at our Monday standup. I showed the app on the big screen, did a fake coffee purchase, and that was it.
+
+00:02:11.304 --> 00:02:14.036
+<v Interviewer>How's it been since you switched?
+
+00:02:15.215 --> 00:02:22.216
+<v Ravi Desai>Honestly, mostly good? The app is the best part. Like, the phone app is genuinely slick.
+
+00:02:22.305 --> 00:02:31.090
+<v Ravi Desai>I approve stuff in the elevator, I check what's been spent while I'm waiting for coffee. It's better than the web version, if anything.
+
+00:02:31.640 --> 00:02:33.961
+<v Interviewer>What makes it feel slick?
+
+00:02:35.081 --> 00:02:41.677
+<v Ravi Desai>It's fast. It doesn't nag me. There's a feed of what people spent, I swipe, approve, done.
+
+00:02:41.981 --> 00:02:49.037
+<v Ravi Desai>My cofounder, Mei, calls it my swipe-right for receipts. [laughs] Which is a little embarrassing, but accurate.
+
+00:02:49.983 --> 00:02:54.435
+<v Interviewer>Is there a moment where you thought, okay, this is better?
+
+00:02:55.506 --> 00:03:05.560
+<v Ravi Desai>Probably the first time someone bought a monitor and I saw the receipt and the charge sitting together before they'd even left the store.
+
+00:03:05.797 --> 00:03:10.632
+<v Ravi Desai>I actually said "oh, nice" out loud. In a coffee shop. People looked.
+
+00:03:11.211 --> 00:03:14.611
+<v Interviewer>Do people use the web version at all?
+
+00:03:15.845 --> 00:03:21.314
+<v Ravi Desai>Mostly me, for the monthly report. Everybody else lives in the phone app.
+
+00:03:21.415 --> 00:03:25.643
+<v Ravi Desai>I don't think our engineers even know there's a website.
+
+00:03:26.770 --> 00:03:29.614
+<v Interviewer>[laughs] So what's not going well?
+
+00:03:30.807 --> 00:03:34.493
+<v Ravi Desai>Two things. The approval setup, and the card limits.
+
+00:03:34.610 --> 00:03:37.148
+<v Ravi Desai>Want me to start with approvals?
+
+00:03:38.114 --> 00:03:38.738
+<v Interviewer>Sure.
+
+00:03:39.687 --> 00:03:44.583
+<v Ravi Desai>So we're fifteen people. Everybody basically reports to me or Mei.
+
+00:03:44.813 --> 00:03:50.957
+<v Ravi Desai>When I set up Ledgerly, it wanted an approval chain. Like, manager, then finance.
+
+00:03:51.234 --> 00:03:56.326
+<v Ravi Desai>And for us, the manager and finance is the same person. It's me.
+
+00:03:56.592 --> 00:04:07.736
+<v Ravi Desai>So every expense comes to me, I approve it, and then it comes to me again as finance, and I approve it again. And I can't merge those.
+
+00:04:08.246 --> 00:04:10.627
+<v Interviewer>How much does that cost you?
+
+00:04:11.526 --> 00:04:19.540
+<v Ravi Desai>It's not a lot of time per item. But it's the principle. And when I'm on a flight or something, nothing moves.
+
+00:04:19.672 --> 00:04:25.027
+<v Ravi Desai>Somebody buys a forty-dollar HDMI cable and it's pending for two days.
+
+00:04:25.227 --> 00:04:33.170
+<v Ravi Desai>For a team our size, a strict chain just doesn't make sense. We need something like, "Ravi or Mei, either one."
+
+00:04:33.829 --> 00:04:35.922
+<v Interviewer>Did you find any workaround?
+
+00:04:36.520 --> 00:04:47.254
+<v Ravi Desai>I made Mei an approver at the same level, and that broke something, and then expenses started going to her twice instead of me twice.
+
+00:04:47.441 --> 00:04:49.962
+<v Ravi Desai>[laughs] So I put it back.
+
+00:04:50.504 --> 00:04:52.228
+<v Interviewer>And the card limits?
+
+00:04:53.417 --> 00:04:56.792
+<v Ravi Desai>Yeah. Okay so this one's more confusing than annoying.
+
+00:04:57.055 --> 00:05:01.465
+<v Ravi Desai>There's "budgets" and there's "limits," and I genuinely don't know the difference.
+
+00:05:01.807 --> 00:05:12.311
+<v Ravi Desai>I gave our sales guy, Theo, a budget of a thousand a month for client lunches. And then separately his card has a limit.
+
+00:05:12.563 --> 00:05:23.641
+<v Ravi Desai>And they're not the same number, and I didn't set the card one. So he got declined at a restaurant even though his budget said he had six hundred left.
+
+00:05:24.640 --> 00:05:27.846
+<v Interviewer>How did you figure out what happened?
+
+00:05:28.490 --> 00:05:34.321
+<v Ravi Desai>I'm still not a hundred percent sure I did. I read the help article three times.
+
+00:05:34.571 --> 00:05:41.547
+<v Ravi Desai>My best guess is the budget is like a tracking thing and the limit is the real control?
+
+00:05:41.885 --> 00:05:48.445
+<v Ravi Desai>But the app shows the budget front and center, so that's the number everyone looks at.
+
+00:05:48.734 --> 00:05:58.149
+<v Ravi Desai>Theo now asks me before every lunch, "am I good?" Which is exactly the kind of message I was trying to stop getting.
+
+00:05:59.422 --> 00:06:01.797
+<v Interviewer>Has that happened to anyone else?
+
+00:06:02.820 --> 00:06:06.637
+<v Ravi Desai>Our designer, once, buying a software subscription. Same thing.
+
+00:06:06.952 --> 00:06:09.493
+<v Ravi Desai>Budget said fine, card said no.
+
+00:06:10.220 --> 00:06:16.996
+<v Interviewer>Okay. Let's zoom out a bit. How did the team feel about Ledgerly in the first few weeks?
+
+00:06:17.589 --> 00:06:23.015
+<v Ravi Desai>Pretty positive, honestly. We're a software company, people are used to new tools.
+
+00:06:23.199 --> 00:06:28.434
+<v Ravi Desai>Mostly the complaints are the decline thing. Nobody likes being declined in public.
+
+00:06:29.489 --> 00:06:31.758
+<v Interviewer>Was there a specific moment?
+
+00:06:32.912 --> 00:06:44.316
+<v Ravi Desai>Theo's restaurant thing was with a prospect. He covered it with his own card and laughed it off, but he told me afterwards he wanted to crawl under the table.
+
+00:06:44.598 --> 00:06:50.857
+<v Ravi Desai>For a salesperson, that's, like, the worst possible moment for a card to say no.
+
+00:06:51.269 --> 00:06:54.004
+<v Interviewer>What does your accountant think so far?
+
+00:06:54.409 --> 00:07:03.761
+<v Ravi Desai>She's happy because she gets one clean report instead of my spreadsheets. She said my spreadsheets had "a lot of personality."
+
+00:07:03.863 --> 00:07:07.241
+<v Ravi Desai>I chose to take that as a compliment.
+
+00:07:07.624 --> 00:07:13.689
+<v Interviewer>What's your mental model for a good first month with a tool like this?
+
+00:07:14.299 --> 00:07:21.124
+<v Ravi Desai>Week one, everyone's set up. Week two, people stop asking me questions. Week four, I forget it exists.
+
+00:07:21.330 --> 00:07:28.259
+<v Ravi Desai>We're at, like, week two and a half. People still ask me "am I good" before lunch.
+
+00:07:28.798 --> 00:07:35.559
+<v Interviewer>Sure. Can I ask a tangent — how's the startup doing generally? What's your month been like?
+
+00:07:36.717 --> 00:07:43.472
+<v Ravi Desai>[laughs] We're raising a little extension round, so I've been in a lot of coffee meetings.
+
+00:07:43.630 --> 00:07:47.453
+<v Ravi Desai>And we got office plants. Mei insisted. Nobody waters them.
+
+00:07:47.689 --> 00:07:50.102
+<v Ravi Desai>I think they're plastic now, emotionally.
+
+00:07:50.956 --> 00:07:52.677
+<v Interviewer>[laughs] And at home?
+
+00:07:53.301 --> 00:07:57.854
+<v Ravi Desai>My cat learned to open the pantry. So that's my main crisis.
+
+00:07:58.305 --> 00:08:06.686
+<v Interviewer>Very serious. How do your customers, the clinics, buy software? Does that shape how you think about tools like this?
+
+00:08:07.059 --> 00:08:12.963
+<v Ravi Desai>Oh, totally. Clinic owners are busy and skeptical. If our app needs a manual, they churn.
+
+00:08:13.067 --> 00:08:25.610
+<v Ravi Desai>So I'm probably harsher on tools than most people. If I have to read a help article three times, like with the limits, that's a fail in my book.
+
+00:08:26.098 --> 00:08:28.994
+<v Interviewer>Has the fundraising affected spending at all?
+
+00:08:29.837 --> 00:08:36.228
+<v Ravi Desai>Ha, a little. Everyone suddenly wants new monitors. I've been approving a lot of monitors.
+
+00:08:36.449 --> 00:08:38.349
+<v Ravi Desai>Twice each, of course.
+
+00:08:39.586 --> 00:08:44.569
+<v Interviewer>[laughs] Do you think the team would notice if you switched tools tomorrow?
+
+00:08:44.996 --> 00:08:49.534
+<v Ravi Desai>Oh, they'd riot. Mostly over the app. People got attached fast.
+
+00:08:49.626 --> 00:08:58.400
+<v Ravi Desai>Our support lead said it's the only work app on her home screen that she doesn't want to delete. That's high praise from her.
+
+00:08:59.667 --> 00:09:03.438
+<v Interviewer>Back to Ledgerly: if you could change one thing?
+
+00:09:04.638 --> 00:09:11.306
+<v Ravi Desai>Let me have one approval step when I'm both the manager and finance. Or let either founder approve.
+
+00:09:11.396 --> 00:09:13.328
+<v Ravi Desai>That's the big one.
+
+00:09:13.430 --> 00:09:20.733
+<v Ravi Desai>And show one number on the card. The real one. Kill either "budget" or "limit," I don't care which.
+
+00:09:21.812 --> 00:09:25.641
+<v Interviewer>Is there anything you'd tell the Ledgerly team to keep?
+
+00:09:26.873 --> 00:09:33.154
+<v Ravi Desai>The app. Don't touch the app. Whoever designed the phone app, give them a raise.
+
+00:09:34.008 --> 00:09:35.781
+<v Interviewer>[laughs] Noted. Thanks, Ravi.
+
+00:09:36.864 --> 00:09:38.185
+<v Ravi Desai>Thanks! Good luck.

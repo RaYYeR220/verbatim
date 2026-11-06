@@ -1,0 +1,302 @@
+WEBVTT
+
+NOTE
+SYNTHETIC BENCHMARK FIXTURE. Fictional interview for the Verbatim eval set (Ledgerly study).
+Participant p4: Tomás Herrera, IT & Systems Administrator, Kessler Ward Architects, 85 employees. Not a real person.
+
+00:00:05.175 --> 00:00:10.167
+<v Interviewer>Hi Tomás, thanks for taking the time. Can you hear me?
+
+00:00:10.979 --> 00:00:15.205
+<v Tomás Herrera>Yes, perfectly. Give me one second, I'm closing about forty tabs.
+
+00:00:15.533 --> 00:00:16.612
+<v Tomás Herrera>Okay. Done.
+
+00:00:17.226 --> 00:00:25.000
+<v Interviewer>[laughs] Very relatable. So we'll record this, if that's alright, and we're talking about your first month with Ledgerly.
+
+00:00:25.572 --> 00:00:27.227
+<v Tomás Herrera>That's fine. Go ahead.
+
+00:00:27.778 --> 00:00:30.503
+<v Interviewer>Could you start with your role?
+
+00:00:31.444 --> 00:00:38.702
+<v Tomás Herrera>Sure. I'm the IT and systems admin at Kessler Ward. We're an architecture firm, eighty-five people, two offices.
+
+00:00:39.046 --> 00:00:46.042
+<v Tomás Herrera>I'm, um, I'm the whole IT department, plus one contractor who helps with the network stuff.
+
+00:00:46.224 --> 00:00:53.226
+<v Tomás Herrera>So when finance buys software, it usually lands on my desk to set up. That's what happened with Ledgerly.
+
+00:00:54.352 --> 00:00:56.974
+<v Interviewer>Were you involved in choosing it?
+
+00:00:58.003 --> 00:01:07.076
+<v Tomás Herrera>Not really. Finance and two of the partners did the evaluation. I got a calendar invite that said "Ledgerly kickoff" and that was my involvement.
+
+00:01:07.356 --> 00:01:13.002
+<v Tomás Herrera>Which is normal, honestly. I'd rather be asked earlier, but that's a different conversation.
+
+00:01:13.544 --> 00:01:15.999
+<v Interviewer>What did setup involve for you?
+
+00:01:16.774 --> 00:01:22.162
+<v Tomás Herrera>The connection to our identity provider, which was actually painless. I'll give them that.
+
+00:01:22.246 --> 00:01:24.965
+<v Tomás Herrera>Ten minutes, maybe fifteen. That never happens.
+
+00:01:25.218 --> 00:01:34.004
+<v Tomás Herrera>Then importing the users, setting up the departments, and the approval rules. That was the part that took most of my week.
+
+00:01:35.000 --> 00:01:37.141
+<v Interviewer>How did the import work?
+
+00:01:38.261 --> 00:01:44.154
+<v Tomás Herrera>You upload a spreadsheet. Name, work address, department, who they report to. Pretty standard.
+
+00:01:44.256 --> 00:01:52.901
+<v Tomás Herrera>I exported it from our HR system, cleaned up a few weird characters, and it went in on the second try.
+
+00:01:53.305 --> 00:01:55.979
+<v Interviewer>Tell me about the approval rules.
+
+00:01:57.061 --> 00:02:05.030
+<v Tomás Herrera>So, the way our firm works, we've got studios. Each studio is four, five, six people, and one principal who runs it.
+
+00:02:05.296 --> 00:02:09.452
+<v Tomás Herrera>The principal approves everything for their studio. That's it. One step.
+
+00:02:09.728 --> 00:02:17.608
+<v Tomás Herrera>Ledgerly's rule builder assumes a hierarchy. Employee, manager, then a second level, and then finance at the end.
+
+00:02:17.689 --> 00:02:21.372
+<v Tomás Herrera>And the finance step is mandatory, which, okay, fine.
+
+00:02:21.711 --> 00:02:32.487
+<v Tomás Herrera>But the middle part — I could not get it to just say "the principal approves, done." It kept wanting a manager level and a department level as separate things.
+
+00:02:32.977 --> 00:02:36.926
+<v Interviewer>How many approval rules did you end up building?
+
+00:02:37.556 --> 00:02:42.718
+<v Tomás Herrera>Fourteen. One per studio, plus a couple for the admin team and the partners.
+
+00:02:43.047 --> 00:02:52.301
+<v Tomás Herrera>In my head it should have been one rule with a variable. "Principal of this studio approves." But that's not how the builder thinks.
+
+00:02:53.307 --> 00:02:56.083
+<v Interviewer>What did you end up doing?
+
+00:02:56.769 --> 00:03:02.653
+<v Tomás Herrera>I made the principal both the manager and the department head for their people.
+
+00:03:02.891 --> 00:03:09.816
+<v Tomás Herrera>So they get the same expense twice. Approve, and then approve again. They were... not thrilled.
+
+00:03:10.573 --> 00:03:12.556
+<v Interviewer>How did the principals react?
+
+00:03:13.233 --> 00:03:19.037
+<v Tomás Herrera>One of them, Ingrid, forwarded me a screenshot with, like, fourteen exclamation points.
+
+00:03:19.141 --> 00:03:23.923
+<v Tomás Herrera>"Why am I approving my own team's coffee twice." [laughs] Fair question.
+
+00:03:24.049 --> 00:03:33.838
+<v Tomás Herrera>For a firm our size, the whole multi-level thing is overkill. We're not a bank. We're a bunch of people who buy foam board and train tickets.
+
+00:03:34.246 --> 00:03:36.732
+<v Interviewer>Did you raise it with Ledgerly?
+
+00:03:37.361 --> 00:03:44.692
+<v Tomás Herrera>I opened a ticket. They said conditional single-step approvals are, um, on the enterprise plan? Or on a roadmap?
+
+00:03:45.025 --> 00:03:48.857
+<v Tomás Herrera>I got two different answers from two different people.
+
+00:03:49.918 --> 00:03:54.866
+<v Interviewer>Okay. You mentioned importing users. Once they were in, how did that go?
+
+00:03:55.253 --> 00:03:59.373
+<v Tomás Herrera>The import itself was fine. The emails were the problem.
+
+00:04:00.352 --> 00:04:01.380
+<v Interviewer>The emails?
+
+00:04:02.591 --> 00:04:09.758
+<v Tomás Herrera>So when you add people, Ledgerly sends them a welcome email, set your password, activate your card, all that.
+
+00:04:09.842 --> 00:04:14.846
+<v Tomás Herrera>Except it didn't send them to the people. It sent them to me.
+
+00:04:15.821 --> 00:04:16.885
+<v Interviewer>To you?
+
+00:04:17.613 --> 00:04:26.288
+<v Tomás Herrera>To me. Because I was the one who created the accounts, I guess it treated me as the contact for every user.
+
+00:04:26.469 --> 00:04:34.047
+<v Tomás Herrera>I got eighty-something emails in one afternoon. "Welcome to Ledgerly, Tomás!" Eighty times. With other people's names in the body.
+
+00:04:34.584 --> 00:04:35.190
+<v Interviewer>Wow.
+
+00:04:35.915 --> 00:04:38.234
+<v Tomás Herrera>And the employees got nothing.
+
+00:04:38.464 --> 00:04:51.963
+<v Tomás Herrera>So for the first week, everyone's asking finance, "where's my card, how do I log in," and finance is asking me, and I'm sitting on a pile of activation links I'm not supposed to click.
+
+00:04:52.673 --> 00:04:55.348
+<v Interviewer>How did you sort it out?
+
+00:04:55.918 --> 00:05:04.057
+<v Tomás Herrera>I forwarded them by hand. One by one. Well, I wrote a little mail rule to do it, but still.
+
+00:05:04.224 --> 00:05:11.428
+<v Tomás Herrera>And some of the links had expired by the time people opened them, so they had to request new ones.
+
+00:05:11.553 --> 00:05:16.211
+<v Tomás Herrera>Which went to me again. [laughs] So that was a fun loop.
+
+00:05:17.292 --> 00:05:19.644
+<v Interviewer>Did that affect the rollout timing?
+
+00:05:20.549 --> 00:05:29.054
+<v Tomás Herrera>Yeah, I'd say we lost a week, easily. People don't trust a tool if their first experience is "you didn't get invited."
+
+00:05:29.205 --> 00:05:33.752
+<v Tomás Herrera>A couple of people thought they'd been left out on purpose.
+
+00:05:34.435 --> 00:05:39.212
+<v Interviewer>Hmm. Let's step back a bit. Before Ledgerly, how did people handle expenses?
+
+00:05:40.447 --> 00:05:48.318
+<v Tomás Herrera>A shared spreadsheet and a lot of sticky notes. And our office manager, Bea, who knows where everything is.
+
+00:05:48.623 --> 00:05:51.323
+<v Tomás Herrera>Bea is the real system, honestly.
+
+00:05:52.059 --> 00:05:54.519
+<v Interviewer>Has Bea's work changed with Ledgerly?
+
+00:05:55.620 --> 00:05:58.582
+<v Tomás Herrera>Less chasing, she says. When it works.
+
+00:05:58.732 --> 00:06:03.554
+<v Tomás Herrera>She's cautiously optimistic, which is about as excited as Bea gets about anything.
+
+00:06:03.905 --> 00:06:07.845
+<v Interviewer>[laughs] Did you write any internal documentation for people?
+
+00:06:08.315 --> 00:06:16.756
+<v Tomás Herrera>A one-page guide. Screenshots, big arrows. Nobody reads documentation, so I keep it to one page and I make the arrows red.
+
+00:06:17.090 --> 00:06:27.404
+<v Tomás Herrera>I put it on the intranet and pinned it in the general chat. I can tell from the analytics that eleven people opened it.
+
+00:06:28.088 --> 00:06:29.570
+<v Interviewer>Out of eighty-five.
+
+00:06:30.538 --> 00:06:34.255
+<v Tomás Herrera>Out of eighty-five. That's actually a good number for us.
+
+00:06:34.609 --> 00:06:44.220
+<v Interviewer>[laughs] Let's take a tangent — what else is on your plate right now? Is Ledgerly a big part of your week?
+
+00:06:45.100 --> 00:06:48.208
+<v Tomás Herrera>Not anymore, thankfully. Right now it's the plotter.
+
+00:06:48.342 --> 00:06:58.800
+<v Tomás Herrera>We have this enormous plotter for printing drawings and it's possessed. It prints half a sheet and then just stops and blinks at you.
+
+00:06:58.993 --> 00:07:04.492
+<v Tomás Herrera>And I'm renovating my kitchen at home, so my evenings are tile samples.
+
+00:07:04.871 --> 00:07:06.701
+<v Interviewer>Any tile you love?
+
+00:07:07.278 --> 00:07:12.007
+<v Tomás Herrera>My partner wants green. I want white. It's going to be green.
+
+00:07:12.284 --> 00:07:23.228
+<v Tomás Herrera>We also have a coffee machine in the second office that has its own personality. It only works if you press the button twice, slowly.
+
+00:07:23.426 --> 00:07:26.191
+<v Tomás Herrera>Like it needs to be asked politely.
+
+00:07:27.227 --> 00:07:35.065
+<v Interviewer>[laughs] Fair. How did the rest of the firm react to the new cards, once they had them?
+
+00:07:35.885 --> 00:07:44.663
+<v Tomás Herrera>Fine, mostly. I don't hear much from them, which in IT means it's working. People complain loudly and praise silently.
+
+00:07:44.817 --> 00:07:51.827
+<v Tomás Herrera>The partners wanted it because they were tired of signing paper forms. So in that sense it's a win.
+
+00:07:52.865 --> 00:07:57.766
+<v Interviewer>When you evaluate a vendor's support, what do you look for?
+
+00:07:58.575 --> 00:08:08.458
+<v Tomás Herrera>Honestly, one consistent answer. I can live with "no." What I can't live with is "yes" from one person and "no" from another.
+
+00:08:08.731 --> 00:08:14.155
+<v Tomás Herrera>And release notes. If something changes, tell me before my users tell me.
+
+00:08:14.753 --> 00:08:17.471
+<v Interviewer>What about offboarding? When someone leaves?
+
+00:08:18.079 --> 00:08:27.368
+<v Tomás Herrera>That's actually one place it's been good. When I disable someone in our identity provider, their Ledgerly access goes too, and the card gets frozen.
+
+00:08:27.654 --> 00:08:34.817
+<v Tomás Herrera>We had one person leave in the first month and it just worked. I didn't have to remember anything.
+
+00:08:35.690 --> 00:08:37.112
+<v Interviewer>Is that unusual?
+
+00:08:37.565 --> 00:08:44.431
+<v Tomás Herrera>Very. Most tools I have to remember to go turn off by hand, and I always forget one.
+
+00:08:44.677 --> 00:08:51.559
+<v Tomás Herrera>There's a project management tool from 2019 that I'm pretty sure a former intern still has access to.
+
+00:08:52.737 --> 00:08:56.943
+<v Interviewer>Back to the first month: what would have made it smoother?
+
+00:08:57.826 --> 00:09:07.161
+<v Tomás Herrera>Two things, really. One: let me pick who gets the invite emails. Obviously the person themselves, or at least ask me.
+
+00:09:07.359 --> 00:09:10.332
+<v Tomás Herrera>Don't assume the admin is everyone's inbox.
+
+00:09:10.477 --> 00:09:18.940
+<v Tomás Herrera>Two: let a small team have one approver. Not a chain with three links where two are the same person.
+
+00:09:19.749 --> 00:09:23.178
+<v Interviewer>Is there anything you'd keep exactly as is?
+
+00:09:24.072 --> 00:09:28.166
+<v Tomás Herrera>The identity provider setup. And the audit log, actually.
+
+00:09:28.291 --> 00:09:34.102
+<v Tomás Herrera>When something weird happens, I can see who changed what. That's been nice.
+
+00:09:34.808 --> 00:09:37.584
+<v Interviewer>Great. Anything else you want to share?
+
+00:09:37.981 --> 00:09:48.664
+<v Tomás Herrera>I think that's it. Oh, actually — the setup checklist they gave us said "invite your team," and it had a nice green checkmark once I'd imported.
+
+00:09:48.778 --> 00:09:52.243
+<v Tomás Herrera>It said done. It wasn't done. Nobody had anything.
+
+00:09:52.614 --> 00:09:55.364
+<v Interviewer>That's a good detail. Thank you, Tomás.
+
+00:09:56.457 --> 00:09:58.851
+<v Tomás Herrera>Anytime. Good luck with the research.

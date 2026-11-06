@@ -2,6 +2,7 @@ import { defineAction } from "@agent-native/core/action";
 import { z } from "zod";
 
 import { actorFromCtx } from "../server/verbatim/actor.js";
+import { emitBoardEvent } from "../server/verbatim/events.js";
 import { parseFeedbackCsv } from "../server/verbatim/parse-source.js";
 import {
   insertSource,
@@ -21,7 +22,7 @@ export default defineAction({
     limit: z.coerce.number().int().min(1).max(1000).default(500),
   }),
   run: async (args, ctx) => {
-    await requireStudy(args.studyId, "editor");
+    const study = await requireStudy(args.studyId, "editor");
     const rows = parseFeedbackCsv(args.csv).slice(0, args.limit);
     const sourceIds: string[] = [];
     let anon = 0;
@@ -34,8 +35,7 @@ export default defineAction({
       });
       const text = row.title ? `${row.title}\n${row.body}` : row.body;
       const stars = row.rating !== null ? ` · ${row.rating}★` : "";
-      sourceIds.push(
-        await insertSource({
+      const sourceId = await insertSource({
           studyId: args.studyId,
           participantId,
           kind: args.kind,
@@ -43,8 +43,8 @@ export default defineAction({
           text,
           segments: [{ start: 0, end: text.length, speaker: label, tMs: null }],
           externalRef: { externalId: row.externalId, rating: row.rating, date: row.date },
-        }),
-      );
+        });
+      sourceIds.push(sourceId);
     }
     await touchStudy(args.studyId);
     await recordEvent({
@@ -54,6 +54,16 @@ export default defineAction({
       summary: `Imported ${sourceIds.length} ${args.kind}s`,
       payload: { count: sourceIds.length },
     });
+    if (sourceIds.length > 0) {
+      emitBoardEvent("sourceAdded", {
+        studyId: args.studyId,
+        studyTitle: study.title,
+        sourceId: sourceIds[0]!,
+        title: `${sourceIds.length} ${args.kind}s imported`,
+        kind: args.kind,
+        chars: rows.reduce((n, r) => n + r.body.length, 0),
+      });
+    }
     return { added: sourceIds.length, sourceIds };
   },
 });

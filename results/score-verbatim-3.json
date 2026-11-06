@@ -1,0 +1,106 @@
+{
+  "label": "Verbatim agent",
+  "participants": 3,
+  "quotes": 43,
+  "quoteFidelity": 1,
+  "inventedQuotes": 0,
+  "misattributed": 0,
+  "interviewerQuotedAsCustomer": 0,
+  "themesPredicted": 6,
+  "themeRecall": "5/6",
+  "minorityThemeFound": true,
+  "contradictionSides": "0/1 sides",
+  "decoyThemes": 0,
+  "perTheme": [
+    {
+      "id": "T1",
+      "name": "Receipt capture fails on weak signal",
+      "found": true,
+      "voices": "3/3"
+    },
+    {
+      "id": "T2",
+      "name": "Approval chains too rigid for small teams",
+      "found": true,
+      "voices": "1/1"
+    },
+    {
+      "id": "T3",
+      "name": "Card spend limits are confusing",
+      "found": true,
+      "voices": "1/1"
+    },
+    {
+      "id": "T4",
+      "name": "Accounting export mapping errors",
+      "found": true,
+      "voices": "1/1"
+    },
+    {
+      "id": "T6",
+      "name": "Screen reader can't use receipt camera",
+      "found": true,
+      "voices": "1/1"
+    },
+    {
+      "id": "T7",
+      "name": "Mobile app: loved vs unusable",
+      "found": false,
+      "voices": "0/1"
+    }
+  ],
+  "themeMatches": [
+    {
+      "name": "Receipts vanish without warning",
+      "keyTheme": "T1",
+      "overlapChars": 311,
+      "voices": [
+        "p1",
+        "p2",
+        "p7"
+      ]
+    },
+    {
+      "name": "Approval chain too rigid",
+      "keyTheme": "T2",
+      "overlapChars": 231,
+      "voices": [
+        "p1"
+      ]
+    },
+    {
+      "name": "Xero export needs manual fixing",
+      "keyTheme": "T4",
+      "overlapChars": 210,
+      "voices": [
+        "p1"
+      ]
+    },
+    {
+      "name": "Card limits are unclear",
+      "keyTheme": "T3",
+      "overlapChars": 134,
+      "voices": [
+        "p2"
+      ]
+    },
+    {
+      "name": "Mobile app unusable in the field",
+      "keyTheme": "T6",
+      "overlapChars": 225,
+      "voices": [
+        "p2",
+        "p7"
+      ]
+    },
+    {
+      "name": "Cards and reporting land well",
+      "keyTheme": null,
+      "overlapChars": 0,
+      "voices": [
+        "p1",
+        "p2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+WEBVTT
+
+NOTE
+SYNTHETIC BENCHMARK FIXTURE. Fictional interview for the Verbatim eval set (Ledgerly study).
+Participant p1: Dana Okafor, Finance Lead, Brightwater Studio (brand & design agency), 48 employees. Not a real person.
+
+00:00:04.120 --> 00:00:08.784
+<v Interviewer>Okay, I think we're recording now. Can you hear me alright?
+
+00:00:09.498 --> 00:00:17.240
+<v Dana Okafor>Yep, loud and clear. Sorry, my dog is— he's decided now is the time to bark at the mail guy.
+
+00:00:18.338 --> 00:00:21.496
+<v Interviewer>Ha, no problem at all. What's his name?
+
+00:00:21.932 --> 00:00:26.483
+<v Dana Okafor>Biscuit. He's a terrier mix, so, you know, opinions about everything.
+
+00:00:27.759 --> 00:00:39.570
+<v Interviewer>Perfect. So, just to set things up, this should take about fifteen minutes, we're talking about your first few weeks with Ledgerly, and there are no wrong answers.
+
+00:00:39.861 --> 00:00:42.676
+<v Interviewer>Is it okay that we record?
+
+00:00:43.718 --> 00:00:45.176
+<v Dana Okafor>Yeah, totally fine.
+
+00:00:45.926 --> 00:00:51.873
+<v Interviewer>Great. Could you start by telling me a bit about your role and the company?
+
+00:00:52.540 --> 00:01:00.276
+<v Dana Okafor>Sure. So I'm the finance lead at Brightwater, we're a brand and design studio, about forty-eight people now.
+
+00:01:00.484 --> 00:01:07.660
+<v Dana Okafor>Which sounds like a lot but it's really, um, it's three teams and a handful of freelancers floating around.
+
+00:01:07.839 --> 00:01:14.043
+<v Dana Okafor>And finance is basically me and a part-time bookkeeper, Lena, who's with us two days a week.
+
+00:01:14.680 --> 00:01:17.713
+<v Interviewer>And how did Ledgerly come into the picture?
+
+00:01:18.617 --> 00:01:32.864
+<v Dana Okafor>Honestly we were drowning in the shared inbox. People would forward receipts to the expenses address and I'd be matching them against the card statement at the end of the month, like, with a highlighter.
+
+00:01:32.998 --> 00:01:34.656
+<v Dana Okafor>It was not glamorous.
+
+00:01:34.956 --> 00:01:45.453
+<v Dana Okafor>Our CEO saw a demo at a conference and said, let's just try it. So we went live, gosh, five weeks ago? Five and a half.
+
+00:01:46.068 --> 00:01:49.469
+<v Interviewer>How did those first couple of weeks go?
+
+00:01:50.449 --> 00:02:00.350
+<v Dana Okafor>Mixed. I'd say mixed. The setup itself was quicker than I expected, like, the card ordering and inviting people, that part was fine.
+
+00:02:00.681 --> 00:02:06.728
+<v Dana Okafor>Where it started to wobble was when people actually had to use it day to day.
+
+00:02:07.274 --> 00:02:09.716
+<v Interviewer>Can you give me an example?
+
+00:02:10.066 --> 00:02:18.683
+<v Dana Okafor>So, our producers are out on shoots a lot. We rent this studio space that's in a basement, basically, under a furniture warehouse.
+
+00:02:18.836 --> 00:02:25.220
+<v Dana Okafor>And the reception down there is— it's nothing. One bar if you stand by the freight elevator.
+
+00:02:25.426 --> 00:02:38.874
+<v Dana Okafor>So someone buys props or lunch for the crew, they take a picture of the receipt in the app, it looks like it worked, and then the next day it's just not there.
+
+00:02:39.907 --> 00:02:41.336
+<v Interviewer>Not there meaning—
+
+00:02:42.348 --> 00:02:48.578
+<v Dana Okafor>Meaning it never made it to me. There's no draft, there's no error, it's just... gone.
+
+00:02:48.858 --> 00:02:56.656
+<v Dana Okafor>And they've already thrown the paper away, because why wouldn't they, the app told them it was done.
+
+00:02:57.444 --> 00:02:59.484
+<v Interviewer>How often did that happen?
+
+00:02:59.929 --> 00:03:07.969
+<v Dana Okafor>In the first month? I counted at least nine missing receipts from shoot days alone. Which, for me, is nine little investigations.
+
+00:03:08.098 --> 00:03:19.070
+<v Dana Okafor>I ended up telling the producers to keep the paper in an envelope until they see it show up on their list. Which kind of defeats the purpose, right?
+
+00:03:19.563 --> 00:03:24.115
+<v Interviewer>Yeah. What did that do to how people felt about the tool?
+
+00:03:24.498 --> 00:03:29.377
+<v Dana Okafor>Oh, it hurt it. Trust is the whole thing with expenses.
+
+00:03:29.485 --> 00:03:37.558
+<v Dana Okafor>If people don't believe the photo went through, they go back to emailing me, and then I've got two systems.
+
+00:03:38.528 --> 00:03:44.659
+<v Interviewer>Before we go on — can you walk me through the last expense you submitted yourself?
+
+00:03:45.891 --> 00:03:53.029
+<v Dana Okafor>Me personally? Um, it was a train ticket to see a client, I think last Tuesday.
+
+00:03:53.313 --> 00:04:03.942
+<v Dana Okafor>I did it from my laptop, actually, because I was already in the web app doing month-end stuff. Dragged the PDF in, picked the category, done.
+
+00:04:04.153 --> 00:04:10.790
+<v Dana Okafor>That part's honestly fine. It's quick. My problems are more about what happens after I hit submit.
+
+00:04:11.455 --> 00:04:18.692
+<v Interviewer>Mm. You mentioned two systems earlier — were there other places where people fell back to old habits?
+
+00:04:19.434 --> 00:04:24.714
+<v Dana Okafor>Approvals, definitely. Okay so this is my biggest gripe, if I'm honest.
+
+00:04:24.950 --> 00:04:33.511
+<v Dana Okafor>When we set it up, the approval flow wants a chain. Submitter, then their manager, then a department head, then finance.
+
+00:04:33.637 --> 00:04:38.145
+<v Dana Okafor>Which I'm sure is great if you're a five-hundred-person company.
+
+00:04:38.356 --> 00:04:44.691
+<v Dana Okafor>But we're forty-eight people. Our "department head" for the studio team is also the person's direct manager.
+
+00:04:44.881 --> 00:04:53.161
+<v Dana Okafor>So the same person gets asked twice, or we had to invent a fake approver to fill the slot.
+
+00:04:53.859 --> 00:04:56.118
+<v Interviewer>Wait, you invented an approver?
+
+00:04:56.833 --> 00:05:02.761
+<v Dana Okafor>[laughs] Kind of. Lena made a placeholder user called "Studio Approvals" so the chain would save.
+
+00:05:02.988 --> 00:05:05.750
+<v Dana Okafor>Please don't tell your product team that.
+
+00:05:06.818 --> 00:05:09.989
+<v Interviewer>Your secret's safe. What happens with small purchases?
+
+00:05:11.097 --> 00:05:19.644
+<v Dana Okafor>That's the other thing. A nine-dollar parking ticket goes through the exact same three steps as a two-thousand-dollar equipment rental.
+
+00:05:19.911 --> 00:05:23.885
+<v Dana Okafor>There's no, like, under fifty bucks just let it through.
+
+00:05:23.995 --> 00:05:30.785
+<v Dana Okafor>So little stuff sits there for a week because somebody's on vacation and nobody else can sign off.
+
+00:05:31.475 --> 00:05:35.622
+<v Interviewer>Did you look for a way to change that?
+
+00:05:36.024 --> 00:05:40.578
+<v Dana Okafor>I did. I spent a whole Friday afternoon in the settings.
+
+00:05:40.897 --> 00:05:51.206
+<v Dana Okafor>You can rename the steps, you can add steps, but you can't really take them away below a certain point. Or if you can, I couldn't find it.
+
+00:05:51.634 --> 00:05:57.474
+<v Interviewer>Okay. Let's talk about the end of the month. What does closing look like with Ledgerly?
+
+00:05:58.010 --> 00:06:03.827
+<v Dana Okafor>So, we're on Xero. Ledgerly pushes the expenses across, and in theory, that's the dream, right?
+
+00:06:03.980 --> 00:06:11.574
+<v Dana Okafor>In practice, the first month I had to redo, I want to say, a third of the coded lines.
+
+00:06:11.976 --> 00:06:13.656
+<v Interviewer>What was going wrong?
+
+00:06:14.392 --> 00:06:22.134
+<v Dana Okafor>The categories in Ledgerly don't line up with our chart of accounts the way they look like they do.
+
+00:06:22.296 --> 00:06:27.864
+<v Dana Okafor>Like, "Client entertainment" on our side was landing in general meals and subsistence in Xero.
+
+00:06:28.001 --> 00:06:36.922
+<v Dana Okafor>And our tracking categories — we track by client — those just didn't come through at all. Every line showed up with no client attached.
+
+00:06:37.790 --> 00:06:39.854
+<v Interviewer>How did you find out?
+
+00:06:40.874 --> 00:06:49.491
+<v Dana Okafor>Lena caught it. She was doing the bank rec and said, why is there four grand of meals and zero entertainment this month?
+
+00:06:49.574 --> 00:06:51.877
+<v Dana Okafor>And then we dug in.
+
+00:06:52.766 --> 00:06:55.910
+<v Interviewer>How long did it take to fix?
+
+00:06:56.653 --> 00:07:04.420
+<v Dana Okafor>Two evenings, roughly. We had to export to a spreadsheet, fix the codes, and re-import into Xero by hand.
+
+00:07:04.641 --> 00:07:09.339
+<v Dana Okafor>Which is exactly the thing we bought Ledgerly to stop doing.
+
+00:07:10.174 --> 00:07:12.634
+<v Interviewer>Did you reach out to support?
+
+00:07:13.593 --> 00:07:20.299
+<v Dana Okafor>Yeah, and to be fair they were nice. They sent me an article about the mapping screen.
+
+00:07:20.581 --> 00:07:29.321
+<v Dana Okafor>But the mapping screen says everything is mapped correctly. That's the confusing part. It looks right and the result is wrong.
+
+00:07:30.001 --> 00:07:32.853
+<v Interviewer>How's Lena finding all of this?
+
+00:07:33.456 --> 00:07:42.271
+<v Dana Okafor>She's a good sport. She's been doing books for agencies for, like, twenty years, so she's seen every tool come and go.
+
+00:07:42.397 --> 00:07:50.223
+<v Dana Okafor>Her line is "software doesn't do bookkeeping, people do." Which is a bit grim, but she's not wrong.
+
+00:07:50.940 --> 00:07:57.199
+<v Interviewer>Let me just pause there. If you had to rank these, what's hurting you most right now?
+
+00:07:58.189 --> 00:08:05.501
+<v Dana Okafor>Hmm. Honestly the export, because it's my time. The receipts going missing is the one that hurts the team's trust.
+
+00:08:05.654 --> 00:08:08.706
+<v Dana Okafor>And the approvals is just... annoying. Daily annoying.
+
+00:08:09.758 --> 00:08:13.863
+<v Interviewer>Is there anything that's gone better than you expected?
+
+00:08:14.942 --> 00:08:20.670
+<v Dana Okafor>The cards themselves. People like having their own card instead of borrowing mine.
+
+00:08:20.965 --> 00:08:30.194
+<v Dana Okafor>That's been a genuinely nice change. I used to have my card number memorized by half the office, which is— not ideal.
+
+00:08:31.299 --> 00:08:35.297
+<v Interviewer>[laughs] Yeah. Anything outside of Ledgerly that's affecting the rollout?
+
+00:08:36.204 --> 00:08:43.560
+<v Dana Okafor>We're also moving offices in December, so everyone's a bit frazzled. I wouldn't blame Ledgerly for everyone's mood.
+
+00:08:43.716 --> 00:08:50.873
+<v Dana Okafor>Oh, and we hired four people last month, so a lot of folks are new to everything, not just this.
+
+00:08:51.860 --> 00:08:53.895
+<v Interviewer>Where are you moving to?
+
+00:08:54.442 --> 00:09:01.407
+<v Dana Okafor>Across the river, actually. Bigger kitchen, worse parking. The designers are mostly excited about the kitchen.
+
+00:09:01.627 --> 00:09:07.297
+<v Dana Okafor>I'm mostly excited that the new place has a door I can close.
+
+00:09:07.636 --> 00:09:15.502
+<v Dana Okafor>Month-end with an open plan is, um, it's a lot of people asking me if I've seen their receipt.
+
+00:09:16.132 --> 00:09:19.490
+<v Interviewer>[laughs] That's a very specific kind of popularity.
+
+00:09:19.874 --> 00:09:23.869
+<v Dana Okafor>It really is. I'm very popular around the twenty-eighth.
+
+00:09:24.705 --> 00:09:30.185
+<v Interviewer>Okay, last question — if you could change one thing tomorrow, what would it be?
+
+00:09:31.138 --> 00:09:34.329
+<v Dana Okafor>Let me turn off steps for small amounts.
+
+00:09:34.607 --> 00:09:43.086
+<v Dana Okafor>Like, honestly, if I could say anything under a hundred dollars just goes straight to me, half my complaints would disappear.
+
+00:09:43.285 --> 00:09:50.389
+<v Dana Okafor>And make the receipt thing tell you if it didn't actually send. Even a little red dot. Anything.
+
+00:09:51.135 --> 00:09:55.223
+<v Interviewer>That's really clear. Thanks, Dana. Anything you want to add?
+
+00:09:55.689 --> 00:09:59.076
+<v Dana Okafor>No, I think that's it. Biscuit says hi.
+
+00:09:59.808 --> 00:10:02.228
+<v Interviewer>Ha, hi Biscuit. Thanks so much.

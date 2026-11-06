@@ -37,6 +37,7 @@ function canonicalChar(ch: string): string {
   if (SINGLE_QUOTES.has(ch)) return "'";
   if (DOUBLE_QUOTES.has(ch)) return '"';
   if (DASHES.has(ch)) return "-";
+  if (ch === "…") return "...";
   return ch.toLowerCase();
 }
 
@@ -113,7 +114,6 @@ export function locateQuote(source: string, rawQuote: string, opts: LocateOption
   const maxChars = opts.maxChars ?? 600;
   const quote = rawQuote.replace(TRIM_CHARS, "");
 
-  if (ELISION.test(quote)) return { ok: false, reason: "not_contiguous" };
   if (quote.length < minChars) return { ok: false, reason: "too_short" };
   if (quote.length > maxChars) return { ok: false, reason: "too_long" };
 
@@ -137,5 +137,8 @@ export function locateQuote(source: string, rawQuote: string, opts: LocateOption
     }
   }
 
+  // An ellipsis the source itself contains matched above; one that is not in
+  // the source means two passages were stitched together.
+  if (ELISION.test(quote)) return { ok: false, reason: "not_contiguous", nearest: nearestPassage(source, quote) };
   return { ok: false, reason: "not_found", nearest: nearestPassage(source, quote) };
 }

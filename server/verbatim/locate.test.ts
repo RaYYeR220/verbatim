@@ -53,6 +53,15 @@ describe("locateQuote", () => {
     });
   });
 
+  it("accepts an ellipsis that is part of the source text", () => {
+    const source = "Stick with it… it’s worth it! Five stars.";
+    const r = locateQuote(source, "Stick with it... it's worth it!");
+    expect(r.ok).toBe(true);
+    if (!r.ok) return;
+    expect(r.text).toBe("Stick with it… it’s worth it!");
+    expect(locateQuote(source, "Stick with it… it’s worth it!")).toMatchObject({ ok: true, match: "exact" });
+  });
+
   it("rejects an invented quote and suggests the nearest real passage", () => {
     const source =
       "We tried it for a week. Honestly the onboarding took forever and nobody on my team finished it.";

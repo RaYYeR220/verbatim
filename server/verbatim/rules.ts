@@ -48,12 +48,15 @@ export function evaluateInsight(noteIds: string[], notes: Map<string, NoteLite>)
 }
 
 export interface BoardHealthIssue {
-  kind: "unsorted" | "unverified" | "tampered" | "thin_theme" | "uncited_theme" | "anecdote";
+  kind: "unread_source" | "unsorted" | "unverified" | "tampered" | "thin_theme" | "uncited_theme" | "anecdote";
   ids: string[];
   message: string;
 }
 
 export interface BoardHealth {
+  sources: number;
+  /** Sources with no note yet: voices that are not on the board. */
+  unreadSources: string[];
   notes: number;
   unsorted: number;
   unverified: number;
@@ -71,7 +74,10 @@ export function computeBoardHealth(input: {
   notes: NoteLite[];
   themes: { id: string; name: string }[];
   insights: { id: string; themeId: string | null; status: string; noteIds: string[] }[];
+  sourceIds?: string[];
 }): BoardHealth {
+  const noted = new Set(input.notes.map((n) => n.sourceId));
+  const unreadSources = (input.sourceIds ?? []).filter((id) => !noted.has(id));
   const unsortedIds = input.notes.filter((n) => !n.themeId).map((n) => n.id);
   const unverifiedIds = input.notes.filter((n) => !n.verified).map((n) => n.id);
   const tamperedIds = input.notes.filter((n) => !n.textMatchesSource).map((n) => n.id);
@@ -96,6 +102,7 @@ export function computeBoardHealth(input: {
   const push = (kind: BoardHealthIssue["kind"], ids: string[], message: string) => {
     if (ids.length > 0) issues.push({ kind, ids, message });
   };
+  push("unread_source", unreadSources, `${unreadSources.length} source(s) have no notes yet.`);
   push("tampered", tamperedIds, `${tamperedIds.length} note(s) no longer match their source text.`);
   push("unverified", unverifiedIds, `${unverifiedIds.length} note(s) are not verified.`);
   push("unsorted", unsortedIds, `${unsortedIds.length} note(s) are not in a theme yet.`);
@@ -105,12 +112,15 @@ export function computeBoardHealth(input: {
 
   const penalty =
     Math.min(unsortedIds.length, 30) +
+    Math.min(unreadSources.length, 30) +
     tamperedIds.length * 25 +
     unverifiedIds.length * 5 +
     thinThemes.length * 5 +
     uncitedThemes.length * 5;
 
   return {
+    sources: input.sourceIds?.length ?? noted.size,
+    unreadSources,
     notes: input.notes.length,
     unsorted: unsortedIds.length,
     unverified: unverifiedIds.length,

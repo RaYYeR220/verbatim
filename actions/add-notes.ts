@@ -2,6 +2,7 @@ import { defineAction } from "@agent-native/core/action";
 import { z } from "zod";
 
 import { actorFromCtx, actorLabel } from "../server/verbatim/actor.js";
+import { emitBoardEvent } from "../server/verbatim/events.js";
 import { locateQuote } from "../server/verbatim/locate.js";
 import { segmentAt } from "../server/verbatim/parse-source.js";
 import { withAgentOnBoard } from "../server/verbatim/presence.js";
@@ -122,6 +123,14 @@ export default defineAction({
             noteIds: inserted.map((n) => n.id),
             rejected: rejected.map((r) => ({ quote: r.quote.slice(0, 240), reason: r.reason })),
           },
+        });
+      }
+      if (inserted.length > 0 || rejected.length > 0) {
+        emitBoardEvent("notesAdded", {
+          studyId: args.studyId,
+          added: inserted.length,
+          refused: rejected.length,
+          sourceIds: [...new Set(inserted.map((n) => n.sourceId))],
         });
       }
       return {

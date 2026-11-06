@@ -2,6 +2,7 @@ import { defineAction } from "@agent-native/core/action";
 import { z } from "zod";
 
 import { actorFromCtx } from "../server/verbatim/actor.js";
+import { emitBoardEvent } from "../server/verbatim/events.js";
 import { parseTranscript } from "../server/verbatim/parse-source.js";
 import {
   insertSource,
@@ -27,7 +28,7 @@ export default defineAction({
     mediaUrl: z.string().url().optional().describe("Recording URL, used for timestamp links"),
   }),
   run: async (args, ctx) => {
-    await requireStudy(args.studyId, "editor");
+    const study = await requireStudy(args.studyId, "editor");
     const parsed = parseTranscript(args.raw, args.format);
     if (!parsed.text.trim()) throw new Error("The source has no readable text.");
     const participantId = args.participant
@@ -49,6 +50,14 @@ export default defineAction({
       action: "add-source",
       summary: `Added source "${args.title}"`,
       payload: { sourceId },
+    });
+    emitBoardEvent("sourceAdded", {
+      studyId: args.studyId,
+      studyTitle: study.title,
+      sourceId,
+      title: args.title,
+      kind: args.kind,
+      chars: parsed.text.length,
     });
     return {
       sourceId,

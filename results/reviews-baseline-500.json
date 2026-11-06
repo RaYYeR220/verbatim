@@ -1,0 +1,1014 @@
+{
+  "label": "Single prompt (claude-sonnet-5-5)",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+    "prompt_tokens": 51135,
+    "completion_tokens": 22790,
+    "total_tokens": 73925,
+    "prompt_tokens_details": {
+      "cached_tokens": 2428
+    },
+    "cache_read_input_tokens": 2428
+  },
+  "themes": [
+    {
+      "name": "Screen jumps while typing",
+      "insight": "On iPad and iPhone the viewport scrolls or jumps away from the cursor while typing or tapping, so people literally cannot see what they are writing, and many say it has gone unfixed for months.",
+      "reviewCount": 24,
+      "quotes": [
+        {
+          "author": "emorisaurus",
+          "text": "when you type the screen JUMPS TO THE FREAKING TOP and selects RIGHT UNDER where i’m trying to type"
+        },
+        {
+          "author": "Daedalus Bouchard",
+          "text": "whenever you try to select something to type the viewport moves to somewhere else on the document so you can't see what you're doing"
+        },
+        {
+          "author": "Robicund",
+          "text": "Whenever I try to type in anything, the screen gets swiped upward, making me unable to see what I'm typing."
+        },
+        {
+          "author": "Archimutter",
+          "text": "You cannot see what you type."
+        },
+        {
+          "author": "sleepyyshifter",
+          "text": "whenever I type something the screen scrolls up until I can’t see what I’m typing"
+        },
+        {
+          "author": "Four roses",
+          "text": "moves the screen down when trying to type, so you cannot see the text as you type it"
+        }
+      ]
+    },
+    {
+      "name": "Freezes, crashes and unresponsive taps",
+      "insight": "The mobile app regularly freezes, crashes or stops responding to taps, forcing users to force-quit and relaunch mid-task.",
+      "reviewCount": 30,
+      "quotes": [
+        {
+          "author": "JDXPDX",
+          "text": "I have to force-close the app every 5-10 minutes in order to edit anything on my pages."
+        },
+        {
+          "author": "Liza Berber",
+          "text": "after about 10–15 minutes, Notion stops responding to taps, doesn’t allow editing, and I have to close the app and reopen it."
+        },
+        {
+          "author": "random business",
+          "text": "Now, I’ve sort of normalized the app crashing 8/10 times that I use it."
+        },
+        {
+          "author": "writtenbyskz",
+          "text": "I have to close the app like every minute because it gets stuck or freeze"
+        },
+        {
+          "author": "Be_jammin",
+          "text": "I get 1/5 of the way down the page and it blacks out, shows a loading spinner, and resets me at the top."
+        },
+        {
+          "author": "shannonmos588",
+          "text": "often I have to close out of the app and reopen it because the app will crash or the page will go unresponsive."
+        }
+      ]
+    },
+    {
+      "name": "Pages won't load or keep refreshing",
+      "insight": "Pages, especially long or database-heavy ones, fail to open, load endlessly, or auto-refresh every few seconds, which makes reading and writing impossible.",
+      "reviewCount": 22,
+      "quotes": [
+        {
+          "author": "Clashofvlansbrah",
+          "text": "This app refreshes every 5 seconds while you’re trying to type."
+        },
+        {
+          "author": "Marie9543",
+          "text": "the page refreshes and refreshes when I try to modify ANYTHING."
+        },
+        {
+          "author": "Manny Digital",
+          "text": "every 5-10 seconds it refreshes and disrupts my ability to write/read"
+        },
+        {
+          "author": "Boaty Mcboaterton",
+          "text": "It won’t even load on my iPhone 17 pro."
+        },
+        {
+          "author": "Jay Eee En",
+          "text": "Won’t load anything. Just sits there not loading anything, unable to click on anything."
+        },
+        {
+          "author": "✨M I L L I E✨",
+          "text": "Pages don’t load, they automatically refresh out of nowhere multiple times when you scroll, and pictures don’t load."
+        }
+      ]
+    },
+    {
+      "name": "Slow and laggy performance",
+      "insight": "Slow startup, multi-second tap delays, stuttering scrolls and sluggish databases make the mobile app too slow for quick reference or time-sensitive use.",
+      "reviewCount": 25,
+      "quotes": [
+        {
+          "author": "UniqueSheep",
+          "text": "The mobile app is near unusable and takes 30 seconds to load any page."
+        },
+        {
+          "author": "User10385x",
+          "text": "Every click lags for multiple seconds, and scrolls stutter badly."
+        },
+        {
+          "author": "PlexQ",
+          "text": "the app takes so long to load up it misses the first part of the meeting"
+        },
+        {
+          "author": "platinumpiglet",
+          "text": "wait 15 seconds waiting for a database to load"
+        },
+        {
+          "author": "TheSkyLark1",
+          "text": "the app is just so slow that it really impedes my work"
+        },
+        {
+          "author": "MrFlips99",
+          "text": "Not bad, but it is wayyy to slow and laggy."
+        }
+      ]
+    },
+    {
+      "name": "App size and storage bloat",
+      "insight": "The app's large footprint and its need for lots of free space to update annoy people who are short on storage.",
+      "reviewCount": 6,
+      "quotes": [
+        {
+          "author": "Murilaio",
+          "text": "680mb is crazy"
+        },
+        {
+          "author": "8 bit snow",
+          "text": "The app is over a half gig and the current burn of my storage is 750MB?"
+        },
+        {
+          "author": "Horror movie ads should stop",
+          "text": "takes up too much data storage"
+        },
+        {
+          "author": "em_ha",
+          "text": "also why do i need 2gb free to update???"
+        },
+        {
+          "author": "A26493",
+          "text": "Complete waste of memory."
+        }
+      ]
+    },
+    {
+      "name": "Mobile and iPad lack desktop features",
+      "insight": "Many users love Notion on desktop but find the mobile and iPad apps missing core capabilities, so they treat them as view-only or a last resort.",
+      "reviewCount": 36,
+      "quotes": [
+        {
+          "author": "David Lackey",
+          "text": "it just feels so clunky and misses important features that I’m used to on desktop"
+        },
+        {
+          "author": "Four roses",
+          "text": "It is essentially a view-only system for existing content."
+        },
+        {
+          "author": "JRockz",
+          "text": "I hate using it, I only do it out of necessity when I need to note something quickly."
+        },
+        {
+          "author": "Isaac239",
+          "text": "You can only make check boxes one at a time in the mobile app."
+        },
+        {
+          "author": "huddljdashkhfhkffh",
+          "text": "why in the hell is unlocking a database unavailable in the mobile app?"
+        },
+        {
+          "author": "DevinAnn H",
+          "text": "Incredibly annoying to have to log in on a PC just to add a template."
+        }
+      ]
+    },
+    {
+      "name": "iPad treated as a stretched port",
+      "insight": "The iPad app feels like a web or macOS port that ignores touch, Pencil, Stage Manager, Split View and landscape layouts, yet is advertised as supported.",
+      "reviewCount": 15,
+      "quotes": [
+        {
+          "author": "M.D. Miller",
+          "text": "the iPad experience is inexcusable and effectively unusable"
+        },
+        {
+          "author": "CirclePulseWriting",
+          "text": "the iPad app is just a port of the macOS app without any changes"
+        },
+        {
+          "author": "TumtumofAwesome",
+          "text": "do not play well with stage manager"
+        },
+        {
+          "author": "SubstitutePenguin",
+          "text": "most of the app extends beyond the safe zone when in in landscape"
+        },
+        {
+          "author": "26333333",
+          "text": "They keep just trying to force a web app to work as-is on other platforms and the experiences just fall apart."
+        },
+        {
+          "author": "josephs2877",
+          "text": "Bugs reported years ago with split screen on iOS not fixed."
+        }
+      ]
+    },
+    {
+      "name": "Updates remove features and break things",
+      "insight": "Recent updates removed or changed familiar features and introduced new bugs, so users feel each release makes the app worse.",
+      "reviewCount": 26,
+      "quotes": [
+        {
+          "author": "DavidatPKU",
+          "text": "Now I cannot manage my page hierarchy any more???"
+        },
+        {
+          "author": "MrArkansas870",
+          "text": "The sidebars collapse/expand on pages is no longer there anymore."
+        },
+        {
+          "author": "3rdculture",
+          "text": "The latest update truncates the content of the tables and databases to 5 characters"
+        },
+        {
+          "author": "wynnejh",
+          "text": "Every time they update to fix bugs, more bugs appear."
+        },
+        {
+          "author": "foobarABC",
+          "text": "Required me to update and now it crashes on every launch"
+        },
+        {
+          "author": "Kraig0005",
+          "text": "The last couple of releases it seems like it has gone downhill considerably."
+        }
+      ]
+    },
+    {
+      "name": "Ask AI bar displaces search and home",
+      "insight": "The large, non-removable Ask AI bar at the bottom of mobile replaced search and the home button, takes up screen space and gets accidentally tapped.",
+      "reviewCount": 26,
+      "quotes": [
+        {
+          "author": "Honest and Unbiased",
+          "text": "The button for AI is large and centered on the bottom of your screen instead of a search bar like it used to be."
+        },
+        {
+          "author": "Nicho_Nicho",
+          "text": "the app has a huge Notion AI search bar at the bottom that we cannot remove."
+        },
+        {
+          "author": "lil beatnik",
+          "text": "now they’ve defaulted the search bar to an “ask AI” bar and minimized the search."
+        },
+        {
+          "author": "talps99",
+          "text": "Having an unremovable “Ask AI” text box taking up screen real estate is annoying!"
+        },
+        {
+          "author": "ZnopeThanks",
+          "text": "I was very frustrated and inconvenienced when they replaced the bottom bar, which used to have a home button on it, with a giant AI bar."
+        },
+        {
+          "author": "daisy from sf",
+          "text": "Please move the search bar to thumb area"
+        }
+      ]
+    },
+    {
+      "name": "Backlash against forced AI pivot",
+      "insight": "A large group feels Notion has reshaped itself around AI against their wishes, with no off switch, and some cite ethical concerns or are leaving for alternatives.",
+      "reviewCount": 40,
+      "quotes": [
+        {
+          "author": "Ian A.",
+          "text": "So sad to see the AI emphasis/pivot. I'll stop recommending this to people."
+        },
+        {
+          "author": "Beth Nor",
+          "text": "the egregious pivot toward an AI focused identity has become incredibly detrimental to the overall user experience"
+        },
+        {
+          "author": "Flamingo_444",
+          "text": "Why do we need AI??? It was my favorite app until this."
+        },
+        {
+          "author": "Ri🌙",
+          "text": "it’s been ruined by the militant push to make their users use ai"
+        },
+        {
+          "author": "cindeeelou",
+          "text": "Won’t be using any apps that support the ghouls of AI companies."
+        },
+        {
+          "author": "MG1671",
+          "text": "I’d come back in a heartbeat if they ditched the AI slop."
+        }
+      ]
+    },
+    {
+      "name": "AI features unreliable or off-target",
+      "insight": "Even people who want the AI find it laggy, device-unaware, or failing at tasks it advertises.",
+      "reviewCount": 18,
+      "quotes": [
+        {
+          "author": "Ipadgirl123",
+          "text": "Your AI only gives answers based on being on notion on a laptop even if I let it know I’m on the iPad."
+        },
+        {
+          "author": "reciprocitea",
+          "text": "I tried to ask the in-app AI about “templates” and it directed me to a sidebar that doesn’t exist."
+        },
+        {
+          "author": "Jakobihaskell",
+          "text": "Takes long to load, especially on long threads"
+        },
+        {
+          "author": "moxie.may",
+          "text": "AI closes its text box every 10 - 15 seconds."
+        },
+        {
+          "author": "srballin82",
+          "text": "commands don’t work as described in the Ask AI section"
+        },
+        {
+          "author": "Professional in the Field",
+          "text": "the iPhone app is trash and can’t transcribe the call for some reason"
+        }
+      ]
+    },
+    {
+      "name": "Lost or unsaved notes",
+      "insight": "Disappearing workspaces, unsaved edits and failed restores are the most damaging failures and drive people to abandon the app entirely.",
+      "reviewCount": 11,
+      "quotes": [
+        {
+          "author": "randomdude7294",
+          "text": "One random update later all of my notes for every single class were missing."
+        },
+        {
+          "author": "oliviaggarner",
+          "text": "one day the entire workspace disappeared."
+        },
+        {
+          "author": "UM. S",
+          "text": "it accidentally deleted my notes."
+        },
+        {
+          "author": "Tired travel planner",
+          "text": "I went to the “trash” section, when I did the redo arrow, it didn’t restore anything back to my original page."
+        },
+        {
+          "author": "Xynic",
+          "text": "If the app can’t hold 1 simple note, it’s going to be more of a hassle to use it than I want to deal with.."
+        },
+        {
+          "author": "AlexWasHere!",
+          "text": "Years of unfixed bugs and now unsaved work issues."
+        }
+      ]
+    },
+    {
+      "name": "Text selection, formatting and deletion bugs",
+      "insight": "Basic editing actions like selecting, coloring, bolding and deleting text or images fail partially or not at all on mobile.",
+      "reviewCount": 13,
+      "quotes": [
+        {
+          "author": "K.loves20",
+          "text": "whenever I highlight a paragraph and try applying italic, or bold to it, it only applies to the first word and only allows me to edit that first word."
+        },
+        {
+          "author": "yulissaredden",
+          "text": "I cannot delete text on the app."
+        },
+        {
+          "author": "angellixiir",
+          "text": "Sometimes you can’t delete text; it just stays there."
+        },
+        {
+          "author": "ifureadthisulikebathwater",
+          "text": "Can’t delete images fix it"
+        },
+        {
+          "author": "motiongraphics",
+          "text": "You say you want to select all the text in a note on an iPhone? How about just a paragraph instead?"
+        },
+        {
+          "author": "kieramarina98",
+          "text": "text disappears from the page when selecting it"
+        }
+      ]
+    },
+    {
+      "name": "Keyboard, Pencil and dictation input problems",
+      "insight": "External keyboards, Apple Pencil and voice-to-text work poorly, which blocks writing-focused users.",
+      "reviewCount": 8,
+      "quotes": [
+        {
+          "author": "Ra.133",
+          "text": "This is the only app I've ever used that I can't type in with my bluetooth keyboard."
+        },
+        {
+          "author": "Lorenzo1269",
+          "text": "I can’t type correctly on an external keyboard"
+        },
+        {
+          "author": "Erick Alden",
+          "text": "Voice to text syncs incorrectly."
+        },
+        {
+          "author": "Kp5609",
+          "text": "You will literally see the words be removed when you are finished right in front of your eyes."
+        },
+        {
+          "author": "Jem😜😎",
+          "text": "It wont let me use my apple pencil"
+        },
+        {
+          "author": "LovingMyI",
+          "text": "All the iPhone app needs is handwriting support and it would be perfect."
+        }
+      ]
+    },
+    {
+      "name": "Drag, move and touch-gesture failures",
+      "insight": "Reordering blocks, images and pages, and dismissing menus, is unreliable on touch because gestures trigger keyboards, popups or stuck overlays instead.",
+      "reviewCount": 10,
+      "quotes": [
+        {
+          "author": "Zuku :)",
+          "text": "Each time I hold an item to move it, the keyboard or the pop up menu shows up and will not let me move the object."
+        },
+        {
+          "author": "PDillonDP",
+          "text": "The “Drag and Drop” disappears, the icons disappear, and even simple tasks become unmanageable."
+        },
+        {
+          "author": "lovelyziy",
+          "text": "causes the page to spazz out of control and start auto-scrolling back to the top"
+        },
+        {
+          "author": "helpmewhat?",
+          "text": "Tapping some modules will cause an unclose-able box to appear that persists even after closing the app."
+        },
+        {
+          "author": "Comeon Brah",
+          "text": "it’s no way of exiting the photo without closing the app."
+        },
+        {
+          "author": "HealthyPoo",
+          "text": "A lot of gestures like resizing the sidebar also not working."
+        }
+      ]
+    },
+    {
+      "name": "No dependable offline access",
+      "insight": "Users treat Notion as their second brain yet cannot reach their notes without a connection, which is a trust-breaking gap.",
+      "reviewCount": 6,
+      "quotes": [
+        {
+          "author": "Afish3",
+          "text": "I was really frustrated I couldn’t access my pages without an internet connection in the grocery store today."
+        },
+        {
+          "author": "SmoothiePlz",
+          "text": "maybe there is or will be a way to keep my things local."
+        },
+        {
+          "author": "Malexandre04",
+          "text": "I’m unable to access my notes without a Wi-Fi or cellular connection."
+        },
+        {
+          "author": "Tobysq",
+          "text": "Offline caching could be better."
+        },
+        {
+          "author": "PressAltF4Already",
+          "text": "you, as the user, are not allowed to even OPEN THE APP when you’ve disabled “Use Cellular Data” in your phone’s settings"
+        }
+      ]
+    },
+    {
+      "name": "Sign-in loops and lockouts",
+      "insight": "Login, password reset and Google or Apple sign-in flows loop or fail, locking people out of their own content.",
+      "reviewCount": 9,
+      "quotes": [
+        {
+          "author": "Deral Fenderson",
+          "text": "Rinse Lather Repeat."
+        },
+        {
+          "author": "RJF123",
+          "text": "you send me a link that brings me back to the sign in page and that just keeps going on."
+        },
+        {
+          "author": "The_Pie_Monster",
+          "text": "Can’t get past the Google Auth"
+        },
+        {
+          "author": "nickname_84919575",
+          "text": "It’s saying I don’t have access to my notion even though I’m logged in."
+        },
+        {
+          "author": "darnkiddo",
+          "text": "thanks for logging me out after updating appreciate it"
+        },
+        {
+          "author": "Faaaaaaaahhhh",
+          "text": "I can't log in to the application, none of the methods are available."
+        }
+      ]
+    },
+    {
+      "name": "Forced updates and old iOS support",
+      "insight": "Mandatory updates and high iOS minimums lock out people on older devices or block access at critical moments.",
+      "reviewCount": 8,
+      "quotes": [
+        {
+          "author": "em_ha",
+          "text": "forcing me to update and blocking me from looking at my notes right when i needed them."
+        },
+        {
+          "author": "Robo_maniac",
+          "text": "You force me to update then force me to sign in"
+        },
+        {
+          "author": "mestudent2019",
+          "text": "Not everyone can afford to but y a new iPad every time you update your app."
+        },
+        {
+          "author": "Yolo512al",
+          "text": "My iOS is 16.3.1, can't update the new version, but it always pops out the update page"
+        },
+        {
+          "author": "NightGoddessy",
+          "text": "put the user into an infinite sign in flow that doesn’t actually allow them to get in and you keep giving them the required upgrade notice"
+        },
+        {
+          "author": "themagicmirror",
+          "text": "stop MAKING ME UPDATE"
+        }
+      ]
+    },
+    {
+      "name": "Billing surprises, paywalls and weak support",
+      "insight": "Unexpected plan changes, shrinking free tiers, feature paywalls, refund refusals and unreachable support erode trust in paying customers.",
+      "reviewCount": 22,
+      "quotes": [
+        {
+          "author": "Decimaelstrom",
+          "text": "This is the fifth time I’ve had to dispute them changing up the plan on me without my clear consent."
+        },
+        {
+          "author": "walnut_kale",
+          "text": "It automatically switches you to a plan that pays and charges you without permission for years."
+        },
+        {
+          "author": "zac-attac",
+          "text": "I pay for Plus but I can’t retrieve document versions older than 90 days without paying even MORE for an Enterprise plan?"
+        },
+        {
+          "author": "nini 30 drums",
+          "text": "the form won’t let me enter my email address, so I can’t even contact support."
+        },
+        {
+          "author": "Kpeterson19",
+          "text": "They only refund your money if you have a technical issue, it is not a true money back guarantee."
+        },
+        {
+          "author": "MuElMetwally",
+          "text": "suddenly they changed their free plan policy and it became very limited."
+        }
+      ]
+    },
+    {
+      "name": "Steep learning curve and complexity",
+      "insight": "First-time and non-technical users feel lost, find little in-app guidance, and some give up for simpler tools.",
+      "reviewCount": 22,
+      "quotes": [
+        {
+          "author": "Stakeholder1",
+          "text": "I don’t see enough guidance within the app itself to show me how to do those wonderful things"
+        },
+        {
+          "author": "RevJackDaniel_KY",
+          "text": "could you just make an easy mode that strips down all the enormous amount of options and features and tweaks."
+        },
+        {
+          "author": "Irritated perimenopausal woman",
+          "text": "This is not user friendly unless you happen to be a coder."
+        },
+        {
+          "author": "Joey gggdyyhvx",
+          "text": "One of the most unintuitive apps I’ve ever used."
+        },
+        {
+          "author": "Femrrir",
+          "text": "is very ridiculous when you want to use an app and then you noticed that you have to invest time figuring out how to use"
+        },
+        {
+          "author": "Eyeseena",
+          "text": "there are too many ways that you can see things."
+        }
+      ]
+    },
+    {
+      "name": "Learning curve is worth it",
+      "insight": "Those who push through the initial confusion, often with tutorials, become devoted users.",
+      "reviewCount": 15,
+      "quotes": [
+        {
+          "author": "The Troll King2605",
+          "text": "once you’re able to figure out how everything works and displays… chefs kiss honestly."
+        },
+        {
+          "author": "RonRodCPA",
+          "text": "This is the type of app that one just needs to use regularly and consistently to fully appreciate its power."
+        },
+        {
+          "author": "TheGoalGuy",
+          "text": "Stick with it... it’s worth it!"
+        },
+        {
+          "author": "ddosu___",
+          "text": "There’s a bit of a learning curve but it will make life better."
+        },
+        {
+          "author": "Grivor12",
+          "text": "There’s a little bit of a learning curve, but more than enough help online to get you up and started"
+        },
+        {
+          "author": "beesdreams",
+          "text": "An absolutely dizzying learning curve, but if you stick with it will give you stunningly, breathtaking views."
+        }
+      ]
+    },
+    {
+      "name": "Templates and marketplace broken on mobile",
+      "insight": "Finding, previewing and adding templates from the mobile app is missing or broken, even though templates are a main way newcomers get started.",
+      "reviewCount": 7,
+      "quotes": [
+        {
+          "author": "jdisbenn03",
+          "text": "the marketplace for templates wasn’t available."
+        },
+        {
+          "author": "daisydangit",
+          "text": "I can find them, see them, but cannot download them or even view the product page for them."
+        },
+        {
+          "author": "😜✌️💕",
+          "text": "I can’t even click on a free template to use it."
+        },
+        {
+          "author": "briany",
+          "text": "The Template area appears to be broken on my iPad Pro running iOS 26."
+        },
+        {
+          "author": "TumtumofAwesome",
+          "text": "How do I go from the marketplace back to my homepage you may ask? The only way is to close the app and open it back up."
+        }
+      ]
+    },
+    {
+      "name": "Widgets, share sheet and clipper breaking",
+      "insight": "iOS extension points that make Notion useful on the go (widgets, share sheet, web clipper) are buggy or have stopped working.",
+      "reviewCount": 8,
+      "quotes": [
+        {
+          "author": "Dhriejdowmjdjdj",
+          "text": "Share sheet suddenly broke. Does not work on iPhone or iPad."
+        },
+        {
+          "author": "AppAddict989",
+          "text": "I primarily use Notion as a web clipper, but it recently broke and no longer captures pages"
+        },
+        {
+          "author": "angellixiir",
+          "text": "widgets on phone screen don’t work properly; they just keep loading endlessly"
+        },
+        {
+          "author": "Broken app garbage",
+          "text": "IOS widgets are super buggy. The share widget is completely broken."
+        },
+        {
+          "author": "AlysiaG1",
+          "text": "the widget I added to my phone’s Home Screen no longer works"
+        },
+        {
+          "author": "Magicuniform",
+          "text": "Please give us large widgets for our home screens!"
+        }
+      ]
+    },
+    {
+      "name": "Text size and visual accessibility",
+      "insight": "Users with low vision or non-Latin scripts can't enlarge text, and the app ignores system font size.",
+      "reviewCount": 5,
+      "quotes": [
+        {
+          "author": "Icareaboutquality",
+          "text": "there is no way to make the text size larger"
+        },
+        {
+          "author": "ZiriMark",
+          "text": "you cannot even choose a font size"
+        },
+        {
+          "author": "SubstitutePenguin",
+          "text": "I can’t get the system font size to affect the app"
+        },
+        {
+          "author": "Springon",
+          "text": "I’m visually handicapped and just cannot see the screen print even on your first page!"
+        },
+        {
+          "author": "adgjfrhh",
+          "text": "especially for Chinese characters, they are too small on the mobile app"
+        }
+      ]
+    },
+    {
+      "name": "Feature and language wishlist",
+      "insight": "Fans ask for finer color control, more languages, page-level security, mind maps and similar additions.",
+      "reviewCount": 12,
+      "quotes": [
+        {
+          "author": "Aslantulip",
+          "text": "a color wheel, that way we can make texts whatever color we want"
+        },
+        {
+          "author": "Morge.d",
+          "text": "the ability to add hex codes for more color options or have a color wheel"
+        },
+        {
+          "author": "Андрей2662",
+          "text": "Please add Russian language"
+        },
+        {
+          "author": "fe35$",
+          "text": "theres no Turkish language not acceptable"
+        },
+        {
+          "author": "AkshayPrajapati",
+          "text": "Feature to password-protect a particular page would be very helpful!"
+        },
+        {
+          "author": "medsamsam",
+          "text": "the only thing I wish there was is a mind map feature within pages"
+        }
+      ]
+    },
+    {
+      "name": "All-in-one second brain for life and work",
+      "insight": "Many users say Notion is their central system for personal life, work and projects.",
+      "reviewCount": 70,
+      "quotes": [
+        {
+          "author": "InRah’sLife (IRL)",
+          "text": "I literally use this platform across multiple things in my life."
+        },
+        {
+          "author": "hp90234",
+          "text": "It’s like my second brain for my business, mindset, health."
+        },
+        {
+          "author": "Ms Alamo",
+          "text": "IT CAN DO AND BE EVERYTHING AND ANYTHING."
+        },
+        {
+          "author": "Sabeybaby",
+          "text": "this thing organizes my personal life, my work, my business, school, my childcare…"
+        },
+        {
+          "author": "Hgtcj",
+          "text": "I organize my whole life here"
+        },
+        {
+          "author": "Abby delgado",
+          "text": "organize my personal, parenting, career, school all of it in one single spot"
+        }
+      ]
+    },
+    {
+      "name": "Customization, databases and flexibility",
+      "insight": "Deep customizability, relational databases and nested pages are what hooks people and keeps them loyal.",
+      "reviewCount": 35,
+      "quotes": [
+        {
+          "author": "Prem1378",
+          "text": "it’s so deeply customizable that I got basically hooked on it."
+        },
+        {
+          "author": "Bob Maher",
+          "text": "Love Notion’s support for relational databases."
+        },
+        {
+          "author": "nicknage taken",
+          "text": "At any point of your planning you can add an extra page within a page"
+        },
+        {
+          "author": "Ackmachine",
+          "text": "I need things like drop downs and pages within pages to categorize them to my liking."
+        },
+        {
+          "author": "Quartz07",
+          "text": "You can turn a simple page into a full workspace with lists, databases, and structured notes"
+        },
+        {
+          "author": "Leathermen10",
+          "text": "Moved hundreds (All) of my notes to Notion in a few hours."
+        }
+      ]
+    },
+    {
+      "name": "ADHD and neurodivergent support",
+      "insight": "People with ADHD credit Notion's structure and customization with helping them stay organized.",
+      "reviewCount": 9,
+      "quotes": [
+        {
+          "author": "justjmer",
+          "text": "the customization in notion makes it so fun and easy to keep my stuff organized"
+        },
+        {
+          "author": "Kirsty B.",
+          "text": "Notion helps me keep everything straight without dropping the important balls."
+        },
+        {
+          "author": "sbs912",
+          "text": "today was that day!!"
+        },
+        {
+          "author": "Single stressed mom",
+          "text": "My task paralysis was reduced when I see all of my responsibilities on one dashboard page."
+        },
+        {
+          "author": "Sdaley96",
+          "text": "As a mother of three and an entrepreneur with ADHD, I use Notion to manage tasks"
+        },
+        {
+          "author": "DisgruntledStudent",
+          "text": "why did it take me so long to become a notion power user?"
+        }
+      ]
+    },
+    {
+      "name": "Students and school planning",
+      "insight": "Students use Notion for notes, assignments and study systems and love it for that.",
+      "reviewCount": 12,
+      "quotes": [
+        {
+          "author": "The Troll King2605",
+          "text": "I use it for school most of the time and it hasn’t failed me once."
+        },
+        {
+          "author": "Chicken38383",
+          "text": "I have my whole study system and calendar here"
+        },
+        {
+          "author": "FunScholar",
+          "text": "I’ve been using it for school and keeping track of assignments and projects and it’s so helpful."
+        },
+        {
+          "author": "Clarandreia",
+          "text": "It helps a lot with school, easy to create templates"
+        },
+        {
+          "author": "•Doritos",
+          "text": "it’s so good for school, comic planning, and for writing."
+        },
+        {
+          "author": "deboraapplereview",
+          "text": "As a medical student who identifies heavily with visual learning, creativity and planning, this app has become my new favorite."
+        }
+      ]
+    },
+    {
+      "name": "Business and professional use",
+      "insight": "Solopreneurs and small teams run client portals, CRMs and operations in Notion.",
+      "reviewCount": 14,
+      "quotes": [
+        {
+          "author": "Success Marketing",
+          "text": "Use it for everything to manage my all business operations & personal life"
+        },
+        {
+          "author": "Kozmic Strategist",
+          "text": "organize systems, clients portals, and workflow for my business in one place"
+        },
+        {
+          "author": "JARODABO",
+          "text": "each time I login - I see a better UI to play with."
+        },
+        {
+          "author": "tones92",
+          "text": "I run 3 businesses and without Notion idk where I’d be."
+        },
+        {
+          "author": "Jeremy Snowden",
+          "text": "It’s great for flushing out ideas, getting clarity and organizing concepts."
+        }
+      ]
+    },
+    {
+      "name": "Pairing with AI assistants",
+      "insight": "A distinct group loves Notion as a memory and workspace layer for Claude, ChatGPT or agents, and appreciates AI that builds pages and databases for them.",
+      "reviewCount": 22,
+      "quotes": [
+        {
+          "author": "Syda321",
+          "text": "I can just tell the AI tool to create a list, create pages, add check boxes or time slots, etc and it will do it!"
+        },
+        {
+          "author": "Screaming in frustration",
+          "text": "Claude is my administrative assistant, and Notion works as the memory for Claude."
+        },
+        {
+          "author": "Don Tevenask",
+          "text": "You do the architecture and the ai does all the grunt work."
+        },
+        {
+          "author": "Lyons74",
+          "text": "It extends the memory of what you work on in your primary platform."
+        },
+        {
+          "author": "Nalu Rash",
+          "text": "Paired with Claude, Notion is finally keeping me sane and motivated"
+        },
+        {
+          "author": "GB Watts",
+          "text": "Simply tell Notion’s AI what kind of planner, organizer, calendar, tracker you want, and it makes it."
+        }
+      ]
+    },
+    {
+      "name": "Seamless sync across devices",
+      "insight": "Being able to reach the same workspace on phone, tablet and computer is a valued strength.",
+      "reviewCount": 7,
+      "quotes": [
+        {
+          "author": "Snowball1985",
+          "text": "it’s one the few apps that I use that works both the same on my phone as well as when I’m on my iPad or desk top computer."
+        },
+        {
+          "author": "pearlel",
+          "text": "now i have it all of my devices. it’s so nice being able to access everything on each one."
+        },
+        {
+          "author": "Carissa Hope",
+          "text": "love the compatibility across devices."
+        },
+        {
+          "author": "Roggregcock",
+          "text": "saves in real time as you go"
+        },
+        {
+          "author": "Liiam Diiel",
+          "text": "puedo abrir en cualquier lugar, ejemplo celulares, computadoras y mucho más"
+        }
+      ]
+    },
+    {
+      "name": "Free tier and replacing other note apps",
+      "insight": "People value the generous free tier and say Notion replaced Apple Notes, Evernote and other tools.",
+      "reviewCount": 14,
+      "quotes": [
+        {
+          "author": "kristin2019",
+          "text": "This has replaced my notes app"
+        },
+        {
+          "author": "Iwas1cemanB4drake",
+          "text": "So much better than Apple Notes!!"
+        },
+        {
+          "author": "Emerson119",
+          "text": "I moved from Evernote to Notion and have never looked back."
+        },
+        {
+          "author": "Somtochukwu1",
+          "text": "Even though I still use the free version because of a lack of funds, it serves."
+        },
+        {
+          "author": "Vybztech",
+          "text": "Even for a free version it’s the best PM tool ever !"
+        },
+        {
+          "author": "ash+mad",
+          "text": "just the fact being free, is a gift for a great tool like this!"
+        }
+      ]
+    }
+  ]
+}

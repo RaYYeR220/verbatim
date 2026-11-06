@@ -1,0 +1,230 @@
+{
+  "label": "Single prompt (claude-sonnet-5-5)",
+  "participants": 8,
+  "quotes": 83,
+  "quoteFidelity": 0.963855421686747,
+  "inventedQuotes": 3,
+  "misattributed": 0,
+  "interviewerQuotedAsCustomer": 0,
+  "themesPredicted": 17,
+  "themeRecall": "7/7",
+  "minorityThemeFound": true,
+  "contradictionSides": "2/2 sides",
+  "decoyThemes": 0,
+  "perTheme": [
+    {
+      "id": "T1",
+      "name": "Receipt capture fails on weak signal",
+      "found": true,
+      "voices": "5/5"
+    },
+    {
+      "id": "T2",
+      "name": "Approval chains too rigid for small teams",
+      "found": true,
+      "voices": "4/4"
+    },
+    {
+      "id": "T3",
+      "name": "Card spend limits are confusing",
+      "found": true,
+      "voices": "4/4"
+    },
+    {
+      "id": "T4",
+      "name": "Accounting export mapping errors",
+      "found": true,
+      "voices": "3/3"
+    },
+    {
+      "id": "T5",
+      "name": "Onboarding emails reach the wrong person",
+      "found": true,
+      "voices": "2/2"
+    },
+    {
+      "id": "T6",
+      "name": "Screen reader can't use receipt camera",
+      "found": true,
+      "voices": "1/1"
+    },
+    {
+      "id": "T7",
+      "name": "Mobile app: loved vs unusable",
+      "found": true,
+      "voices": "4/4"
+    }
+  ],
+  "themeMatches": [
+    {
+      "name": "Silent receipt upload failures in low-signal areas",
+      "keyTheme": "T1",
+      "overlapChars": 305,
+      "voices": [
+        "p2",
+        "p3",
+        "p5",
+        "p7"
+      ]
+    },
+    {
+      "name": "Rigid approval chains misfit for small teams",
+      "keyTheme": "T2",
+      "overlapChars": 394,
+      "voices": [
+        "p1",
+        "p4",
+        "p6",
+        "p8"
+      ]
+    },
+    {
+      "name": "Confusing and opaque card limits and declines",
+      "keyTheme": "T3",
+      "overlapChars": 314,
+      "voices": [
+        "p2",
+        "p3",
+        "p5",
+        "p8"
+      ]
+    },
+    {
+      "name": "Accounting sync errors that break coding and tracking",
+      "keyTheme": "T4",
+      "overlapChars": 282,
+      "voices": [
+        "p1",
+        "p5",
+        "p6"
+      ]
+    },
+    {
+      "name": "Invite and activation emails routed to the wrong person",
+      "keyTheme": "T5",
+      "overlapChars": 208,
+      "voices": [
+        "p4",
+        "p6"
+      ]
+    },
+    {
+      "name": "Mobile app usability barriers for field and non-technical users",
+      "keyTheme": "T7",
+      "overlapChars": 265,
+      "voices": [
+        "p2",
+        "p5"
+      ]
+    },
+    {
+      "name": "Disagreement: mobile app praised as fast and slick",
+      "keyTheme": "T7",
+      "overlapChars": 180,
+      "voices": [
+        "p3",
+        "p8"
+      ]
+    },
+    {
+      "name": "Screen reader inaccessibility of the receipt capture button",
+      "keyTheme": "T6",
+      "overlapChars": 210,
+      "voices": [
+        "p7"
+      ]
+    },
+    {
+      "name": "Inconsistent support answers and unclear help content",
+      "keyTheme": null,
+      "overlapChars": 0,
+      "voices": [
+        "p4",
+        "p1",
+        "p3",
+        "p8",
+        "p6"
+      ]
+    },
+    {
+      "name": "Users revert to old habits and run parallel systems",
+      "keyTheme": "T1",
+      "overlapChars": 71,
+      "voices": [
+        "p1",
+        "p2",
+        "p3",
+        "p5",
+        "p6"
+      ]
+    },
+    {
+      "name": "Training and adoption support is thin or not engaging",
+      "keyTheme": null,
+      "overlapChars": 0,
+      "voices": [
+        "p2",
+        "p4",
+        "p5",
+        "p3",
+        "p8"
+      ]
+    },
+    {
+      "name": "Misleading setup completion signals",
+      "keyTheme": "T5",
+      "overlapChars": 50,
+      "voices": [
+        "p4"
+      ]
+    },
+    {
+      "name": "Spend-limit rules not explained to admins up front",
+      "keyTheme": "T3",
+      "overlapChars": 106,
+      "voices": [
+        "p2",
+        "p3",
+        "p5"
+      ]
+    },
+    {
+      "name": "Bright spots: cards, integrations, reporting and offboarding",
+      "keyTheme": null,
+      "overlapChars": 0,
+      "voices": [
+        "p1",
+        "p2",
+        "p4",
+        "p3",
+        "p6"
+      ]
+    },
+    {
+      "name": "Approver notification overload",
+      "keyTheme": null,
+      "overlapChars": 0,
+      "voices": [
+        "p6"
+      ]
+    },
+    {
+      "name": "Rollout timing and external context",
+      "keyTheme": null,
+      "overlapChars": 0,
+      "voices": [
+        "p1",
+        "p5",
+        "p2"
+      ]
+    },
+    {
+      "name": "Contractors and non-standard users excluded from the card program",
+      "keyTheme": null,
+      "overlapChars": 0,
+      "voices": [
+        "p6"
+      ]
+    }
+  ]
+}

@@ -474,6 +474,7 @@ export async function getBoard(studyId: string): Promise<BoardPayload> {
     notes: lites,
     themes: rows.themes.map((t) => ({ id: t.id, name: t.name })),
     insights: insights.map((i) => ({ id: i.id, themeId: i.themeId, status: i.check.status === "invalid" ? "invalid" : i.status, noteIds: i.noteIds })),
+    sourceIds: rows.sources.map((s) => s.id),
   });
 
   const notesBySource = new Map<string, number>();

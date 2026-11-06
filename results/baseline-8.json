@@ -1,0 +1,449 @@
+{
+  "label": "Single prompt (claude-sonnet-5-5)",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+    "prompt_tokens": 28989,
+    "completion_tokens": 6182,
+    "total_tokens": 35171,
+    "prompt_tokens_details": {
+      "cached_tokens": 2428
+    },
+    "cache_read_input_tokens": 2428
+  },
+  "themes": [
+    {
+      "name": "Silent receipt upload failures in low-signal areas",
+      "insight": "Receipt photos taken offline appear to succeed but silently fail or vanish with no retry or error, leading to lost receipts, extra investigation work, and eroded trust in the app.",
+      "quotes": [
+        {
+          "speaker": "Dana Okafor",
+          "text": "Meaning it never made it to me. There's no draft, there's no error, it's just... gone."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "Half the time the photo's not in the app anymore."
+        },
+        {
+          "speaker": "Priya Raman",
+          "text": "Once I came back to the app that evening and there was a message that said \"upload failed, try again,\" but the photo was gone, so I couldn't try again."
+        },
+        {
+          "speaker": "Grace Whitfield",
+          "text": "So they snap it, and it sits in this \"sending\" state, and then at some point it decides it's failed and drops it."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "Things just quietly don't go through."
+        },
+        {
+          "speaker": "Grace Whitfield",
+          "text": "One of our foremen, Luis, brought me his phone and a crumpled receipt in a sandwich bag. He said, \"I don't trust it, so here's both.\""
+        }
+      ]
+    },
+    {
+      "name": "Rigid approval chains misfit for small teams",
+      "insight": "The mandatory multi-level approval chain doesn't fit small organizations, forcing duplicate approvals, placeholder approvers, and stalled purchases when an approver is away.",
+      "quotes": [
+        {
+          "speaker": "Dana Okafor",
+          "text": "A nine-dollar parking ticket goes through the exact same three steps as a two-thousand-dollar equipment rental."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "Kind of. Lena made a placeholder user called \"Studio Approvals\" so the chain would save."
+        },
+        {
+          "speaker": "Tomás Herrera",
+          "text": "\"Why am I approving my own team's coffee twice.\" [laughs] Fair question."
+        },
+        {
+          "speaker": "Jordan Mbeki",
+          "text": "A thirty-dollar order of clay sits there for nine days because she's at a conference and the app won't let anyone else step in."
+        },
+        {
+          "speaker": "Jordan Mbeki",
+          "text": "I tried making a delegate, but the delegate setting only works if the person is at the same \"level,\" and there isn't anyone at Monique's level."
+        },
+        {
+          "speaker": "Ravi Desai",
+          "text": "So every expense comes to me, I approve it, and then it comes to me again as finance, and I approve it again. And I can't merge those."
+        }
+      ]
+    },
+    {
+      "name": "Confusing and opaque card limits and declines",
+      "insight": "Card limits are layered (monthly, per-transaction, category, budget, pending holds) but the UI shows only one number, so people are declined unexpectedly, often in embarrassing situations, and stop trusting the displayed balance.",
+      "quotes": [
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "And the screen only shows one number. So I'm looking at four hundred and he's standing at a pump in the middle of nowhere with a truck that's empty."
+        },
+        {
+          "speaker": "Priya Raman",
+          "text": "And the app doesn't show holds. It just shows what's been charged. So I'm looking at nine hundred left and the card's saying no."
+        },
+        {
+          "speaker": "Priya Raman",
+          "text": "I've kind of stopped trusting the number on the screen."
+        },
+        {
+          "speaker": "Grace Whitfield",
+          "text": "I'm a controller. Controls are my whole job. I didn't find it."
+        },
+        {
+          "speaker": "Ravi Desai",
+          "text": "There's \"budgets\" and there's \"limits,\" and I genuinely don't know the difference."
+        },
+        {
+          "speaker": "Ravi Desai",
+          "text": "Theo now asks me before every lunch, \"am I good?\" Which is exactly the kind of message I was trying to stop getting."
+        }
+      ]
+    },
+    {
+      "name": "Accounting sync errors that break coding and tracking",
+      "insight": "Exports to Xero and QuickBooks drop classes, tracking categories, or grant/job info, miscode lines, and sometimes duplicate entries, even though the mapping screen looks correct, creating manual cleanup that defeats the product's purpose.",
+      "quotes": [
+        {
+          "speaker": "Dana Okafor",
+          "text": "The categories in Ledgerly don't line up with our chart of accounts the way they look like they do."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "But the mapping screen says everything is mapped correctly. That's the confusing part. It looks right and the result is wrong."
+        },
+        {
+          "speaker": "Grace Whitfield",
+          "text": "In October, about half came through with no class at all. And a bunch landed in the wrong expense account — materials going into \"office supplies.\""
+        },
+        {
+          "speaker": "Grace Whitfield",
+          "text": "And there were duplicates too. Some expenses synced twice. Same amount, same date, two entries in QuickBooks."
+        },
+        {
+          "speaker": "Jordan Mbeki",
+          "text": "When Ledgerly sends the expenses over, the grant doesn't come with it."
+        },
+        {
+          "speaker": "Jordan Mbeki",
+          "text": "She said it's actually more work than the paper forms, because at least the forms had the grant name written on them."
+        }
+      ]
+    },
+    {
+      "name": "Invite and activation emails routed to the wrong person",
+      "insight": "Onboarding emails went to the account creator, signer, or a generic inbox instead of the actual users, delaying activation by one to two weeks and making the rollout feel sloppy.",
+      "quotes": [
+        {
+          "speaker": "Tomás Herrera",
+          "text": "So when you add people, Ledgerly sends them a welcome email, set your password, activate your card, all that."
+        },
+        {
+          "speaker": "Tomás Herrera",
+          "text": "I got eighty-something emails in one afternoon. \"Welcome to Ledgerly, Tomás!\" Eighty times. With other people's names in the body."
+        },
+        {
+          "speaker": "Tomás Herrera",
+          "text": "People don't trust a tool if their first experience is \"you didn't get invited.\""
+        },
+        {
+          "speaker": "Jordan Mbeki",
+          "text": "All the setup emails — \"finish setting up your account,\" \"connect your bank,\" all of that — went to Walt."
+        },
+        {
+          "speaker": "Jordan Mbeki",
+          "text": "But three program coordinators never got their invites."
+        },
+        {
+          "speaker": "Jordan Mbeki",
+          "text": "Check who the emails are going to when someone signs up. Ask."
+        }
+      ]
+    },
+    {
+      "name": "Mobile app usability barriers for field and non-technical users",
+      "insight": "Some users find the mobile app unusable in real working conditions due to tiny targets, confusing navigation, and frequent logouts, pushing them to the laptop or to workarounds.",
+      "quotes": [
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "The app? For my guys it's unusable. I'm sorry, but it is."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "The buttons are tiny. These guys are wearing work gloves half the day."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "And it logs them out. Not every day, but like every few days they open it and it wants a password."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "Too many screens to get to one thing. I gave up on it after a couple of days."
+        },
+        {
+          "speaker": "Grace Whitfield",
+          "text": "There's a tab that says \"activity,\" and a tab that says \"spend,\" and I went in circles."
+        },
+        {
+          "speaker": "Grace Whitfield",
+          "text": "So I do everything on the laptop now and I've deleted it off my phone."
+        }
+      ]
+    },
+    {
+      "name": "Disagreement: mobile app praised as fast and slick",
+      "insight": "In contrast to complaints about app usability, other users (office-based or desk/phone-centric) love the app's speed and simplicity, suggesting usability depends on user context.",
+      "quotes": [
+        {
+          "speaker": "Priya Raman",
+          "text": "Honestly, I love the app. I know that's probably not what you hear a lot, but for me it's been so much better."
+        },
+        {
+          "speaker": "Priya Raman",
+          "text": "It's just... fast? It doesn't make me think."
+        },
+        {
+          "speaker": "Priya Raman",
+          "text": "But the app itself is still my favorite thing finance has ever given us. Like, genuinely."
+        },
+        {
+          "speaker": "Ravi Desai",
+          "text": "The app is the best part. Like, the phone app is genuinely slick."
+        },
+        {
+          "speaker": "Ravi Desai",
+          "text": "The app. Don't touch the app. Whoever designed the phone app, give them a raise."
+        }
+      ]
+    },
+    {
+      "name": "Screen reader inaccessibility of the receipt capture button",
+      "insight": "The core receipt-capture button and camera shutter lack accessibility labels for VoiceOver, blocking a blind user from the app's primary action and forcing a slow multi-step workaround.",
+      "quotes": [
+        {
+          "speaker": "Hannah Cho",
+          "text": "But the button to take a picture of a receipt — the screen reader just says \"button.\" That's it. No label."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "And on the camera screen itself, the shutter doesn't say anything at all. I'm swiping around trying to find it and it just skips over it."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "It's maybe six extra steps. But it means I'm doing receipts at night in the hotel instead of right there."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "I got a nice reply saying they'd pass it on. That was three weeks ago."
+        },
+        {
+          "speaker": "Hannah Cho",
+          "text": "If I can't do the main thing, I can't use the product the way it's meant to be used. I have to use it some other, worse way."
+        }
+      ]
+    },
+    {
+      "name": "Inconsistent support answers and unclear help content",
+      "insight": "Support responses were contradictory, generic, or slow, pointing to articles that didn't resolve issues, which leaves admins uncertain about product behavior.",
+      "quotes": [
+        {
+          "speaker": "Tomás Herrera",
+          "text": "I got two different answers from two different people."
+        },
+        {
+          "speaker": "Tomás Herrera",
+          "text": "What I can't live with is \"yes\" from one person and \"no\" from another."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "They sent me an article about the mapping screen."
+        },
+        {
+          "speaker": "Priya Raman",
+          "text": "My manager asked finance, and finance asked Ledgerly. It took, like, a week to get an answer."
+        },
+        {
+          "speaker": "Ravi Desai",
+          "text": "I read the help article three times."
+        },
+        {
+          "speaker": "Jordan Mbeki",
+          "text": "I did. They sent me to the mapping page."
+        }
+      ]
+    },
+    {
+      "name": "Users revert to old habits and run parallel systems",
+      "insight": "When trust in the new tool is shaken, users keep paper, email, texts, or backup photos alongside Ledgerly, doubling work and defeating the tool's purpose.",
+      "quotes": [
+        {
+          "speaker": "Dana Okafor",
+          "text": "If people don't believe the photo went through, they go back to emailing me, and then I've got two systems."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "A few just text me photos of receipts now. Which, fine, I forward them in, but that's me doing data entry at night."
+        },
+        {
+          "speaker": "Priya Raman",
+          "text": "Now I just take a regular photo with my phone camera first, as a backup, and then I do the app one when I'm back in town."
+        },
+        {
+          "speaker": "Grace Whitfield",
+          "text": "That's the month, honestly. People doing the new thing and the old thing at the same time."
+        },
+        {
+          "speaker": "Jordan Mbeki",
+          "text": "One of our music teachers asked me if she should just go back to the paper form."
+        }
+      ]
+    },
+    {
+      "name": "Training and adoption support is thin or not engaging",
+      "insight": "Training was brief, optional-feeling, or lightly attended, so people relied on self-discovery and the training could not compensate for product failures or missing information.",
+      "quotes": [
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "We did a training in the break room with pizza. Six people came."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "This one feels optional to them."
+        },
+        {
+          "speaker": "Tomás Herrera",
+          "text": "I can tell from the analytics that eleven people opened it."
+        },
+        {
+          "speaker": "Grace Whitfield",
+          "text": "You can't laminate your way out of that. [laughs]"
+        },
+        {
+          "speaker": "Priya Raman",
+          "text": "Honestly I figured most of it out by just poking around."
+        },
+        {
+          "speaker": "Ravi Desai",
+          "text": "Fifteen-minute demo at our Monday standup."
+        }
+      ]
+    },
+    {
+      "name": "Misleading setup completion signals",
+      "insight": "The onboarding checklist showed a green checkmark and a 'done' state even though team members had not actually received invites or been activated.",
+      "quotes": [
+        {
+          "speaker": "Tomás Herrera",
+          "text": "The setup checklist they gave us said \"invite your team,\" and it had a nice green checkmark once I'd imported."
+        },
+        {
+          "speaker": "Tomás Herrera",
+          "text": "It said done. It wasn't done. Nobody had anything."
+        }
+      ]
+    },
+    {
+      "name": "Spend-limit rules not explained to admins up front",
+      "insight": "Admins were not told key behaviors (hidden default per-purchase limits, rolling reset dates, holds counting against limits), so they discovered them through failures.",
+      "quotes": [
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "I thought the limit reset on the first of the month. It doesn't."
+        },
+        {
+          "speaker": "Priya Raman",
+          "text": "Maybe tell people up front about the hotel thing. If I'd known that, I wouldn't have been surprised at dinner."
+        },
+        {
+          "speaker": "Grace Whitfield",
+          "text": "Except then there's a per-purchase limit that defaults to something, I think five hundred, which nobody told me about."
+        },
+        {
+          "speaker": "Grace Whitfield",
+          "text": "I called our rep. He walked me through a screen I'd never seen, where the per-purchase thing is hidden under, like, \"advanced controls.\""
+        }
+      ]
+    },
+    {
+      "name": "Bright spots: cards, integrations, reporting and offboarding",
+      "insight": "Despite the problems, users valued having personal cards, quick identity provider setup, automatic offboarding, audit logs, reporting, and visibility into approval status, suggesting a strong core value proposition.",
+      "quotes": [
+        {
+          "speaker": "Dana Okafor",
+          "text": "The cards themselves. People like having their own card instead of borrowing mine."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "The reporting on the website is nice. I can see spend by truck, which I've never been able to do."
+        },
+        {
+          "speaker": "Tomás Herrera",
+          "text": "When I disable someone in our identity provider, their Ledgerly access goes too, and the card gets frozen."
+        },
+        {
+          "speaker": "Priya Raman",
+          "text": "And I can see when finance has looked at something, which, before, I had no idea until the reimbursement showed up three weeks later."
+        },
+        {
+          "speaker": "Jordan Mbeki",
+          "text": "The cards are great, the staff love not waiting for their money."
+        },
+        {
+          "speaker": "Grace Whitfield",
+          "text": "I just think it could be great."
+        }
+      ]
+    },
+    {
+      "name": "Approver notification overload",
+      "insight": "Busy approvers ignore notifications, including Ledgerly's, which compounds approval delays.",
+      "quotes": [
+        {
+          "speaker": "Jordan Mbeki",
+          "text": "She told me she gets so many notifications that she's started ignoring all of them, including the Ledgerly ones."
+        },
+        {
+          "speaker": "Jordan Mbeki",
+          "text": "She's busy, so she doesn't complain, she just doesn't approve things. Which is worse. [laughs]"
+        }
+      ]
+    },
+    {
+      "name": "Rollout timing and external context",
+      "insight": "Some stalls come from organizational context such as concurrent audits, office moves, new hires, and busy seasons, not just the product.",
+      "quotes": [
+        {
+          "speaker": "Dana Okafor",
+          "text": "We're also moving offices in December, so everyone's a bit frazzled. I wouldn't blame Ledgerly for everyone's mood."
+        },
+        {
+          "speaker": "Dana Okafor",
+          "text": "Oh, and we hired four people last month, so a lot of folks are new to everything, not just this."
+        },
+        {
+          "speaker": "Grace Whitfield",
+          "text": "Oh, we rushed it. We rolled it out the same week as a big safety audit, so nobody had any attention left."
+        },
+        {
+          "speaker": "Marcus Lindqvist",
+          "text": "Busy, yeah. Fall's always heavy for us, everybody's stocking up before the holidays."
+        }
+      ]
+    },
+    {
+      "name": "Contractors and non-standard users excluded from the card program",
+      "insight": "Some groups, such as contractors, cannot yet be issued cards, so teams maintain a split process with old reimbursement methods.",
+      "quotes": [
+        {
+          "speaker": "Jordan Mbeki",
+          "text": "Not yet. They're contractors, so we're still figuring out whether that's allowed with our insurance."
+        },
+        {
+          "speaker": "Jordan Mbeki",
+          "text": "For now they buy things and I pay them back the old way, which is a little awkward next to staff who have shiny new cards."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "label": "Single prompt (claude-sonnet-5-5)",
+  "participants": 3,
+  "quotes": 57,
+  "quoteFidelity": 0.9824561403508771,
+  "inventedQuotes": 1,
+  "misattributed": 0,
+  "interviewerQuotedAsCustomer": 0,
+  "themesPredicted": 11,
+  "themeRecall": "6/6",
+  "minorityThemeFound": true,
+  "contradictionSides": "1/1 sides",
+  "decoyThemes": 0,
+  "perTheme": [
+    {
+      "id": "T1",
+      "name": "Receipt capture fails on weak signal",
+      "found": true,
+      "voices": "3/3"
+    },
+    {
+      "id": "T2",
+      "name": "Approval chains too rigid for small teams",
+      "found": true,
+      "voices": "1/1"
+    },
+    {
+      "id": "T3",
+      "name": "Card spend limits are confusing",
+      "found": true,
+      "voices": "1/1"
+    },
+    {
+      "id": "T4",
+      "name": "Accounting export mapping errors",
+      "found": true,
+      "voices": "1/1"
+    },
+    {
+      "id": "T6",
+      "name": "Screen reader can't use receipt camera",
+      "found": true,
+      "voices": "1/1"
+    },
+    {
+      "id": "T7",
+      "name": "Mobile app: loved vs unusable",
+      "found": true,
+      "voices": "1/1"
+    }
+  ],
+  "themeMatches": [
+    {
+      "name": "Silent receipt upload failures in low connectivity",
+      "keyTheme": "T1",
+      "overlapChars": 306,
+      "voices": [
+        "p1",
+        "p2",
+        "p7"
+      ]
+    },
+    {
+      "name": "Fallback to old channels creates double work",
+      "keyTheme": null,
+      "overlapChars": 0,
+      "voices": [
+        "p1",
+        "p2",
+        "p7"
+      ]
+    },
+    {
+      "name": "Approval chain too heavy for small teams",
+      "keyTheme": "T2",
+      "overlapChars": 329,
+      "voices": [
+        "p1"
+      ]
+    },
+    {
+      "name": "Accounting export mapping errors",
+      "keyTheme": "T4",
+      "overlapChars": 210,
+      "voices": [
+        "p1"
+      ]
+    },
+    {
+      "name": "Confusing card limits and surprise declines",
+      "keyTheme": "T3",
+      "overlapChars": 149,
+      "voices": [
+        "p2"
+      ]
+    },
+    {
+      "name": "Mobile app unsuited to field workers and weak adoption",
+      "keyTheme": "T7",
+      "overlapChars": 147,
+      "voices": [
+        "p2"
+      ]
+    },
+    {
+      "name": "Accessibility blocker on the receipt capture button",
+      "keyTheme": "T6",
+      "overlapChars": 210,
+      "voices": [
+        "p7"
+      ]
+    },
+    {
+      "name": "Support is polite but does not resolve issues",
+      "keyTheme": "T3",
+      "overlapChars": 61,
+      "voices": [
+        "p1",
+        "p2",
+        "p7"
+      ]
+    },
+    {
+      "name": "Web and desktop flows work well (disagreement with mobile experience)",
+      "keyTheme": null,
+      "overlapChars": 0,
+      "voices": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "name": "Bright spots: setup, cards and reporting",
+      "keyTheme": null,
+      "overlapChars": 0,
+      "voices": [
+        "p1",
+        "p2",
+        "p7"
+      ]
+    },
+    {
+      "name": "Non-product context and conditional commitment",
+      "keyTheme": null,
+      "overlapChars": 0,
+      "voices": [
+        "p1",
+        "p2"
+      ]
+    }
+  ]
+}

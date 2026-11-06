@@ -1,0 +1,265 @@
+{
+  "label": "Verbatim agent",
+  "studyId": "stu_324d928f77214ca4",
+  "stats": {
+    "sources": 3,
+    "notes": 43,
+    "themes": 6,
+    "insights": 6,
+    "health": 85,
+    "unsorted": 0
+  },
+  "themes": [
+    {
+      "name": "Receipts vanish without warning",
+      "insight": "All 3 of 3 participants lose receipts silently when signal drops, with no error or retry, so they only learn from finance or end-of-week reports and fall back to paper, email or texted photos.",
+      "quotes": [
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "So someone buys props or lunch for the crew, they take a picture of the receipt in the app, it looks like it worked, and then the next day it's just not there."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "In the first month? I counted at least nine missing receipts from shoot days alone."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "If people don't believe the photo went through, they go back to emailing me, and then I've got two systems."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "I ended up telling the producers to keep the paper in an envelope until they see it show up on their list."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "And make the receipt thing tell you if it didn't actually send. Even a little red dot. Anything."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "Because I get the \"missing receipt\" report at the end of the week and it's like twenty lines long."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "Half the time the photo's not in the app anymore."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "And make the photo thing keep the picture until it's actually sent. Don't make them start over."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "A few just text me photos of receipts now. Which, fine, I forward them in, but that's me doing data entry at night."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "Meaning it never made it to me. There's no draft, there's no error"
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "But a lot of our stops are out past where there's any signal."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "I'll attach a receipt and it'll start sending and then the signal drops and — it doesn't seem to come back."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "Finance flagged them. I had four expenses kicked back last month because of \"missing receipt,\" and I know I'd attached them."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "Things just quietly don't go through."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "And if a receipt doesn't send, keep trying, or at least tell me. Don't make me find out from finance."
+        }
+      ]
+    },
+    {
+      "name": "Approval chain too rigid",
+      "insight": "Anecdote (1 voice, Dana): the fixed approval chain suits large firms, not a 48-person studio, so small purchases stall and admins invent placeholder approvers.",
+      "quotes": [
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "When we set it up, the approval flow wants a chain. Submitter, then their manager, then a department head, then finance."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "Lena made a placeholder user called \"Studio Approvals\" so the chain would save."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "A nine-dollar parking ticket goes through the exact same three steps as a two-thousand-dollar equipment rental."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "You can rename the steps, you can add steps, but you can't really take them away below a certain point."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "Let me turn off steps for small amounts."
+        }
+      ]
+    },
+    {
+      "name": "Xero export needs manual fixing",
+      "insight": "Anecdote (1 voice, Dana): the Xero export drops client tracking and miscodes categories while the mapping screen looks correct, costing about two evenings of manual rework.",
+      "quotes": [
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "In practice, the first month I had to redo, I want to say, a third of the coded lines."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "And our tracking categories — we track by client — those just didn't come through at all. Every line showed up with no client attached."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "But the mapping screen says everything is mapped correctly. That's the confusing part. It looks right and the result is wrong."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "Two evenings, roughly. We had to export to a spreadsheet, fix the codes, and re-import into Xero by hand."
+        }
+      ]
+    },
+    {
+      "name": "Card limits are unclear",
+      "insight": "Anecdote (1 voice, Marcus): layered card limits and a rolling reset show only one number, causing 6–7 declines in three weeks and reimbursements through the old process.",
+      "quotes": [
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "Declines? I'd say six or seven in three weeks."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "I thought the limit reset on the first of the month. It doesn't."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "One number. Show me one number that's the real amount they can spend right now."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "He paid with his own card and I reimbursed him through the old way. Which, again, is the thing we were trying to get rid of."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "And the screen only shows one number. So I'm looking at four hundred and he's standing at a pump in the middle of nowhere with a truck that's empty."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "There's the monthly limit, and then there's a per-transaction limit"
+        }
+      ]
+    },
+    {
+      "name": "Mobile app unusable in the field",
+      "insight": "The mobile app fails the people who need it most in the field: gloved drivers face tiny buttons and surprise logouts, and a blind consultant can't use the unlabelled receipt button, so both work around the main flow.",
+      "quotes": [
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "The app? For my guys it's unusable. I'm sorry, but it is."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "The buttons are tiny. These guys are wearing work gloves half the day."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "And it logs them out. Not every day, but like every few days they open it and it wants a password."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "Too many screens to get to one thing. I gave up on it after a couple of days."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "But the button to take a picture of a receipt — the screen reader just says \"button.\" That's it. No label."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "And on the camera screen itself, the shutter doesn't say anything at all."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "It's maybe six extra steps. But it means I'm doing receipts at night in the hotel instead of right there."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "I got a nice reply saying they'd pass it on. That was three weeks ago."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "It's frustrating because it's literally one label. It's the one button the whole app is built around and it's the one I can't use."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "That part's okay. The fields are labeled, so VoiceOver reads them out, and I can pick the client from a list."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "Honestly, really well, by accident. It was just email, and email I can do in my sleep."
+        }
+      ]
+    },
+    {
+      "name": "Cards and reporting land well",
+      "insight": "Two participants (Dana, Marcus) name something that works: own cards for staff and spend reporting, which gives teams a reason to stay.",
+      "quotes": [
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "The cards themselves. People like having their own card instead of borrowing mine."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "The reporting on the website is nice. I can see spend by truck, which I've never been able to do."
+        }
+      ]
+    }
+  ]
+}

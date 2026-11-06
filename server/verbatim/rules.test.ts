@@ -66,6 +66,12 @@ describe("computeBoardHealth", () => {
     expect(h.uncitedThemes).toEqual(["thm_a"]);
   });
 
+  it("lists sources with no notes as unread", () => {
+    const h = computeBoardHealth({ notes: [note("a")], themes: [{ id: "thm_a", name: "A" }], insights: [], sourceIds: ["src_a", "src_b"] });
+    expect(h.unreadSources).toEqual(["src_b"]);
+    expect(h.sources).toBe(2);
+  });
+
   it("lists themes backed by fewer than two participants", () => {
     const h = computeBoardHealth({
       notes: [note("a", { themeId: "thm_thin", participantId: "p1" }), note("b", { themeId: "thm_thin", participantId: "p1" })],

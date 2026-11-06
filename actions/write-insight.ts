@@ -4,6 +4,7 @@ import { z } from "zod";
 
 import { actorFromCtx, actorLabel } from "../server/verbatim/actor.js";
 import { withAgentOnBoard } from "../server/verbatim/presence.js";
+import { emitBoardEvent } from "../server/verbatim/events.js";
 import { evaluateInsight } from "../server/verbatim/rules.js";
 import {
   getTheme,
@@ -68,6 +69,13 @@ export default defineAction({
         action: args.insightId ? "update-insight" : "write-insight",
         summary: `${args.insightId ? "Updated" : "Wrote"} ${check.status === "verified" ? "an insight" : "an anecdote"} citing ${args.noteIds.length} notes from ${check.participants} voice${check.participants === 1 ? "" : "s"}`,
         payload: { insightId: saved.id, status: check.status },
+      });
+      emitBoardEvent("insightWritten", {
+        studyId: args.studyId,
+        insightId: saved.id,
+        claim: args.claim,
+        status: check.status,
+        voices: check.participants,
       });
       return { ...saved, status: check.status, participants: check.participants, reasons: check.reasons };
     });

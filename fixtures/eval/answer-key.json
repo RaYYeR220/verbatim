@@ -1,0 +1,530 @@
+{
+  "synthetic": true,
+  "study": {
+    "product": "Ledgerly (fictional)",
+    "researchQuestion": "Why do new teams stall during their first month?",
+    "transcripts": "eval/interviews/p1.vtt ... p8.vtt",
+    "participants": "eval/participants.json"
+  },
+  "themes": [
+    {
+      "id": "T1",
+      "name": "Receipt capture fails on weak signal",
+      "kind": "majority",
+      "description": "Receipt photos taken with poor or no connectivity (basements, job sites, rural stops, trains, planes) appear to upload but are silently dropped or lost, so finance later sees 'missing receipt' and people fall back to paper or duplicate photos.",
+      "participants": [
+        "p1",
+        "p2",
+        "p3",
+        "p5",
+        "p7"
+      ],
+      "evidence": [
+        {
+          "pid": "p1",
+          "quote": "it looks like it worked, and then the next day it's just not there."
+        },
+        {
+          "pid": "p1",
+          "quote": "And the reception down there is— it's nothing. One bar if you stand by the freight elevator."
+        },
+        {
+          "pid": "p2",
+          "quote": "So they take the photo, it sits there spinning, and they put the phone down and drive."
+        },
+        {
+          "pid": "p3",
+          "quote": "there was a message that said \"upload failed, try again,\" but the photo was gone, so I couldn't try again."
+        },
+        {
+          "pid": "p5",
+          "quote": "So they snap it, and it sits in this \"sending\" state, and then at some point it decides it's failed and drops it."
+        },
+        {
+          "pid": "p7",
+          "quote": "Later I check and the expense is there but the receipt isn't on it."
+        }
+      ],
+      "extraEvidence": [
+        {
+          "pid": "p1",
+          "quote": "There's no draft, there's no error, it's just... gone."
+        },
+        {
+          "pid": "p1",
+          "quote": "And make the receipt thing tell you if it didn't actually send."
+        },
+        {
+          "pid": "p2",
+          "quote": "But a lot of our stops are out past where there's any signal."
+        },
+        {
+          "pid": "p2",
+          "quote": "There's a dead corner by the cold storage. Phone just doesn't connect back there."
+        },
+        {
+          "pid": "p2",
+          "quote": "Half the time the photo's not in the app anymore."
+        },
+        {
+          "pid": "p3",
+          "quote": "the receipt thing is amazing when I've got signal. But a lot of where I go, I don't."
+        },
+        {
+          "pid": "p3",
+          "quote": "Now I just take a regular photo with my phone camera first, as a backup"
+        },
+        {
+          "pid": "p3",
+          "quote": "if it fails when they're out in a dead zone, they don't find out till way later."
+        },
+        {
+          "pid": "p5",
+          "quote": "You're three floors down in a parking structure, or inside a steel frame, and the phone just doesn't connect."
+        },
+        {
+          "pid": "p5",
+          "quote": "it's just an empty card that says \"receipt missing.\""
+        },
+        {
+          "pid": "p7",
+          "quote": "you lose signal every few minutes, tunnels, whatever."
+        },
+        {
+          "pid": "p7",
+          "quote": "the wifi on planes is, you know, a suggestion."
+        },
+        {
+          "pid": "p7",
+          "quote": "Things just quietly don't go through."
+        }
+      ]
+    },
+    {
+      "id": "T2",
+      "name": "Approval chains too rigid for small teams",
+      "kind": "majority",
+      "description": "The approval builder forces a multi-level chain (manager -> second level -> finance) with no single-step, amount-threshold or either-of-two option, so small teams approve the same expense twice, invent placeholder approvers, and stall when the one approver is away.",
+      "participants": [
+        "p1",
+        "p4",
+        "p6",
+        "p8"
+      ],
+      "evidence": [
+        {
+          "pid": "p1",
+          "quote": "A nine-dollar parking ticket goes through the exact same three steps as a two-thousand-dollar equipment rental."
+        },
+        {
+          "pid": "p1",
+          "quote": "So the same person gets asked twice, or we had to invent a fake approver to fill the slot."
+        },
+        {
+          "pid": "p4",
+          "quote": "For a firm our size, the whole multi-level thing is overkill."
+        },
+        {
+          "pid": "p6",
+          "quote": "A thirty-dollar order of clay sits there for nine days because she's at a conference and the app won't let anyone else step in."
+        },
+        {
+          "pid": "p8",
+          "quote": "So every expense comes to me, I approve it, and then it comes to me again as finance, and I approve it again."
+        },
+        {
+          "pid": "p8",
+          "quote": "For a team our size, a strict chain just doesn't make sense."
+        }
+      ],
+      "extraEvidence": [
+        {
+          "pid": "p1",
+          "quote": "When we set it up, the approval flow wants a chain. Submitter, then their manager, then a department head, then finance."
+        },
+        {
+          "pid": "p1",
+          "quote": "So little stuff sits there for a week because somebody's on vacation and nobody else can sign off."
+        },
+        {
+          "pid": "p4",
+          "quote": "Ledgerly's rule builder assumes a hierarchy."
+        },
+        {
+          "pid": "p4",
+          "quote": "So they get the same expense twice. Approve, and then approve again."
+        },
+        {
+          "pid": "p4",
+          "quote": "\"Why am I approving my own team's coffee twice.\""
+        },
+        {
+          "pid": "p6",
+          "quote": "I approve my own approval."
+        },
+        {
+          "pid": "p6",
+          "quote": "For a team our size, we need, like, \"Jordan or Monique, whoever's around.\" Not a ladder."
+        },
+        {
+          "pid": "p8",
+          "quote": "Somebody buys a forty-dollar HDMI cable and it's pending for two days."
+        }
+      ]
+    },
+    {
+      "id": "T3",
+      "name": "Card spend limits are confusing",
+      "kind": "majority",
+      "description": "Several overlapping controls (monthly, per-transaction, category, budget vs limit, rolling reset date, hotel holds) while the app shows a single 'available' number, so cards are declined when the screen says money is left and people stop trusting the number.",
+      "participants": [
+        "p2",
+        "p3",
+        "p5",
+        "p8"
+      ],
+      "evidence": [
+        {
+          "pid": "p2",
+          "quote": "Everybody got a card with a limit on it. And nobody understands what the limit is."
+        },
+        {
+          "pid": "p2",
+          "quote": "Thursday, declined at the pump. He calls me, I log in, and the screen says he's got four hundred available."
+        },
+        {
+          "pid": "p3",
+          "quote": "And I guess the hold counted against my limit even though it wasn't a real charge."
+        },
+        {
+          "pid": "p5",
+          "quote": "And the foreman looks in the app and sees \"two thousand available.\" So he thinks the card is broken."
+        },
+        {
+          "pid": "p5",
+          "quote": "I'm a controller. Controls are my whole job. I didn't find it."
+        },
+        {
+          "pid": "p8",
+          "quote": "There's \"budgets\" and there's \"limits,\" and I genuinely don't know the difference."
+        }
+      ],
+      "extraEvidence": [
+        {
+          "pid": "p2",
+          "quote": "There's the monthly limit, and then there's a per-transaction limit, and then there's this... I think it's called a category limit?"
+        },
+        {
+          "pid": "p2",
+          "quote": "It resets thirty days from when the card was issued, I think?"
+        },
+        {
+          "pid": "p2",
+          "quote": "Show me one number that's the real amount they can spend right now."
+        },
+        {
+          "pid": "p3",
+          "quote": "And the app doesn't show holds. It just shows what's been charged."
+        },
+        {
+          "pid": "p3",
+          "quote": "I've kind of stopped trusting the number on the screen."
+        },
+        {
+          "pid": "p5",
+          "quote": "there's a per-purchase limit that defaults to something, I think five hundred, which nobody told me about."
+        },
+        {
+          "pid": "p5",
+          "quote": "I still don't know if they share the five thousand or if he's got ten."
+        },
+        {
+          "pid": "p8",
+          "quote": "So he got declined at a restaurant even though his budget said he had six hundred left."
+        },
+        {
+          "pid": "p8",
+          "quote": "Budget said fine, card said no."
+        },
+        {
+          "pid": "p8",
+          "quote": "Theo now asks me before every lunch, \"am I good?\""
+        }
+      ]
+    },
+    {
+      "id": "T4",
+      "name": "Accounting export mapping errors",
+      "kind": "majority",
+      "description": "The Xero / QuickBooks Online sync drops tracking categories or classes (client, job, grant), lands lines in the wrong account or 'Uncategorized', and duplicates entries, while the mapping screen looks correct; finance re-codes by hand.",
+      "participants": [
+        "p1",
+        "p5",
+        "p6"
+      ],
+      "evidence": [
+        {
+          "pid": "p1",
+          "quote": "Like, \"Client entertainment\" on our side was landing in general meals and subsistence in Xero."
+        },
+        {
+          "pid": "p1",
+          "quote": "It looks right and the result is wrong."
+        },
+        {
+          "pid": "p5",
+          "quote": "In October, about half came through with no class at all."
+        },
+        {
+          "pid": "p5",
+          "quote": "Some expenses synced twice. Same amount, same date, two entries in QuickBooks."
+        },
+        {
+          "pid": "p6",
+          "quote": "Everything shows up in QuickBooks with no class, and a lot of it in \"Uncategorized Expense.\""
+        },
+        {
+          "pid": "p6",
+          "quote": "She's been re-coding every single transaction by hand."
+        }
+      ],
+      "extraEvidence": [
+        {
+          "pid": "p1",
+          "quote": "And our tracking categories — we track by client — those just didn't come through at all."
+        },
+        {
+          "pid": "p1",
+          "quote": "We had to export to a spreadsheet, fix the codes, and re-import into Xero by hand."
+        },
+        {
+          "pid": "p5",
+          "quote": "materials going into \"office supplies.\""
+        },
+        {
+          "pid": "p5",
+          "quote": "We've told our PMs not to trust job cost reports until we've cleaned up October."
+        },
+        {
+          "pid": "p6",
+          "quote": "When Ledgerly sends the expenses over, the grant doesn't come with it."
+        },
+        {
+          "pid": "p6",
+          "quote": "It looks fine on the mapping page!"
+        }
+      ]
+    },
+    {
+      "id": "T5",
+      "name": "Onboarding emails reach the wrong person",
+      "kind": "majority",
+      "description": "Setup, welcome and card-activation emails go to whoever created the account or signed the order (IT admin, board treasurer, a generic info@ inbox) instead of the actual admin or employee, so people cannot activate and the rollout loses one to two weeks.",
+      "participants": [
+        "p4",
+        "p6"
+      ],
+      "evidence": [
+        {
+          "pid": "p4",
+          "quote": "Except it didn't send them to the people. It sent them to me."
+        },
+        {
+          "pid": "p4",
+          "quote": "And the employees got nothing."
+        },
+        {
+          "pid": "p6",
+          "quote": "All the setup emails — \"finish setting up your account,\" \"connect your bank,\" all of that — went to Walt."
+        },
+        {
+          "pid": "p6",
+          "quote": "some of the invites went to our general info address instead of to the person."
+        }
+      ],
+      "extraEvidence": [
+        {
+          "pid": "p4",
+          "quote": "I got eighty-something emails in one afternoon."
+        },
+        {
+          "pid": "p4",
+          "quote": "Don't assume the admin is everyone's inbox."
+        },
+        {
+          "pid": "p4",
+          "quote": "It said done. It wasn't done. Nobody had anything."
+        },
+        {
+          "pid": "p6",
+          "quote": "Walt is seventy-four and checks his email on Sundays."
+        },
+        {
+          "pid": "p6",
+          "quote": "One of them, Keisha, found hers in the info inbox a week later"
+        },
+        {
+          "pid": "p6",
+          "quote": "check who the emails are going to when someone signs up."
+        }
+      ]
+    },
+    {
+      "id": "T6",
+      "name": "Screen reader can't use receipt camera",
+      "kind": "minority",
+      "description": "MINORITY THEME (exactly one participant). With VoiceOver, the receipt-capture button is announced only as 'button' and the camera shutter is skipped entirely, so a blind employee cannot capture receipts without help or a multi-step workaround.",
+      "participants": [
+        "p7"
+      ],
+      "evidence": [
+        {
+          "pid": "p7",
+          "quote": "But the button to take a picture of a receipt — the screen reader just says \"button.\" That's it. No label."
+        },
+        {
+          "pid": "p7",
+          "quote": "the shutter doesn't say anything at all. I'm swiping around trying to find it and it just skips over it."
+        }
+      ],
+      "extraEvidence": [
+        {
+          "pid": "p7",
+          "quote": "It's the one button the whole app is built around and it's the one I can't use."
+        },
+        {
+          "pid": "p7",
+          "quote": "it's not great to hand your phone to someone at a client dinner and say \"can you do my receipt.\""
+        },
+        {
+          "pid": "p7",
+          "quote": "Label the button. Label the shutter."
+        }
+      ]
+    },
+    {
+      "id": "T7",
+      "name": "Mobile app: loved vs unusable",
+      "kind": "contradiction",
+      "description": "CONTRADICTION THEME. Two participants love the mobile app (fast, frictionless) while two say it is unusable (tiny targets with gloves, forced logouts, confusing navigation). A good synthesis reports both sides and who holds them, not an average.",
+      "participants": [
+        "p2",
+        "p3",
+        "p5",
+        "p8"
+      ],
+      "stances": {
+        "p3": "love",
+        "p8": "love",
+        "p2": "unusable",
+        "p5": "unusable"
+      },
+      "evidence": [
+        {
+          "pid": "p3",
+          "quote": "Honestly, I love the app.",
+          "stance": "love"
+        },
+        {
+          "pid": "p8",
+          "quote": "the phone app is genuinely slick.",
+          "stance": "love"
+        },
+        {
+          "pid": "p8",
+          "quote": "Whoever designed the phone app, give them a raise.",
+          "stance": "love"
+        },
+        {
+          "pid": "p2",
+          "quote": "For my guys it's unusable. I'm sorry, but it is.",
+          "stance": "unusable"
+        },
+        {
+          "pid": "p2",
+          "quote": "The buttons are tiny. These guys are wearing work gloves half the day.",
+          "stance": "unusable"
+        },
+        {
+          "pid": "p5",
+          "quote": "Honestly, it's unusable for me. I couldn't find anything I needed.",
+          "stance": "unusable"
+        }
+      ],
+      "extraEvidence": [
+        {
+          "pid": "p3",
+          "quote": "But the app itself is still my favorite thing finance has ever given us.",
+          "stance": "love"
+        },
+        {
+          "pid": "p3",
+          "quote": "It's like ten seconds. I used to spend my whole Sunday night on expense reports.",
+          "stance": "love"
+        },
+        {
+          "pid": "p8",
+          "quote": "I approve stuff in the elevator, I check what's been spent while I'm waiting for coffee.",
+          "stance": "love"
+        },
+        {
+          "pid": "p8",
+          "quote": "Everybody else lives in the phone app.",
+          "stance": "love"
+        },
+        {
+          "pid": "p2",
+          "quote": "Too many screens to get to one thing. I gave up on it after a couple of days.",
+          "stance": "unusable"
+        },
+        {
+          "pid": "p5",
+          "quote": "the navigation doesn't make sense to me.",
+          "stance": "unusable"
+        },
+        {
+          "pid": "p5",
+          "quote": "So I do everything on the laptop now and I've deleted it off my phone.",
+          "stance": "unusable"
+        }
+      ]
+    }
+  ],
+  "decoys": [
+    {
+      "id": "D1",
+      "name": "Wants built-in mileage / GPS trip tracking",
+      "description": "Plausible for a field-heavy sample (sales rep, drivers, foremen, travelling consultant), but NO participant asks for distance logging, mileage reimbursement or GPS trips. Any theme like this is a hallucination.",
+      "keywords": [
+        "\\bmiles?\\b",
+        "\\bmileage\\b",
+        "\\bgps\\b",
+        "\\bodometer\\b",
+        "\\btrip log",
+        "\\bkilomet"
+      ]
+    },
+    {
+      "id": "D2",
+      "name": "Foreign-currency conversion problems",
+      "description": "Plausible for travelling staff, but NO participant mentions currencies, exchange rates or overseas spend; all travel in the transcripts is domestic. Any theme like this is a hallucination.",
+      "keywords": [
+        "\\bcurrenc",
+        "\\bexchange rates?\\b",
+        "\\bfx\\b",
+        "\\beuros?\\b",
+        "\\bforeign\\b",
+        "\\bconversion rate",
+        "\\boverseas\\b"
+      ]
+    }
+  ],
+  "notes": [
+    "SYNTHETIC, LABELLED benchmark fixture: fictional product (Ledgerly), people and companies. Never present these quotes as real customer research.",
+    "Quote text = cue bodies with <v ...> voice tags stripped, joined by '\\n' per transcript. Every evidence/extraEvidence quote is an exact substring of one cue spoken by that pid (never the interviewer) and occurs in no other transcript.",
+    "Design matrix (pid: themes): p1 T1 T2 T4 | p2 T1 T3 T7-unusable | p3 T1 T3 T7-love | p4 T2 T5 | p5 T1 T3 T4 T7-unusable | p6 T2 T4 T5 | p7 T1 T6 | p8 T2 T3 T7-love.",
+    "Near-misses that are NOT the named theme (useful for precision): p2 'tiny buttons / work gloves' is T7, not T6 (no assistive tech); p5 'couldn't find anything I needed' is T7 navigation, not T2; p3 'I can see when finance has looked at something' is not T2; p7 'Most of the Ledgerly screens read okay' / labelled fields are T6 context, not T7; p6 'they snap the receipt, it's fine' is counter-evidence for T1 (p6 has no capture failures).",
+    "Untagged positives (no theme): identity-provider setup, offboarding and audit log (p4); having own cards (p1, p6); spend-by-truck reporting (p2); comments from finance in-app (p3). Tangents (pets, pizza, tiles, murals, audiobooks) are deliberate noise.",
+    "Scoring sketch: theme recall = a predicted theme matches a key theme if >= 1 of its quotes overlaps (>= 50% char overlap) any evidence or extraEvidence span of that theme; quote fidelity = share of predicted quotes that are exact substrings of the cited transcript; speaker attribution = share of quotes attributed to the pid that actually spoke them; minority recall = T6 found; decoy FPR = predicted themes matching D1/D2 descriptions or keywords."
+  ]
+}

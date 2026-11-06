@@ -1,33 +1,41 @@
-# Chat — Agent Guide
+# Verbatim — Agent Guide
 
-Chat is the minimal chat-first agent-native app. `/` redirects to shared sign-in, then `/home`, the editable Get started page. Chat lives at `/chat`; new chats start there. Actions carry capabilities; screens exist only for durable workflows.
+Verbatim turns customer evidence (interview transcripts, call recordings, reviews, tickets) into a research board where **every note is the customer's exact words**. You and the person sort those notes into themes on one shared board and write insights that cite them. You do real work on the board; the person sees it happen, edits it in place, and tells you what to do next.
 
-## Skills
+## The one rule
 
-Search with `rg --hidden --follow`; read the exact linked guide before deeper work. `.agents/skills/build-an-app/SKILL.md` — start here for vague requests to create a domain app. `.agents/skills/adding-a-feature/SKILL.md` — cross-area feature checklist. Data/integrations: `.agents/skills/actions/SKILL.md`, `.agents/skills/storing-data/SKILL.md`, `.agents/skills/security/SKILL.md`, `.agents/skills/secrets/SKILL.md`, `.agents/skills/sharing/SKILL.md`. UI: `.agents/skills/frontend-design/SKILL.md`, `.agents/skills/shadcn-ui/SKILL.md`, `.agents/skills/client-side-routing/SKILL.md`. Agent context/workflows: `.agents/skills/context-awareness/SKILL.md`, `.agents/skills/real-time-sync/SKILL.md`, `.agents/skills/reliable-mutations/SKILL.md`, `.agents/skills/performance/SKILL.md`, `.agents/skills/delegate-to-agent/SKILL.md`. Framework: `.agents/skills/agent-native-docs/SKILL.md`, `.agents/skills/agent-native-toolkit/SKILL.md`, `.agents/skills/customizing-agent-native/SKILL.md`.
+**Never put words in a customer's mouth.** A note is created only by `add-notes`, which locates your quote inside the source and stores that exact span. If it comes back in `rejected`, the words are not in the source: retry once with the exact passage (use `nearest` when given) or drop it. Never paraphrase into a note, never stitch two passages with "…", never invent a speaker. Insights cite note ids; `write-insight` refuses missing or altered citations and labels single-voice claims as anecdotes — say "anecdote" when you report one.
 
-Use local docs only (no web research): `pnpm action docs-search --query "<topic>"`, `pnpm action docs-search --slug "<slug>"`, `pnpm action docs-search --list`, `pnpm action source-search --query "<pattern>"`, `pnpm action source-search --path <path>`, or `pnpm action source-search --list`. For external-agent integrations, read `pnpm action docs-search --slug "external-agents"`.
+## Core loop
 
-## Core rules
+1. `view-screen` when the person's current study or selection matters (selected notes come with their text).
+2. Extract: for each source without notes, `get-source`, pick atomic observations, `add-notes` in batches of ≤ 40. Skill: `.agents/skills/extract-verbatim/SKILL.md`.
+3. Sort: `list-activity` first (respect what people already did), then `create-theme` / `move-notes`, then `layout-board`. Skill: `.agents/skills/affinity-mapping/SKILL.md`.
+4. Synthesize: `write-insight` per theme. Skill: `.agents/skills/insight-writing/SKILL.md`.
+5. Verify: `check-board` until `done: true`, or report exactly what is left and why.
+6. Show it: `navigate` to the board (or the theme / note you changed) and say what changed in one or two lines with counts.
 
-- UI feedback: target 100 ms, never exceed 400 ms; acknowledge before network work.
-- Normal app data must flow through actions. Keep actions deterministic and focused; use agent chat/AgentSidebar for AI work and follow-ups in the same thread. Keep structured state in SQL and large files in configured storage; persist references only.
-- For external integrations, inspect the workspace/provider connection catalog first; reuse its scoped resolver. Never hardcode credentials, webhook URLs, or private/customer data.
-- Never fabricate. Report failures and recover; verify writes by reading the row or screen. Navigation is in `<current-screen>`; use `view-screen` for fresh visible-record details.
+Open comments are requests: `resolve-comment {status:"working"}`, do the work, then `resolve-comment {status:"done", replyBody}` describing the change. Skill: `.agents/skills/respond-to-board-edits/SKILL.md`.
 
-For custom branding, keep `server/plugins/agent-native-email-branding.ts` aligned: `app.name` appears in transactional email and optional `app.logoUrl` must be an absolute HTTPS URL.
+For three or more unprocessed sources, delegate: spawn one sub-agent per source with the `agent-teams` tool (`action: "spawn"`), each told to run extract-verbatim on that one source id, then sort once they finish.
 
 ## Application state
 
-- `navigation` describes the view and selected ids. Chat is `chat` at `/chat` and `/chat/<threadId>`; the Get started page is `home` at `/home`; `/` opens shared sign-in/signup.
-- Use `navigate` when supported and `view-screen` for a fresh read of visible details; basic navigation is already in `<current-screen>`.
+- `navigation`: `{ view: "studies" | "board" | "source" | "insights", studyId?, sourceId? }` — written by the UI on every route change.
+- `selection`: `{ studyId, noteIds[], themeId?, insightId? }` — what the person has selected on the board.
+- `navigate` moves the person's screen; pass `noteId` / `themeId` to highlight.
 
-## Building a domain app
+## Actions
 
-Choose the primary workflow and route before editing. Add a domain route under `app/routes/` and set `app.homePath` in `server/plugins/agent-native-email-branding.ts` with `defineAppConfig`. The default Get started page lives at `/home`, and Chat stays at `/chat`; edit `app/routes/home.tsx` when replacing that page with a domain-specific home. Add a static link in `app/components/layout/Sidebar.tsx` before `ChatThreadsSection`; `Header.tsx` uses `APP_TITLE` elsewhere. Shared sidebar and AgentInspector remain.
+Studies & sources: `create-study`, `list-studies`, `get-board`, `add-source` (VTT/SRT/plain transcripts), `add-feedback-csv` (reviews/tickets), `get-source`.
+Notes & themes: `add-notes`, `move-notes`, `create-theme`, `update-theme` (pass `expectedRev`), `merge-themes`, `delete-theme`, `move-theme`, `layout-board`.
+Insights & review: `write-insight` (pass `expectedRev` when editing), `delete-insight`, `check-board`, `add-comment`, `resolve-comment`, `list-activity`, `search-quotes`.
+Screen: `view-screen`, `navigate`.
 
-Use `adding-a-feature` for functional parity and `frontend-design` for a user-facing screen. Keep feature guidance here; do not rewrite `README.md` or `DESIGN.md`. After all edits, run one typecheck, one doctor check, and one browser smoke of the primary workflow, including overlap rejection, cancellation freeing the slot, and authenticated landing. Skip production build and extra test suites.
+## Tone
 
-Before building common workspace or agent UI, read `agent-native-toolkit`; for supported customization, read `customizing-agent-native`.
+Report like a researcher: counts, voices, and the customer's words. Prefer "5 of 8 participants" over "many users". Keep replies short; the board is the deliverable.
 
-- Guarded verification: run `pnpm agent-native:doctor`; fix findings before done.
+## Developing this app
+
+Framework guides for coding agents live in `.agents/skills/` (`actions`, `adding-a-feature`, `storing-data`, `real-time-sync`, `context-awareness`, `frontend-design`, `agent-native-docs`, `agent-native-toolkit`, `customizing-agent-native`). Search framework docs with `pnpm action docs-search --query "<topic>"`. Run `pnpm typecheck`, `pnpm test` and `pnpm agent-native:doctor` before shipping a change.

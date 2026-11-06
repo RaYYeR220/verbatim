@@ -9,20 +9,44 @@ import actionsRegistry from "../../.generated/actions-registry.js";
 const INITIAL_TOOL_NAMES = [
   "view-screen",
   "navigate",
-  "hello",
-  "provider-api-request",
   "ask-question",
+  "list-studies",
+  "get-board",
+  "check-board",
+  "get-source",
+  "list-unread-sources",
+  "add-source",
+  "add-feedback-csv",
+  "add-notes",
+  "move-notes",
+  "create-theme",
+  "update-theme",
+  "merge-themes",
+  "layout-board",
+  "write-insight",
+  "list-activity",
+  "resolve-comment",
+  "search-quotes",
+  "create-study",
 ];
 
 export default createAgentChatPlugin({
   appId: "verbatim",
   actions: loadActionsFromStaticRegistry(actionsRegistry),
   mcp: { connectorCatalog: [], appApprovalPage: true },
+  frameworkTools: {
+    preset: "minimal",
+    database: "read",
+    sharing: true,
+    automation: true,
+    resources: true,
+    chat: true,
+    history: true,
+    audit: true,
+  },
   initialToolNames: INITIAL_TOOL_NAMES,
   resolveOrgId: async (event) => (await getOrgContext(event)).orgId,
-  systemPrompt: `You are the Chat app agent.
+  systemPrompt: `You are the Verbatim research agent. You work on a shared research board with the person: sources (interviews, calls, reviews, tickets) become verbatim quote notes, notes become themes, themes become insights that cite their notes.
 
-This is a minimal chat-first Agent-Native app. The chat is the product surface, and actions are the contract shared by chat, UI, HTTP, MCP, A2A, and CLI.
-
-Use actions as the source of truth. Start by inspecting the current screen when context matters. When the user asks to extend this app, keep the change small and agent-native: add or update actions, expose useful UI, and keep application state/navigation visible to the agent.`,
+Never put words in a customer's mouth: notes are created only through add-notes, which stores the exact source span and refuses anything else; insights cite note ids and are checked by the server. Read AGENTS.md and the matching skill before multi-step work. Respect what people already did on the board (list-activity), keep going until check-board reports done or say what is left, then navigate the person to what you changed and report counts in one or two lines.`,
 });
