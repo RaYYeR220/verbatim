@@ -38,6 +38,8 @@ export default function StudyBoardRoute() {
 
   const { query, board, frames, moveNotes, moveTheme } = useBoard(studyId);
   const { agents } = useBoardPresence(studyId, board?.agentTrail);
+  // One agent job per board at a time, so two runs never race on the same cards.
+  const agentWorking = agents.length > 0;
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [selectedThemeId, setSelectedThemeId] = useState<string | null>(null);
   const [followAgent, setFollowAgent] = useState(true);
@@ -288,9 +290,11 @@ export default function StudyBoardRoute() {
                 : `Review this board: check-board, fix what it reports, and tell me the three findings a product team should act on first.`,
             )
           }
-          className="h-8 rounded-full bg-[var(--vb-ink)] px-4 text-[13px] text-[var(--vb-ground-hi)]"
+          disabled={agentWorking}
+          title={agentWorking ? "The agent is working on this board; you can keep editing" : undefined}
+          className="h-8 rounded-full bg-[var(--vb-ink)] px-4 text-[13px] text-[var(--vb-ground-hi)] disabled:cursor-default disabled:opacity-55"
         >
-          {empty || unread ? "Synthesize with agent" : "Review with agent"}
+          {agentWorking ? "Agent working…" : empty || unread ? "Synthesize with agent" : "Review with agent"}
         </button>
         <button type="button" onClick={togglePanel} className="h-8 px-2 text-[13px] text-[var(--vb-ink3)] hover:text-[var(--vb-ink)]" aria-pressed={panelOpen}>
           {panelOpen ? "Hide panel" : "Insights"}
