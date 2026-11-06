@@ -29,6 +29,11 @@ const INITIAL_TOOL_NAMES = [
   "resolve-comment",
   "search-quotes",
   "create-study",
+  "list-clips-calls",
+  "import-clips-call",
+  "cite-in-clips",
+  "show-theme",
+  "export-study",
 ];
 
 export default createAgentChatPlugin({

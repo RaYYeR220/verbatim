@@ -148,17 +148,16 @@ export function BoardCanvas(props: BoardCanvasProps) {
     [noteById, frames, bounds],
   );
 
-  // Follow the agent: keep what it is touching on screen.
+  // Follow the agent: while it reshapes the board (new themes, new notes),
+  // keep the whole board in view so nobody watches an empty corner.
+  const shapeKey = `${board.themes.length}:${board.notes.length}`;
+  const lastShape = useRef(shapeKey);
   useEffect(() => {
-    if (!followAgent) return;
-    for (const a of agents) {
-      const p = positionFor(a);
-      if (p) {
-        reveal({ x: p.x - 120, y: p.y - 80, w: 280, h: 200 });
-        break;
-      }
-    }
-  }, [agents, followAgent, positionFor, reveal]);
+    if (!followAgent || lastShape.current === shapeKey) return;
+    lastShape.current = shapeKey;
+    const t = window.setTimeout(() => fit(bounds, board.notes.length < 80 ? { minScale: 0.45 } : {}), 450);
+    return () => window.clearTimeout(t);
+  }, [shapeKey, followAgent, fit, bounds, board.notes.length]);
 
   const frameAt = useCallback(
     (wx: number, wy: number) => frames.find((f) => wx >= f.x && wx <= f.x + f.w && wy >= f.y && wy <= f.y + f.h) ?? null,

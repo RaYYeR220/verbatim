@@ -1,4 +1,4 @@
-import { callAction } from "@agent-native/core/client/hooks";
+import { callAction, useActionQuery } from "@agent-native/core/client/hooks";
 import { sendToAgentChat } from "@agent-native/core/client/agent-chat";
 import { focusAgentChat } from "@agent-native/toolkit/app/chat";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -150,14 +150,7 @@ export function ImportDialog({
               <input type="file" multiple accept=".vtt,.srt,.txt,.md,.csv" className="sr-only" onChange={(e) => void addFiles(e.target.files)} />
             </label>
           ) : tab === "clips" ? (
-            <div className="mt-4 flex flex-col gap-3 text-[13px] leading-relaxed text-[var(--vb-ink2)]">
-              <p>Bring in calls you recorded with Clips. The transcript is copied exactly, with speakers and timestamps, and every quote the agent cites links back to that moment in the recording.</p>
-              <div className="flex gap-2">
-                <button type="button" onClick={() => viaAgent("List my recent Clips recordings and meetings so I can pick which calls to bring into this study.")} className="h-9 rounded-full bg-[var(--vb-ink)] px-4 text-[13px] text-[var(--vb-ground-hi)]">
-                  Pick calls from Clips
-                </button>
-              </div>
-            </div>
+            <ClipsTab studyId={studyId} onImported={(n) => { onImported(n); close(); }} />
           ) : (
             <div className="mt-4 flex flex-col gap-3 text-[13px] leading-relaxed text-[var(--vb-ink2)]">
               <p>Give this study a feedback inbox: a webhook any tool can post to (Intercom, Typeform, Zendesk, a form). Each new item becomes a source, and the agent files its quotes into the existing themes.</p>
@@ -179,5 +172,63 @@ export function ImportDialog({
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
+  );
+}
+
+function ClipsTab({ studyId, onImported }: { studyId: string; onImported: (n: number) => void }) {
+  const { data, error, isLoading } = useActionQuery("list-clips-calls", { limit: 20 } as never, { retry: false });
+  const [busy, setBusy] = useState<string | null>(null);
+  const rows = (data as { recordings?: Array<{ id: string; title: string; createdAt: string | null; durationMs: number | null }> } | undefined)?.recordings ?? [];
+  const notConnected = error && String((error as Error).message).includes("isn't connected");
+  if (isLoading) return <p className="mt-4 font-[family-name:var(--vb-mono)] text-[12px] text-[var(--vb-ink3)]">Looking for your Clips calls…</p>;
+  if (error) {
+    return (
+      <div className="mt-4 flex flex-col gap-3 text-[13px] leading-relaxed text-[var(--vb-ink2)]">
+        <p>
+          {notConnected
+            ? "Connect your Clips account once: the transcript of every call you pick is copied exactly, with speakers and timestamps, and quotes link back to the moment in the recording."
+            : (error as Error).message}
+        </p>
+        <ol className="list-decimal pl-5 text-[12.5px]">
+          <li>Open Settings → Connections and add the MCP server <code className="font-[family-name:var(--vb-mono)]">https://clips.agent-native.com/mcp</code>.</li>
+          <li>Sign in to Clips when asked, then come back here.</li>
+        </ol>
+        <a href="/settings" className="self-start rounded-full bg-[var(--vb-ink)] px-4 py-2 text-[13px] text-[var(--vb-ground-hi)]">Open settings</a>
+      </div>
+    );
+  }
+  return (
+    <ul className="mt-3 max-h-72 divide-y divide-[var(--vb-hair)] overflow-y-auto">
+      {rows.length === 0 ? <li className="py-4 text-[13px] text-[var(--vb-ink3)]">No recordings in your Clips library yet.</li> : null}
+      {rows.map((r) => (
+        <li key={r.id} className="flex items-center gap-3 py-2.5">
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-[13.5px] text-[var(--vb-ink)]">{r.title}</p>
+            <p className="font-[family-name:var(--vb-mono)] text-[10.5px] text-[var(--vb-ink3)]">
+              {r.createdAt ? new Date(r.createdAt).toLocaleDateString("en", { month: "short", day: "numeric" }) : ""}
+              {r.durationMs ? ` · ${Math.round(r.durationMs / 60000)} min` : ""}
+            </p>
+          </div>
+          <button
+            type="button"
+            disabled={busy !== null}
+            onClick={async () => {
+              setBusy(r.id);
+              try {
+                await callAction("import-clips-call", { studyId, recordingId: r.id } as never);
+                onImported(1);
+              } catch (e) {
+                toast.error(e instanceof Error ? e.message : "Import failed");
+              } finally {
+                setBusy(null);
+              }
+            }}
+            className="h-8 shrink-0 rounded-full border border-[var(--vb-hair)] px-3 text-[12.5px] hover:border-[var(--vb-ink3)] disabled:opacity-40"
+          >
+            {busy === r.id ? "Importing…" : "Import"}
+          </button>
+        </li>
+      ))}
+    </ul>
   );
 }

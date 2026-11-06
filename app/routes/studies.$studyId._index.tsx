@@ -49,6 +49,12 @@ export default function StudyBoardRoute() {
   const [importOpen, setImportOpen] = useState(false);
   const [commentDraft, setCommentDraft] = useState<string | null>(null);
   const [themeDraft, setThemeDraft] = useState<string | null>(null);
+  // When the person hands the board to the agent, say so until its first notes land.
+  const [handedOffAt, setHandedOffAt] = useState<number | null>(null);
+  const handOff = (message: string, context?: string) => {
+    setHandedOffAt(Date.now());
+    askAgent(message, context);
+  };
   const focusNoteId = params.get("note");
   const focusThemeId = params.get("theme") ?? selectedThemeId;
 
@@ -275,7 +281,7 @@ export default function StudyBoardRoute() {
         <button
           type="button"
           onClick={() =>
-            askAgent(
+            handOff(
               empty || unread
                 ? `Synthesize this study: put every source on the board as verbatim notes, sort them into themes, write an insight for every theme, and keep going until check-board reports done.`
                 : `Review this board: check-board, fix what it reports, and tell me the three findings a product team should act on first.`,
@@ -293,7 +299,10 @@ export default function StudyBoardRoute() {
       <div className="flex min-h-0 flex-1">
         <div className="relative min-w-0 flex-1">
           {empty ? (
-            <EmptyBoard sources={board.sources.length} onImport={() => setImportOpen(true)} onSynthesize={() => askAgent("Synthesize this study: extract verbatim notes from every source, sort them into themes, write an insight for every theme, and keep going until check-board reports done.")} />
+            <EmptyBoard agentActivity={
+                agents.find((a) => a.pointer?.activity)?.pointer?.activity ??
+                (agents.length || (handedOffAt && Date.now() - handedOffAt < 240_000) ? "Reading the sources and picking exact quotes…" : null)
+              } sources={board.sources.length} onImport={() => setImportOpen(true)} onSynthesize={() => handOff("Synthesize this study: extract verbatim notes from every source, sort them into themes, write an insight for every theme, and keep going until check-board reports done.")} />
           ) : (
             <BoardCanvas
               board={board}
@@ -334,7 +343,18 @@ export default function StudyBoardRoute() {
   );
 }
 
-function EmptyBoard({ sources, onImport, onSynthesize }: { sources: number; onImport: () => void; onSynthesize: () => void }) {
+function EmptyBoard({ sources, onImport, onSynthesize, agentActivity }: { sources: number; onImport: () => void; onSynthesize: () => void; agentActivity: string | null }) {
+  if (agentActivity) {
+    return (
+      <div className="flex h-full items-center justify-center bg-[var(--vb-ground)]">
+        <div className="flex items-center gap-3 rounded-[2px] bg-[var(--vb-steel)] px-4 py-2.5 text-white" role="status" aria-live="polite">
+          <span className="size-1.5 animate-pulse rounded-full bg-white" />
+          <span className="font-[family-name:var(--vb-mono)] text-[11px]">agent</span>
+          <span className="text-[13.5px]">{agentActivity}</span>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="flex h-full items-center justify-center bg-[var(--vb-ground)]">
       <div className="max-w-md text-center">

@@ -1,6 +1,8 @@
 import { defineAction } from "@agent-native/core/action";
 import { z } from "zod";
 
+import { actorFromCtx, actorLabel } from "../server/verbatim/actor.js";
+import { withAgentOnBoard } from "../server/verbatim/presence.js";
 import { getSource, requireStudy, sourceSpans } from "../server/verbatim/store.js";
 
 export default defineAction({
@@ -13,9 +15,13 @@ export default defineAction({
   }),
   http: { method: "GET" },
   readOnly: true,
-  run: async ({ sourceId, offset, length }) => {
+  run: async ({ sourceId, offset, length }, ctx) => {
     const src = await getSource(sourceId);
     await requireStudy(src.studyId, "viewer");
+    const actor = actorFromCtx(ctx);
+    await withAgentOnBoard(src.studyId, actor, actorLabel(actor, ctx), async (point) => {
+      point({ sourceId, activity: `Reading ${src.title}` });
+    });
     const spans = await sourceSpans(sourceId);
     const end = Math.min(src.text.length, offset + length);
     return {

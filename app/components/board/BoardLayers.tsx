@@ -39,6 +39,9 @@ interface NotesLayerProps {
 }
 
 /** Every note card. Memoised so panning and zooming never re-render 500 cards. */
+const seenNotes = new Set<string>();
+let entranceBatch = 0;
+
 export const NotesLayer = memo(function NotesLayer({
   notes,
   sources,
@@ -48,20 +51,27 @@ export const NotesLayer = memo(function NotesLayer({
   focusNoteId,
   commentCounts,
 }: NotesLayerProps) {
+  const firstPaint = seenNotes.size === 0;
+  entranceBatch = 0;
   return (
     <>
       {notes.map((n) => {
         const src = sources.get(n.sourceId);
+        // Notes that arrive while the board is open (the agent adding them) fade in one after another.
+        const isNew = !firstPaint && !seenNotes.has(n.id);
+        seenNotes.add(n.id);
+        const delay = isNew ? Math.min(entranceBatch++ * 45, 1800) : 0;
         const style = {
           left: n.x,
           top: n.y,
           "--hue": n.themeId ? hueByTheme.get(n.themeId) : undefined,
+          ...(isNew ? { animationDelay: `${delay}ms` } : {}),
         } as CSSProperties;
         const comments = commentCounts.get(n.id) ?? 0;
         return (
           <article
             key={n.id}
-            className="vb-note"
+            className={isNew ? "vb-note vb-note-enter" : "vb-note"}
             data-note-id={n.id}
             data-selected={selected.has(n.id) ? "true" : undefined}
             data-agent={agentNotes.has(n.id) ? "true" : undefined}

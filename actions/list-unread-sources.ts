@@ -3,6 +3,8 @@ import { and, eq, notExists, sql } from "drizzle-orm";
 import { z } from "zod";
 
 import { getDb, schema } from "../server/db/index.js";
+import { actorFromCtx, actorLabel } from "../server/verbatim/actor.js";
+import { withAgentOnBoard } from "../server/verbatim/presence.js";
 import { requireStudy } from "../server/verbatim/store.js";
 
 export default defineAction({
@@ -15,8 +17,12 @@ export default defineAction({
   }),
   http: { method: "GET" },
   readOnly: true,
-  run: async ({ studyId, maxChars, limit }) => {
+  run: async ({ studyId, maxChars, limit }, ctx) => {
     await requireStudy(studyId, "viewer");
+    const actor = actorFromCtx(ctx);
+    await withAgentOnBoard(studyId, actor, actorLabel(actor, ctx), async (point) => {
+      point({ activity: "Reading the next batch of sources" });
+    });
     const db = getDb();
     const unread = await db
       .select({
