@@ -10,6 +10,12 @@ export { schema };
 registerShareableResource({
   type: "study",
   agentRead: { actions: ["get-board"] },
+  // Share links hand agents the readout as JSON (see /api/readout-context.json).
+  agentReadable: {
+    resourceKind: "verbatim:readout",
+    getContextPath: () => "/api/readout-context.json",
+    getPagePath: (study) => `/r/${study.id}`,
+  },
   resourceTable: schema.studies,
   sharesTable: schema.studyShares,
   displayName: "Study",

@@ -1,7 +1,10 @@
 import { useActionQuery } from "@agent-native/core/client/hooks";
 import { useParams } from "react-router";
 
+import { noteMetaLine } from "@/components/board/BoardLayers";
 import { themeHue } from "@/components/board/theme-colors";
+
+import type { BoardNote, BoardSource } from "../../server/verbatim/types";
 
 interface ThemeCard {
   id: string;
@@ -20,12 +23,6 @@ interface ThemeCard {
 export function meta() {
   return [{ title: "Theme · Verbatim" }];
 }
-
-const fmt = (ms: number | null) => {
-  if (ms === null) return null;
-  const s = Math.floor(ms / 1000);
-  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
-};
 
 /** The theme card that MCP Apps hosts (Claude, ChatGPT) render inline. */
 export default function EmbedThemeRoute() {
@@ -58,7 +55,7 @@ export default function EmbedThemeRoute() {
           <li key={q.noteId} className="border-l-2 pl-3" style={{ borderColor: hue }}>
             <p className="text-[14px] leading-snug text-[var(--vb-ink)]">“{q.quote}”</p>
             <p className="mt-0.5 font-[family-name:var(--vb-mono)] text-[10.5px] text-[var(--vb-ink3)]">
-              {[q.speaker, fmt(q.tMs), q.source].filter(Boolean).join(" · ")} · exact span
+              {noteMetaLine({ speaker: q.speaker, tMs: q.tMs } as BoardNote, q.source ? ({ title: q.source } as BoardSource) : undefined)} · exact span
             </p>
           </li>
         ))}

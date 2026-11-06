@@ -44,10 +44,7 @@ export default defineAction({
         quote: n.text,
         speaker: n.speaker,
         tMs: n.tMs,
-        // Interview titles already lead with the speaker's name.
-        source: ((title) => (title && n.speaker && title.startsWith(n.speaker) ? null : title))(
-          sourceById.get(n.sourceId)?.title ?? null,
-        ),
+        source: sourceById.get(n.sourceId)?.title ?? null,
       }));
     return {
       id: t.id,

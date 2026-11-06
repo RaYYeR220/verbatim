@@ -1,5 +1,5 @@
 import { fail } from "@agent-native/core/action";
-import { accessFilter, assertAccess } from "@agent-native/core/sharing";
+import { accessFilter, assertAccess, currentAccess, resolveAccess } from "@agent-native/core/sharing";
 import { getRequestOrgId, getRequestUserEmail } from "@agent-native/core/server/request-context";
 import { isSameRecord, saveIfCurrent } from "@agent-native/core/save-conflict/server";
 import { and, desc, eq, ilike, inArray, or, sql } from "drizzle-orm";
@@ -437,7 +437,27 @@ export function toNoteLite(
 }
 
 export async function getBoard(studyId: string): Promise<BoardPayload> {
-  const study = await requireStudy(studyId, "viewer");
+  return boardFor(await requireStudy(studyId, "viewer"));
+}
+
+/**
+ * The board behind a shared readout link: anyone may read a study whose
+ * visibility is public; anyone else needs access to it, or a caller-verified
+ * study-scoped agent token (`trusted`). Null when none of these hold.
+ */
+export async function getSharedBoard(studyId: string, opts: { trusted?: boolean } = {}): Promise<BoardPayload | null> {
+  // guard:allow-unscoped -- the row is used only after the public or resolveAccess check below.
+  const [study] = await getDb().select().from(schema.studies).where(eq(schema.studies.id, studyId)).limit(1);
+  if (!study) return null;
+  if (study.visibility === "public" || opts.trusted) return boardFor(study);
+  const allowed = await resolveAccess("study", studyId, currentAccess()).catch(() => null);
+  if (!allowed) return null;
+  return boardFor(study);
+}
+
+/** Board data for a study the caller has already been allowed to read. */
+async function boardFor(study: typeof schema.studies.$inferSelect): Promise<BoardPayload> {
+  const studyId = study.id;
   const rows = await loadStudyRows(studyId);
   const sourceById = new Map(rows.sources.map((s) => [s.id, s]));
   const lites = rows.notes.map((n) => toNoteLite(n, sourceById));

@@ -31,7 +31,7 @@ Studies & sources: `create-study`, `list-studies`, `get-board`, `add-source` (VT
 Notes & themes: `list-notes` (compact, for large boards), `add-notes`, `move-notes`, `create-theme`, `update-theme` (pass `expectedRev`), `merge-themes`, `delete-theme`, `move-theme`, `layout-board`.
 Insights & review: `write-insight` (pass `expectedRev` when editing), `delete-insight`, `check-board`, `add-comment`, `resolve-comment`, `list-activity`, `search-quotes`.
 Clips: `list-clips-calls`, `import-clips-call` (exact transcript with speakers and timestamps), `cite-in-clips` (comment on the recording at the quoted moment).
-Output: `show-theme` (theme card; renders inline in MCP Apps hosts), `export-study` (JSON, Markdown, rows).
+Output: `show-theme` (theme card; renders inline in MCP Apps hosts), `export-study` (JSON, Markdown, rows). To share a readout with people outside the workspace, set the study's visibility to `public` with `set-resource-visibility` (resource type `study`) and give them `/r/<studyId>`: anyone with that link can read the readout, and an agent given the link can read it as JSON.
 Screen: `view-screen`, `navigate`.
 
 ## Tone

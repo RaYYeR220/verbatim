@@ -318,7 +318,7 @@ export function Hero() {
           data-clear-pad="14,6"
         >
           {WALL_SUMMARY.sources} sources · {WALL_SUMMARY.notes} exact quotes ·{" "}
-          {REFUSED} paraphrases refused
+          {REFUSED} quotes refused
         </p>
         <div
           className="vbl-stacks vbl-reveal"
