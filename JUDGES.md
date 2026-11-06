@@ -8,6 +8,7 @@ You land on **Notion iOS — what 500 App Store reviewers say**: 500 public revi
 
 - Zoom out (⌘/ctrl + scroll, or **Fit**) to see every voice at once; zoom in and every card is a passage of a real review with author, rating and date.
 - The right panel: board health (500/500 voices, 0 unsorted, 0 changed), insights with the quotes they cite, the activity feed by actor.
+- The first insight is flagged: it says "158 positive notes", but its theme has grown to 161 since it was written. Every number in a claim is checked against the evidence on every read. Press **Review with agent** and it restates the count (and `write-insight` refuses a claim like "7 of 8 participants" when 5 people said it).
 - Double-click any card: the review opens with that exact span tinted. Select any other passage there and **Add as exact quote** — the same `add-notes` action the agent uses.
 
 ## 2. Watch the agent work (2 min)
@@ -29,6 +30,7 @@ Open **Try it: three raw interviews** in the sidebar and press **Synthesize with
 
 | Claim | Where to check |
 |---|---|
+| A claim's numbers match its evidence | `server/verbatim/claim-counts.ts` + `claim-counts.test.ts`; the flagged insight on the Notion board; `scripts/smoke-actions.mjs` (422 `count_mismatch`) |
 | Every note is an exact span of its source | `server/verbatim/locate.ts` + `locate.test.ts`; `add-notes` stores `source.slice(start, end)`, never the model's string; `check-board` re-verifies every note on every read |
 | The agent's quotes were refused when it changed a customer's words | `results/verbatim-reviews-500.json` → `refusedQuotes` (`alacaktım → alacaktim`, `объеденить → объединить`) |
 | 500 of 500 reviewers on the board vs 186 quoted by one chat prompt | `results/SUMMARY.md` (rendered from the JSON by `scripts/eval/report.mjs`) |
