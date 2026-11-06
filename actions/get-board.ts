@@ -7,6 +7,7 @@ import { getBoard } from "../server/verbatim/store.js";
 export default defineAction({
   description:
     "Read a study's whole board: participants, sources (without full text), every verbatim note with its theme and position, themes with note and voice counts, insights with their evidence check, open comments, and board health.",
+  mcpTool: true,
   schema: z.object({ studyId: z.string().describe("Study id (stu_…)") }),
   http: { method: "GET" },
   readOnly: true,

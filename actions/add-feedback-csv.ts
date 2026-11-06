@@ -15,6 +15,7 @@ import {
 export default defineAction({
   description:
     "Import a CSV of feedback (app reviews, survey answers, tickets). Each row becomes one source from one voice. Recognised columns: id, author/user/name, rating/stars, date, title, body/review/text/comment.",
+  mcpTool: true,
   schema: z.object({
     studyId: z.string(),
     csv: z.string().min(1).max(2_000_000),

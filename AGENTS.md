@@ -27,8 +27,8 @@ For three or more unprocessed sources, delegate: spawn one sub-agent per source 
 
 ## Actions
 
-Studies & sources: `create-study`, `list-studies`, `get-board`, `add-source` (VTT/SRT/plain transcripts), `add-feedback-csv` (reviews/tickets), `get-source`.
-Notes & themes: `add-notes`, `move-notes`, `create-theme`, `update-theme` (pass `expectedRev`), `merge-themes`, `delete-theme`, `move-theme`, `layout-board`.
+Studies & sources: `create-study`, `list-studies`, `get-board`, `add-source` (VTT/SRT/plain transcripts), `add-feedback-csv` (reviews/tickets), `get-source`, `list-unread-sources` (batches of short sources).
+Notes & themes: `list-notes` (compact, for large boards), `add-notes`, `move-notes`, `create-theme`, `update-theme` (pass `expectedRev`), `merge-themes`, `delete-theme`, `move-theme`, `layout-board`.
 Insights & review: `write-insight` (pass `expectedRev` when editing), `delete-insight`, `check-board`, `add-comment`, `resolve-comment`, `list-activity`, `search-quotes`.
 Screen: `view-screen`, `navigate`.
 

@@ -20,7 +20,7 @@ Call `list-activity`. Anything a person did on this board (moved a note, renamed
 
 ## Sorting
 
-1. Read the board with `get-board` (or `check-board` for a compact view).
+1. Read the board with `get-board` for small studies; for large ones (hundreds of notes) use `check-board` plus `list-notes {filter:"unsorted"}` page by page.
 2. Draft 4–9 themes for an interview study, up to ~12 for large feedback sets. Create each with its first batch of notes: `create-theme {name, noteIds}`.
 3. Move the rest with `move-notes` in batches (≤ 200). Leave true outliers unsorted rather than forcing them; say how many and why.
 4. Merge near-duplicates with `merge-themes`; a theme on a single voice is either an anecdote worth keeping (label it) or should join a broader theme.

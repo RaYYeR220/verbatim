@@ -6,6 +6,7 @@ import { getBoard } from "../server/verbatim/store.js";
 export default defineAction({
   description:
     "Check a board against its evidence: re-verifies every note against its source text and reports unsorted notes, themes resting on one voice, themes with no insight, and anecdotes. Keep working until it reports 0 unsorted, 0 tampered and no uncited themes, or say what is left and why.",
+  mcpTool: true,
   schema: z.object({ studyId: z.string() }),
   http: { method: "GET" },
   readOnly: true,

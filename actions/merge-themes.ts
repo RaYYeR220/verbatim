@@ -23,6 +23,18 @@ export default defineAction({
     themeIds: jsonArray(z.string(), { min: 2, max: 12 }),
     name: z.string().min(1).max(80),
   }),
+  // Merging away a theme a person made needs that person's OK first.
+  needsApproval: async (args, ctx) => {
+    if (actorFromCtx(ctx) === "user") return false;
+    for (const id of args.themeIds) {
+      try {
+        if ((await getTheme(id)).createdBy === "user") return true;
+      } catch {
+        /* missing themes fail in run() */
+      }
+    }
+    return false;
+  },
   run: async (args, ctx) => {
     await requireStudy(args.studyId, "editor");
     const actor = actorFromCtx(ctx);

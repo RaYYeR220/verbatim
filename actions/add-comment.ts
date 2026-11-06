@@ -9,6 +9,7 @@ import { newId, nowIso, recordEvent, requireStudy } from "../server/verbatim/sto
 export default defineAction({
   description:
     "Leave a comment on a note, theme, insight or the whole board — e.g. 'split this into pricing vs billing'. The agent picks up open comments, does the work and replies in place.",
+  mcpTool: true,
   schema: z.object({
     studyId: z.string(),
     targetType: z.enum(["note", "theme", "insight", "board"]),

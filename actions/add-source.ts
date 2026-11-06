@@ -16,6 +16,7 @@ import { jsonObject } from "./lib/zod-helpers.js";
 export default defineAction({
   description:
     "Add one source to a study: an interview transcript (WebVTT, SRT, or plain 'Name: text' lines), a support ticket, a review or any text. Speakers and timestamps are parsed so every quote taken from it keeps who said it and when.",
+  mcpTool: true,
   schema: z.object({
     studyId: z.string(),
     title: z.string().min(1).max(160).describe("e.g. 'Interview — Dana Okafor (finance lead)'"),

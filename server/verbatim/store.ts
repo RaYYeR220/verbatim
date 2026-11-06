@@ -677,3 +677,69 @@ export async function searchQuotes(input: { studyId?: string | undefined; query:
   scored.sort((a, b) => b.score - a.score || a.text.length - b.text.length);
   return scored.slice(0, input.limit);
 }
+
+// ── demo workspaces ────────────────────────────────────────────────────────
+
+/**
+ * Copies a study (sources, participants, notes, themes, insights) to a new
+ * owner, remapping every id. Used to give a guest their own editable copy of
+ * a seeded demo board; the original is never touched.
+ */
+export async function cloneStudyForOwner(templateStudyId: string, ownerEmail: string, titleSuffix = "") {
+  const db = getDb();
+  const [study] = await db.select().from(schema.studies).where(eq(schema.studies.id, templateStudyId)).limit(1);
+  if (!study) return null;
+  const rows = await loadStudyRows(templateStudyId);
+  const at = nowIso();
+  const studyId = newId("stu");
+  const ids = new Map<string, string>();
+  const map = (prefix: string, old: string | null) => {
+    if (!old) return null;
+    if (!ids.has(old)) ids.set(old, newId(prefix));
+    return ids.get(old)!;
+  };
+  await db.insert(schema.studies).values({
+    id: studyId,
+    title: `${study.title}${titleSuffix}`,
+    question: study.question,
+    ownerEmail,
+    orgId: null,
+    visibility: "private",
+    createdAt: at,
+    updatedAt: at,
+  });
+  if (rows.participants.length)
+    await db.insert(schema.participants).values(rows.participants.map((p) => ({ ...p, id: map("par", p.id)!, studyId })));
+  if (rows.sources.length)
+    await db
+      .insert(schema.sources)
+      .values(rows.sources.map((s) => ({ ...s, id: map("src", s.id)!, studyId, participantId: map("par", s.participantId) })));
+  if (rows.themes.length)
+    await db.insert(schema.themes).values(rows.themes.map((t) => ({ ...t, id: map("thm", t.id)!, studyId })));
+  for (let i = 0; i < rows.notes.length; i += 200) {
+    await db.insert(schema.notes).values(
+      rows.notes.slice(i, i + 200).map((n) => ({
+        ...n,
+        id: map("not", n.id)!,
+        studyId,
+        sourceId: map("src", n.sourceId)!,
+        themeId: map("thm", n.themeId),
+      })),
+    );
+  }
+  if (rows.insights.length)
+    await db.insert(schema.insights).values(
+      rows.insights.map((i) => ({
+        ...i,
+        id: map("ins", i.id)!,
+        studyId,
+        themeId: map("thm", i.themeId),
+        noteIdsJson: JSON.stringify(parseJson<string[]>(i.noteIdsJson, []).map((n) => map("not", n))),
+      })),
+    );
+  return { id: studyId, title: study.title };
+}
+
+export async function studiesOwnedBy(ownerEmail: string) {
+  return getDb().select({ id: schema.studies.id }).from(schema.studies).where(eq(schema.studies.ownerEmail, ownerEmail));
+}

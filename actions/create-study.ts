@@ -8,6 +8,7 @@ import { createStudy, recordEvent } from "../server/verbatim/store.js";
 export default defineAction({
   description:
     "Create a research study: a board where customer evidence (interviews, reviews, tickets) is broken into verbatim quote notes and sorted into themes.",
+  mcpTool: true,
   schema: z.object({
     title: z.string().min(1).max(120).describe("Study name, e.g. 'Q4 onboarding interviews'"),
     question: z.string().max(400).optional().describe("The research question the study answers"),

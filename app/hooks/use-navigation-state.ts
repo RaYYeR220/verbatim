@@ -18,6 +18,17 @@ export interface NavigationState {
   path?: string;
   publicPath?: string;
   threadId?: string;
+  studyId?: string;
+  sourceId?: string;
+}
+
+const STUDY_PATH = /^\/studies\/([^/]+)(?:\/(sources|insights|readout)(?:\/([^/]+))?)?\/?$/;
+
+/** The study, source and sub-view a pathname points at, if any. */
+export function studyRouteFromPath(pathname: string): { studyId: string; sub: string | null; sourceId: string | null } | null {
+  const m = STUDY_PATH.exec(pathname);
+  if (!m) return null;
+  return { studyId: m[1]!, sub: m[2] ?? null, sourceId: m[2] === "sources" ? (m[3] ?? null) : null };
 }
 
 export function useNavigationState() {
@@ -64,15 +75,21 @@ function matchesPathPrefix(pathname: string, prefix: string): boolean {
 
 export function navigationStateForPath(pathname: string): NavigationState {
   const threadId = threadIdFromPath(pathname);
+  const study = studyRouteFromPath(pathname);
   return {
     view: viewForPath(pathname),
     path: pathname,
     publicPath: appPathFromLocalRoute(pathname),
     ...(threadId ? { threadId } : {}),
+    ...(study ? { studyId: study.studyId } : {}),
+    ...(study?.sourceId ? { sourceId: study.sourceId } : {}),
   };
 }
 
 function viewForPath(pathname: string): string {
+  const study = studyRouteFromPath(pathname);
+  if (study) return study.sub === "sources" && study.sourceId ? "source" : study.sub === "insights" ? "insights" : study.sub === "readout" ? "readout" : "board";
+  if (pathname === "/studies" || pathname === "/studies/") return "studies";
   if (isChatPathname(pathname)) return "chat";
   if (pathname === HOME_PATH) return "home";
   if (pathname.startsWith("/database")) return "database";
@@ -88,6 +105,9 @@ function viewForPath(pathname: string): string {
 
 function pathForView(view?: string): string {
   switch (view) {
+    case "studies":
+    case "board":
+      return "/studies";
     case "chat":
     case "ask":
       return NEW_CHAT_PATH;
@@ -111,6 +131,20 @@ function pathForView(view?: string): string {
 }
 
 export function pathForCommand(command: any): string {
+  const studyId = typeof command?.studyId === "string" ? encodeURIComponent(command.studyId) : "";
+  if (studyId && ["board", "source", "insights", "readout"].includes(command?.view)) {
+    const q = new URLSearchParams();
+    if (typeof command?.note === "string") q.set("note", command.note);
+    if (typeof command?.theme === "string") q.set("theme", command.theme);
+    const sourceId = typeof command?.sourceId === "string" ? encodeURIComponent(command.sourceId) : "";
+    const base =
+      command.view === "source" && sourceId
+        ? `/studies/${studyId}/sources/${sourceId}`
+        : command.view === "insights" || command.view === "readout"
+          ? `/studies/${studyId}/${command.view}`
+          : `/studies/${studyId}`;
+    return q.size ? `${base}?${q.toString()}` : base;
+  }
   const path = pathForView(command?.view);
   if (command?.view !== "chat" && command?.view !== "ask") return path;
   const threadId =

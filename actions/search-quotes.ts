@@ -7,6 +7,7 @@ import { searchQuotes } from "../server/verbatim/store.js";
 export default defineAction({
   description:
     "Find what customers actually said about a topic. Returns verbatim notes (with speaker, timestamp, theme and a link to the exact spot on the board) across one study or every study you can open.",
+  mcpTool: true,
   schema: z.object({
     query: z.string().min(2).max(200).describe("Topic words, e.g. 'export quickbooks'"),
     studyId: z.string().optional(),

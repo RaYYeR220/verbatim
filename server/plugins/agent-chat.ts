@@ -15,6 +15,7 @@ const INITIAL_TOOL_NAMES = [
   "check-board",
   "get-source",
   "list-unread-sources",
+  "list-notes",
   "add-source",
   "add-feedback-csv",
   "add-notes",
