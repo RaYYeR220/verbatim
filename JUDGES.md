@@ -23,6 +23,7 @@ Open **Try it: three raw interviews** in the sidebar and press **Synthesize with
 - Select a few cards → **Comment** → e.g. "split these into pricing vs billing". The agent picks up the comment, does it, and replies.
 - Rename a theme while the agent edits it: the second write fails with a typed conflict instead of overwriting (`saveIfCurrent`).
 - Ask it to delete or merge a theme you created: it has to ask first (approval gate).
+- Open **Readout** → **Share** → General access: *Anyone with the link*. The `/r/…` link opens the report signed out, and an agent given that link finds the JSON version in the page.
 
 ## 4. Check the claims (1 min)
 

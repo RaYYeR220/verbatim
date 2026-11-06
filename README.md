@@ -38,6 +38,7 @@ Each capability is one `defineAction()` in `actions/`, so the board UI, the in-a
 | Claude / ChatGPT (MCP) | `search-quotes`, `show-theme` (renders the live theme card inline), `add-source`, `add-comment` |
 | Other agents (A2A) | Ask a study for evidence or add a source to it |
 | Automations | Board events (`verbatim.source.added`, `verbatim.notes.added`, `verbatim.insight.written`) and webhook inboxes |
+| Share link | The readout at `/r/<study>` for anyone with the link (framework sharing); an agent handed the link reads the same report as JSON |
 | CLI | `pnpm action search-quotes --query "offline"` |
 
 Agent-Native pieces in use: shared actions, application state (the agent sees the board and your selection), live sync, collaborative presence (the agent's cursor), `saveIfCurrent` (human and agent edits never silently overwrite each other), approval gates (the agent asks before deleting or merging a theme a person made), agent teams, MCP Apps, event-bus automations and sharing.
