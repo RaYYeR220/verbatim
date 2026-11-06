@@ -94,7 +94,7 @@ export function ImportDialog({
   };
 
   const viaAgent = (message: string) => {
-    sendToAgentChat({ message, submit: true, newTab: true, reuseEmptyTab: true });
+    sendToAgentChat({ message, submit: true });
     focusAgentChat();
     close();
   };

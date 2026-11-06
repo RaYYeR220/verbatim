@@ -150,7 +150,10 @@ export function BoardCanvas(props: BoardCanvasProps) {
 
   // Follow the agent: while it reshapes the board (new themes, new notes),
   // keep the whole board in view so nobody watches an empty corner.
-  const shapeKey = `${board.themes.length}:${board.notes.length}`;
+  // While the agent is on the board its re-layouts (Tidy) count as shape
+  // changes too; a person dragging a theme on their own never triggers a refit.
+  const layoutSig = agents.length > 0 ? frames.map((f) => `${Math.round(f.x / 80)},${Math.round(f.y / 80)}`).join("|") : "";
+  const shapeKey = `${board.themes.length}:${board.notes.length}:${layoutSig}`;
   const lastShape = useRef(shapeKey);
   useEffect(() => {
     if (!followAgent || lastShape.current === shapeKey) return;

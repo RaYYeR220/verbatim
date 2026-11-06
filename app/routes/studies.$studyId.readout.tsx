@@ -66,8 +66,6 @@ export default function ReadoutRoute() {
                     message:
                       "Turn this study's readout into a short slide deck: one slide per insight (strongest first) with the claim, the voice count and two verbatim quotes with speakers, plus a title slide and a 'what the evidence does not show' slide. Use a connected Slides app if one is available; otherwise give me the deck outline in Markdown.",
                     submit: true,
-                    newTab: true,
-                    reuseEmptyTab: true,
                   });
                   focusAgentChat();
                 }}

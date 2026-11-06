@@ -23,9 +23,8 @@ export function meta() {
   return [{ title: "Board · Verbatim" }];
 }
 
-/** Each job handed to the agent from the board gets its own chat, so a new ask never lands in a run that is still finishing. */
 function askAgent(message: string, context?: string) {
-  sendToAgentChat({ message, ...(context ? { context } : {}), submit: true, newTab: true, reuseEmptyTab: true });
+  sendToAgentChat({ message, ...(context ? { context } : {}), submit: true });
   focusAgentChat();
 }
 
@@ -38,8 +37,7 @@ export default function StudyBoardRoute() {
 
   const { query, board, frames, moveNotes, moveTheme } = useBoard(studyId);
   const { agents } = useBoardPresence(studyId, board?.agentTrail);
-  // One agent job per board at a time, so two runs never race on the same cards.
-  const agentWorking = agents.length > 0;
+
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [selectedThemeId, setSelectedThemeId] = useState<string | null>(null);
   const [followAgent, setFollowAgent] = useState(true);
@@ -54,6 +52,18 @@ export default function StudyBoardRoute() {
   const [themeDraft, setThemeDraft] = useState<string | null>(null);
   // When the person hands the board to the agent, say so until its first notes land.
   const [handedOffAt, setHandedOffAt] = useState<number | null>(null);
+  // One agent job per board at a time, so a new ask never lands in a run that
+  // is still finishing: wait while the agent is on the board, and for a short
+  // while after a hand-off until its first change shows up.
+  const agentWorking = agents.length > 0 || (handedOffAt !== null && Date.now() - handedOffAt < 20_000);
+  const [, setGuardTick] = useState(0);
+  useEffect(() => {
+    if (handedOffAt === null) return;
+    const left = 20_000 - (Date.now() - handedOffAt);
+    if (left <= 0) return;
+    const t = window.setTimeout(() => setGuardTick((n) => n + 1), left + 50);
+    return () => window.clearTimeout(t);
+  }, [handedOffAt]);
   const handOff = (message: string, context?: string) => {
     setHandedOffAt(Date.now());
     askAgent(message, context);
