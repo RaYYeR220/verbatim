@@ -6,7 +6,8 @@ const VIEW_PATHS: Record<string, (a: { studyId?: string | undefined; sourceId?: 
   studies: () => "/studies",
   board: (a) => (a.studyId ? `/studies/${a.studyId}` : null),
   source: (a) => (a.studyId && a.sourceId ? `/studies/${a.studyId}/sources/${a.sourceId}` : null),
-  insights: (a) => (a.studyId ? `/studies/${a.studyId}/insights` : null),
+  insights: (a) => (a.studyId ? `/studies/${a.studyId}/readout` : null),
+  readout: (a) => (a.studyId ? `/studies/${a.studyId}/readout` : null),
   chat: () => "/chat",
 };
 
@@ -14,7 +15,7 @@ export default defineAction({
   description:
     "Move the person's screen: to the study list, a study's board, a source transcript (scrolled to a note), or its insights. Use it to show the person the thing you just changed.",
   schema: z.object({
-    view: z.enum(["studies", "board", "source", "insights", "chat"]).optional(),
+    view: z.enum(["studies", "board", "source", "insights", "readout", "chat"]).optional(),
     studyId: z.string().optional(),
     sourceId: z.string().optional(),
     noteId: z.string().optional().describe("Highlight and scroll to this note"),

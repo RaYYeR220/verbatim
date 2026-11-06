@@ -1,0 +1,136 @@
+{
+  "label": "Verbatim agent",
+  "participants": 8,
+  "quotes": 49,
+  "quoteFidelity": 1,
+  "inventedQuotes": 0,
+  "misattributed": 0,
+  "interviewerQuotedAsCustomer": 0,
+  "themesPredicted": 7,
+  "themeRecall": "7/7",
+  "minorityThemeFound": true,
+  "contradictionSides": "2/2 sides",
+  "decoyThemes": 0,
+  "perTheme": [
+    {
+      "id": "T1",
+      "name": "Receipt capture fails on weak signal",
+      "found": true,
+      "voices": "5/5"
+    },
+    {
+      "id": "T2",
+      "name": "Approval chains too rigid for small teams",
+      "found": true,
+      "voices": "4/4"
+    },
+    {
+      "id": "T3",
+      "name": "Card spend limits are confusing",
+      "found": true,
+      "voices": "4/4"
+    },
+    {
+      "id": "T4",
+      "name": "Accounting export mapping errors",
+      "found": true,
+      "voices": "3/3"
+    },
+    {
+      "id": "T5",
+      "name": "Onboarding emails reach the wrong person",
+      "found": true,
+      "voices": "2/2"
+    },
+    {
+      "id": "T6",
+      "name": "Screen reader can't use receipt camera",
+      "found": true,
+      "voices": "1/1"
+    },
+    {
+      "id": "T7",
+      "name": "Mobile app: loved vs unusable",
+      "found": true,
+      "voices": "3/4"
+    }
+  ],
+  "themeMatches": [
+    {
+      "name": "Receipts vanish without signal",
+      "keyTheme": "T1",
+      "overlapChars": 310,
+      "voices": [
+        "p2",
+        "p1",
+        "p7",
+        "p5",
+        "p3"
+      ]
+    },
+    {
+      "name": "Approval chain too rigid",
+      "keyTheme": "T2",
+      "overlapChars": 558,
+      "voices": [
+        "p1",
+        "p8",
+        "p4",
+        "p6"
+      ]
+    },
+    {
+      "name": "Card limits are unreadable",
+      "keyTheme": "T3",
+      "overlapChars": 214,
+      "voices": [
+        "p2",
+        "p8",
+        "p3",
+        "p5"
+      ]
+    },
+    {
+      "name": "Accounting sync loses coding",
+      "keyTheme": "T4",
+      "overlapChars": 193,
+      "voices": [
+        "p5",
+        "p1",
+        "p6"
+      ]
+    },
+    {
+      "name": "Invites go to wrong people",
+      "keyTheme": "T5",
+      "overlapChars": 189,
+      "voices": [
+        "p4",
+        "p6"
+      ]
+    },
+    {
+      "name": "Mobile app excludes some users",
+      "keyTheme": "T6",
+      "overlapChars": 119,
+      "voices": [
+        "p2",
+        "p7",
+        "p5"
+      ]
+    },
+    {
+      "name": "What already works well",
+      "keyTheme": "T7",
+      "overlapChars": 108,
+      "voices": [
+        "p3",
+        "p1",
+        "p8",
+        "p6",
+        "p2",
+        "p4"
+      ]
+    }
+  ]
+}

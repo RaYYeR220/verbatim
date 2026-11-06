@@ -23,13 +23,16 @@ export default defineEventHandler(async (event) => {
     email = newGuestEmail();
     await setGuestCookie(event, email);
   }
-  let owned = await studiesOwnedBy(email);
+  const owned = await studiesOwnedBy(email);
+  let first = owned[0]?.id;
   if (owned.length === 0) {
+    // Each guest gets their own editable copy of every demo study; the first one opens.
     const templates = (process.env.DEMO_STUDY_IDS ?? "").split(",").map((s) => s.trim()).filter(Boolean);
-    for (const id of templates) await cloneStudyForOwner(id, email);
-    owned = await studiesOwnedBy(email);
+    for (const [i, id] of templates.entries()) {
+      const copy = await cloneStudyForOwner(id, email);
+      if (i === 0 && copy) first = copy.id;
+    }
   }
-  const first = owned[0]?.id;
   const next = typeof body.next === "string" && body.next.startsWith("/") ? body.next : first ? `/studies/${first}` : "/studies";
   return { email, redirect: next };
 });

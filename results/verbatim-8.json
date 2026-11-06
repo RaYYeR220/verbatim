@@ -1,0 +1,301 @@
+{
+  "label": "Verbatim agent",
+  "studyId": "stu_8466bf73911c4b11",
+  "stats": {
+    "sources": 8,
+    "notes": 49,
+    "themes": 7,
+    "insights": 7,
+    "health": 100,
+    "unsorted": 0
+  },
+  "themes": [
+    {
+      "name": "Receipts vanish without signal",
+      "insight": "5 of 8 participants lose receipts when upload fails in low-signal places, with no error and no retained photo, so they keep paper or double-capture.",
+      "quotes": [
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "Half the time the photo's not in the app anymore."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "they take a picture of the receipt in the app, it looks like it worked, and then the next day it's just not there."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "In the first month? I counted at least nine missing receipts from shoot days alone."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "I'll attach a receipt and it'll start sending and then the signal drops and — it doesn't seem to come back."
+        },
+        {
+          "pid": "p5",
+          "speaker": "Grace Whitfield",
+          "text": "I'd guess a quarter of field receipts in October needed some kind of follow-up."
+        },
+        {
+          "pid": "p3",
+          "speaker": "Priya Raman",
+          "text": "Now I just take a regular photo with my phone camera first, as a backup, and then I do the app one when I'm back in town."
+        },
+        {
+          "pid": "p5",
+          "speaker": "Grace Whitfield",
+          "text": "That's the month, honestly. People doing the new thing and the old thing at the same time."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "Things just quietly don't go through."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "So they take the photo, it sits there spinning, and they put the phone down and drive."
+        }
+      ]
+    },
+    {
+      "name": "Approval chain too rigid",
+      "insight": "4 of 4 small-team admins and finance leads (Dana, Tomás, Jordan, Ravi) cannot model a one-approver flow, so people approve the same expense twice and spend stalls when the approver is away.",
+      "quotes": [
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "A nine-dollar parking ticket goes through the exact same three steps as a two-thousand-dollar equipment rental."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "So the same person gets asked twice, or we had to invent a fake approver to fill the slot."
+        },
+        {
+          "pid": "p8",
+          "speaker": "Ravi Desai",
+          "text": "So every expense comes to me, I approve it, and then it comes to me again as finance, and I approve it again. And I can't merge those."
+        },
+        {
+          "pid": "p8",
+          "speaker": "Ravi Desai",
+          "text": "For a team our size, a strict chain just doesn't make sense."
+        },
+        {
+          "pid": "p4",
+          "speaker": "Tomás Herrera",
+          "text": "For a firm our size, the whole multi-level thing is overkill."
+        },
+        {
+          "pid": "p6",
+          "speaker": "Jordan Mbeki",
+          "text": "A thirty-dollar order of clay sits there for nine days because she's at a conference and the app won't let anyone else step in."
+        },
+        {
+          "pid": "p4",
+          "speaker": "Tomás Herrera",
+          "text": "I made the principal both the manager and the department head for their people."
+        },
+        {
+          "pid": "p6",
+          "speaker": "Jordan Mbeki",
+          "text": "So right now every purchase goes to Monique, then to me, then to me again as finance."
+        }
+      ]
+    },
+    {
+      "name": "Card limits are unreadable",
+      "insight": "4 of 8 participants were declined at the point of purchase because the app shows one number (budget, monthly limit or balance without holds) that is not the real spendable amount.",
+      "quotes": [
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "Declines? I'd say six or seven in three weeks."
+        },
+        {
+          "pid": "p8",
+          "speaker": "Ravi Desai",
+          "text": "But the app shows the budget front and center, so that's the number everyone looks at."
+        },
+        {
+          "pid": "p8",
+          "speaker": "Ravi Desai",
+          "text": "Budget said fine, card said no."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "And the screen only shows one number. So I'm looking at four hundred and he's standing at a pump in the middle of nowhere with a truck that's empty."
+        },
+        {
+          "pid": "p3",
+          "speaker": "Priya Raman",
+          "text": "I've kind of stopped trusting the number on the screen."
+        },
+        {
+          "pid": "p3",
+          "speaker": "Priya Raman",
+          "text": "And the app doesn't show holds. It just shows what's been charged. So I'm looking at nine hundred left and the card's saying no."
+        },
+        {
+          "pid": "p5",
+          "speaker": "Grace Whitfield",
+          "text": "I'm a controller. Controls are my whole job. I didn't find it."
+        },
+        {
+          "pid": "p5",
+          "speaker": "Grace Whitfield",
+          "text": "So a foreman tries to buy a thousand-dollar pump at the supply house and it bounces."
+        }
+      ]
+    },
+    {
+      "name": "Accounting sync loses coding",
+      "insight": "3 of 3 participants using Xero or QuickBooks (Dana, Grace, Jordan) see class, client or grant coding drop or misland in sync, forcing manual re-coding while the mapping screen looks correct.",
+      "quotes": [
+        {
+          "pid": "p5",
+          "speaker": "Grace Whitfield",
+          "text": "In October, about half came through with no class at all."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "In practice, the first month I had to redo, I want to say, a third of the coded lines."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "But the mapping screen says everything is mapped correctly. That's the confusing part. It looks right and the result is wrong."
+        },
+        {
+          "pid": "p5",
+          "speaker": "Grace Whitfield",
+          "text": "And there were duplicates too. Some expenses synced twice."
+        },
+        {
+          "pid": "p6",
+          "speaker": "Jordan Mbeki",
+          "text": "When Ledgerly sends the expenses over, the grant doesn't come with it."
+        },
+        {
+          "pid": "p6",
+          "speaker": "Jordan Mbeki",
+          "text": "She said it's actually more work than the paper forms, because at least the forms had the grant name written on them."
+        }
+      ]
+    },
+    {
+      "name": "Invites go to wrong people",
+      "insight": "2 of 8 participants (Tomás, Jordan) lost one to two weeks because onboarding emails went to the account creator or a general inbox instead of the employees. Only two voices, so treat as an emerging pattern.",
+      "quotes": [
+        {
+          "pid": "p4",
+          "speaker": "Tomás Herrera",
+          "text": "Except it didn't send them to the people. It sent them to me."
+        },
+        {
+          "pid": "p4",
+          "speaker": "Tomás Herrera",
+          "text": "Yeah, I'd say we lost a week, easily."
+        },
+        {
+          "pid": "p6",
+          "speaker": "Jordan Mbeki",
+          "text": "But three program coordinators never got their invites."
+        },
+        {
+          "pid": "p4",
+          "speaker": "Tomás Herrera",
+          "text": "It said done. It wasn't done. Nobody had anything."
+        },
+        {
+          "pid": "p6",
+          "speaker": "Jordan Mbeki",
+          "text": "When I invited the staff, some of the invites went to our general info address instead of to the person."
+        }
+      ]
+    },
+    {
+      "name": "Mobile app excludes some users",
+      "insight": "3 of 8 participants find the mobile app unusable (gloved field workers, confusing navigation, unlabeled camera button for a screen-reader user), and the accessibility report went unfixed for three weeks.",
+      "quotes": [
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "They're not going to take the gloves off to tap a little plus sign in the corner."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "I got a nice reply saying they'd pass it on. That was three weeks ago."
+        },
+        {
+          "pid": "p5",
+          "speaker": "Grace Whitfield",
+          "text": "I tried. Honestly, it's unusable for me. I couldn't find anything I needed."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "And on the camera screen itself, the shutter doesn't say anything at all."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "The app? For my guys it's unusable. I'm sorry, but it is."
+        },
+        {
+          "pid": "p7",
+          "speaker": "Hannah Cho",
+          "text": "It's frustrating because it's literally one label. It's the one button the whole app is built around and it's the one I can't use."
+        }
+      ]
+    },
+    {
+      "name": "What already works well",
+      "insight": "6 of 8 participants name something worth keeping: the cards, spend reporting, identity-provider offboarding, and for desk-based users (Priya, Ravi) the phone app.",
+      "quotes": [
+        {
+          "pid": "p3",
+          "speaker": "Priya Raman",
+          "text": "Honestly, I love the app. I know that's probably not what you hear a lot, but for me it's been so much better."
+        },
+        {
+          "pid": "p1",
+          "speaker": "Dana Okafor",
+          "text": "The cards themselves. People like having their own card instead of borrowing mine."
+        },
+        {
+          "pid": "p8",
+          "speaker": "Ravi Desai",
+          "text": "The app is the best part. Like, the phone app is genuinely slick."
+        },
+        {
+          "pid": "p8",
+          "speaker": "Ravi Desai",
+          "text": "Whoever designed the phone app, give them a raise."
+        },
+        {
+          "pid": "p6",
+          "speaker": "Jordan Mbeki",
+          "text": "I'd say the cards are great, the staff love not waiting for their money."
+        },
+        {
+          "pid": "p2",
+          "speaker": "Marcus Lindqvist",
+          "text": "The reporting on the website is nice. I can see spend by truck, which I've never been able to do."
+        },
+        {
+          "pid": "p4",
+          "speaker": "Tomás Herrera",
+          "text": "When I disable someone in our identity provider, their Ledgerly access goes too, and the card gets frozen."
+        }
+      ]
+    }
+  ]
+}

@@ -253,6 +253,9 @@ export default function StudyBoardRoute() {
         <button type="button" onClick={() => setImportOpen(true)} className="h-8 rounded-[2px] border border-[var(--vb-hair)] px-3 text-[13px] hover:border-[var(--vb-ink3)]">
           Add sources
         </button>
+        <Link to={`/studies/${studyId}/readout`} className="flex h-8 items-center rounded-[2px] border border-[var(--vb-hair)] px-3 text-[13px] hover:border-[var(--vb-ink3)]">
+          Readout
+        </Link>
         <button
           type="button"
           onClick={() => layoutBoard.mutate({ studyId } as never)}

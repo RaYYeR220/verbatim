@@ -1,5 +1,4 @@
 import { defineAction, embedApp } from "@agent-native/core";
-import { buildDeepLink } from "@agent-native/core/server";
 import { z } from "zod";
 
 import { getBoard, getTheme, searchQuotes } from "../server/verbatim/store.js";
@@ -63,10 +62,7 @@ export default defineAction({
   link: ({ result }) => {
     const r = result as { id?: string; studyId?: string; name?: string; error?: string } | undefined;
     if (!r?.id || !r.studyId) return null;
-    return {
-      url: buildDeepLink({ view: "board", params: { studyId: r.studyId, theme: r.id } }),
-      label: `Open "${r.name}" in Verbatim`,
-      view: "board",
-    };
+    // The theme card route doubles as the MCP Apps embed target.
+    return { url: `/embed/theme/${r.id}`, label: `Open "${r.name}" in Verbatim`, view: "board" };
   },
 });

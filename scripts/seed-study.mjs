@@ -26,7 +26,7 @@ if (kind === "eval") {
   const people = JSON.parse(readFileSync(join(root, "fixtures/eval/participants.json"), "utf8"));
   const only = arg ? new Set(arg.split(",")) : null;
   const study = await call("create-study", {
-    title: "Ledgerly — first-month interviews (synthetic benchmark)",
+    title: process.env.TITLE ?? "Ledgerly — first-month interviews (synthetic benchmark)",
     question: people.study.researchQuestion,
   });
   for (const p of people.participants) {
