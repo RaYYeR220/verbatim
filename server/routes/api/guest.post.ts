@@ -1,4 +1,5 @@
 import { getSession } from "@agent-native/core/server";
+import { mutateUserSetting } from "@agent-native/core/settings";
 import { defineEventHandler, readBody } from "h3";
 
 import { isGuestEmail, newGuestEmail, readGuestEmail, setGuestCookie } from "../../verbatim/guest.js";
@@ -26,6 +27,11 @@ export default defineEventHandler(async (event) => {
   const owned = await studiesOwnedBy(email);
   let first = owned[0]?.id;
   if (owned.length === 0) {
+    // A guest who connects Claude or ChatGPT should see the theme card inline,
+    // so the App cards lab starts on for guests (still theirs to turn off).
+    await mutateUserSetting(email, "labs", (current) =>
+      typeof current?.["mcp-app-cards"] === "boolean" ? current : { ...(current ?? {}), "mcp-app-cards": true },
+    ).catch(() => undefined);
     // Each guest gets their own editable copy of every demo study; the first one opens.
     const templates = (process.env.DEMO_STUDY_IDS ?? "").split(",").map((s) => s.trim()).filter(Boolean);
     for (const [i, id] of templates.entries()) {
