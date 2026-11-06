@@ -55,6 +55,10 @@ try {
   await call("write-insight", { studyId: study.id, claim: "Made-up evidence should be refused.", noteIds: [ids[0], "not_fake123"] });
   console.log("!! fake citation NOT refused");
 } catch (e) { log("fake citation (expected fail)", String(e.message).slice(0, 200)); }
+try {
+  await call("write-insight", { studyId: study.id, themeId: theme.id, claim: "Nine people lose receipts when capture runs offline.", noteIds: [ids[1], ids[2]] });
+  console.log("!! inflated count NOT refused");
+} catch (e) { log("inflated count (expected 422 count_mismatch)", String(e.message).slice(0, 220)); }
 const t1 = await call("update-theme", { themeId: theme.id, name: "Receipts fail on bad signal", expectedRev: (await call("check-board", { studyId: study.id }, "GET")).themes[0].rev });
 log("rename ok", t1);
 try {

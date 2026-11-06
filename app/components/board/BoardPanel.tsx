@@ -156,6 +156,11 @@ function InsightsList({
                 </span>
               </div>
               <p className="mt-1.5 font-[family-name:var(--vb-display)] text-[15.5px] font-medium leading-snug tracking-[-0.015em] text-[var(--vb-ink)]">{i.claim}</p>
+              {board.health.countMismatches.includes(i.id) ? (
+                <span className="mt-1 block font-[family-name:var(--vb-mono)] text-[10.5px] text-[var(--vb-rust)]">
+                  a count here no longer matches the evidence
+                </span>
+              ) : null}
             </button>
             {expanded ? (
               <ol className="mt-2.5 flex flex-col gap-2">

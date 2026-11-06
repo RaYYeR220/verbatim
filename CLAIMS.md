@@ -12,6 +12,7 @@ Each public statement about Verbatim, tagged by how it can be checked.
 | A note can only be an exact passage of its source | REPRODUCIBLE | `server/verbatim/locate.test.ts` (12 cases incl. invented, elided and curly-quote quotes); `scripts/smoke-actions.mjs` |
 | Notes that drift from their source are flagged | REPRODUCIBLE | `server/verbatim/rules.test.ts` (tampered count); board health "changed" |
 | Insights on one voice are labelled anecdotes; missing citations are refused | REPRODUCIBLE | `rules.test.ts`; `scripts/smoke-actions.mjs` (422 `invalid_citation`) |
+| A claim's stated count must match its evidence ("N of M participants", "N reviewers", "N notes") | REPRODUCIBLE | `server/verbatim/claim-counts.test.ts` (9 cases incl. subgroups, spelled-out numbers, non-people numbers left alone); `scripts/smoke-actions.mjs` (422 `count_mismatch`); board health `count_mismatch` |
 | Concurrent edits to a theme fail with a typed conflict instead of overwriting | REPRODUCIBLE | `scripts/smoke-actions.mjs` (409 `save_conflict`) |
 | On 500 public reviews, Verbatim put 500 of 500 reviewers on the board; one chat prompt quoted 186 | REPRODUCIBLE | `results/verbatim-reviews-500.json`, `results/reviews-baseline-500.json`, `scripts/eval/reviews.ts`, `scripts/eval/board-stats.mjs`, `results/SUMMARY.md` |
 | The single prompt's 192 review quotes were all verbatim | REPRODUCIBLE | `results/reviews-baseline-500.score.json` |

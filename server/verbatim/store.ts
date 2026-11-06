@@ -509,7 +509,7 @@ async function boardFor(study: typeof schema.studies.$inferSelect): Promise<Boar
   const health = computeBoardHealth({
     notes: lites,
     themes: rows.themes.map((t) => ({ id: t.id, name: t.name })),
-    insights: insights.map((i) => ({ id: i.id, themeId: i.themeId, status: i.check.status === "invalid" ? "invalid" : i.status, noteIds: i.noteIds })),
+    insights: insights.map((i) => ({ id: i.id, themeId: i.themeId, status: i.check.status === "invalid" ? "invalid" : i.status, noteIds: i.noteIds, claim: i.claim })),
     sourceIds: rows.sources.map((s) => s.id),
   });
 

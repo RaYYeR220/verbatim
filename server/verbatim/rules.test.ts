@@ -81,6 +81,17 @@ describe("computeBoardHealth", () => {
     expect(h.thinThemes).toEqual(["thm_thin"]);
   });
 
+  it("flags an insight whose claim states a count the theme no longer shows", () => {
+    const notes = [note("a"), note("b"), note("c")];
+    const themes = [{ id: "thm_a", name: "A" }];
+    const fresh = computeBoardHealth({ notes, themes, insights: [{ id: "ins_1", themeId: "thm_a", status: "verified", noteIds: ["a", "b"], claim: "3 participants say so." }] });
+    expect(fresh.countMismatches).toEqual([]);
+    const stale = computeBoardHealth({ notes, themes, insights: [{ id: "ins_1", themeId: "thm_a", status: "verified", noteIds: ["a", "b"], claim: "4 participants say so." }] });
+    expect(stale.countMismatches).toEqual(["ins_1"]);
+    expect(stale.issues.map((i) => i.kind)).toContain("count_mismatch");
+    expect(stale.score).toBe(95);
+  });
+
   it("scores a clean board 100 and never goes below 0", () => {
     const clean = computeBoardHealth({
       notes: [note("a"), note("b")],

@@ -25,7 +25,7 @@ The model behind the chat prompt quoted honestly: all 192 of its quotes are verb
 
 1. **Drop in the evidence.** Interview transcripts (WebVTT, SRT, `Name: text`), Clips call recordings, app reviews and tickets as CSV, or a feedback inbox any tool can POST to.
 2. **Sort it together.** The agent reads each source and proposes quotes; `add-notes` locates every quote inside its source and stores that exact span with speaker and timestamp, refusing anything that is not there. The agent and you move cards on the same board through the same `move-notes` action. Its cursor sits on the cards it is changing, and it follows your moves instead of undoing them.
-3. **Every number opens.** Insights cite their notes. `write-insight` counts the distinct voices behind a claim, marks single-voice claims as anecdotes, and refuses citations that are missing or no longer match their source. Board health tracks unread sources, unsorted notes and anything that drifted from its source.
+3. **Every number opens.** Insights cite their notes. `write-insight` counts the distinct voices behind a claim, marks single-voice claims as anecdotes, refuses citations that are missing or no longer match their source, and refuses a claim whose stated count the evidence doesn't show ("7 of 8 participants" when 5 people said it). Board health tracks unread sources, unsorted notes, anything that drifted from its source, and insights whose theme has since grown past the number they state.
 
 ## One action, every surface
 

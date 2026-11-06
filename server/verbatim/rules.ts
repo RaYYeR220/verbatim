@@ -1,3 +1,5 @@
+import { claimCountIssues, type ClaimCountContext } from "./claim-counts.js";
+
 export interface NoteLite {
   id: string;
   sourceId: string;
@@ -47,8 +49,25 @@ export function evaluateInsight(noteIds: string[], notes: Map<string, NoteLite>)
   return { status: "verified", participants: voices.size, missing, reasons };
 }
 
+type CountNote = Pick<NoteLite, "id" | "sourceId" | "participantId" | "themeId">;
+
+/** What the board can show for an insight's claim: its cited voices and notes, its theme's, the study's. */
+export function claimCountContext(noteIds: string[], themeId: string | null | undefined, notes: CountNote[], sourceCount: number): ClaimCountContext {
+  const byId = new Map(notes.map((n) => [n.id, n]));
+  const cited = [...new Set(noteIds)].map((id) => byId.get(id)).filter((n): n is CountNote => !!n);
+  const inTheme = themeId ? notes.filter((n) => n.themeId === themeId) : null;
+  return {
+    citedVoices: new Set(cited.map(voiceOf)).size,
+    citedNotes: cited.length,
+    themeVoices: inTheme ? new Set(inTheme.map(voiceOf)).size : undefined,
+    themeNotes: inTheme ? inTheme.length : undefined,
+    studyVoices: new Set(notes.map(voiceOf)).size,
+    studySources: sourceCount,
+  };
+}
+
 export interface BoardHealthIssue {
-  kind: "unread_source" | "unsorted" | "unverified" | "tampered" | "thin_theme" | "uncited_theme" | "anecdote";
+  kind: "unread_source" | "unsorted" | "unverified" | "tampered" | "thin_theme" | "uncited_theme" | "anecdote" | "count_mismatch";
   ids: string[];
   message: string;
 }
@@ -66,6 +85,8 @@ export interface BoardHealth {
   insights: number;
   anecdotes: number;
   uncitedThemes: string[];
+  /** Insights whose claim states a count the evidence no longer shows. */
+  countMismatches: string[];
   score: number;
   issues: BoardHealthIssue[];
 }
@@ -73,7 +94,7 @@ export interface BoardHealth {
 export function computeBoardHealth(input: {
   notes: NoteLite[];
   themes: { id: string; name: string }[];
-  insights: { id: string; themeId: string | null; status: string; noteIds: string[] }[];
+  insights: { id: string; themeId: string | null; status: string; noteIds: string[]; claim?: string }[];
   sourceIds?: string[];
 }): BoardHealth {
   const noted = new Set(input.notes.map((n) => n.sourceId));
@@ -97,6 +118,10 @@ export function computeBoardHealth(input: {
     .filter((t) => (voicesByTheme.get(t.id)?.size ?? 0) > 0 && !cited.has(t.id))
     .map((t) => t.id);
   const anecdoteIds = input.insights.filter((i) => i.status === "anecdote").map((i) => i.id);
+  const sourceCount = input.sourceIds?.length ?? noted.size;
+  const countMismatches = input.insights
+    .filter((i) => i.claim && claimCountIssues(i.claim, claimCountContext(i.noteIds, i.themeId, input.notes, sourceCount)).length > 0)
+    .map((i) => i.id);
 
   const issues: BoardHealthIssue[] = [];
   const push = (kind: BoardHealthIssue["kind"], ids: string[], message: string) => {
@@ -109,6 +134,7 @@ export function computeBoardHealth(input: {
   push("thin_theme", thinThemes, `${thinThemes.length} theme(s) rest on fewer than two voices.`);
   push("uncited_theme", uncitedThemes, `${uncitedThemes.length} theme(s) have no insight yet.`);
   push("anecdote", anecdoteIds, `${anecdoteIds.length} insight(s) are single-voice anecdotes.`);
+  push("count_mismatch", countMismatches, `${countMismatches.length} insight(s) state a count the evidence doesn't show.`);
 
   const penalty =
     Math.min(unsortedIds.length, 30) +
@@ -116,7 +142,8 @@ export function computeBoardHealth(input: {
     tamperedIds.length * 25 +
     unverifiedIds.length * 5 +
     thinThemes.length * 5 +
-    uncitedThemes.length * 5;
+    uncitedThemes.length * 5 +
+    countMismatches.length * 5;
 
   return {
     sources: input.sourceIds?.length ?? noted.size,
@@ -130,6 +157,7 @@ export function computeBoardHealth(input: {
     insights: input.insights.length,
     anecdotes: anecdoteIds.length,
     uncitedThemes,
+    countMismatches,
     score: Math.max(0, 100 - penalty),
     issues,
   };
