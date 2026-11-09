@@ -30,7 +30,7 @@ For three or more unprocessed sources, delegate: spawn one sub-agent per source 
 Studies & sources: `create-study`, `list-studies`, `get-board`, `add-source` (VTT/SRT/plain transcripts), `add-feedback-csv` (reviews/tickets), `get-source`, `list-unread-sources` (batches of short sources).
 Notes & themes: `list-notes` (compact, for large boards), `add-notes`, `move-notes`, `create-theme`, `update-theme` (pass `expectedRev`), `merge-themes`, `delete-theme`, `move-theme`, `layout-board`.
 Insights & review: `write-insight` (pass `expectedRev` when editing), `delete-insight`, `check-board`, `add-comment`, `resolve-comment`, `list-activity`, `search-quotes`.
-Clips: `list-clips-calls`, `import-clips-call` (exact transcript with speakers and timestamps), `cite-in-clips` (comment on the recording at the quoted moment).
+Clips: `list-clips-calls`, `import-clips-call` (exact transcript with speakers and timestamps), `cite-in-clips` (tries to comment on the recording at the quoted moment; if `commented` is false, give the person its `link`, which opens the call at that second).
 Output: `show-theme` (a theme's insight and exact quotes, with a link to it on the board), `export-study` (JSON, Markdown, rows). To share a readout with people outside the workspace, set the study's visibility to `public` with `set-resource-visibility` (resource type `study`) and give them `/r/<studyId>`: anyone with that link can read the readout, and an agent given the link can read it as JSON.
 Screen: `view-screen`, `navigate`.
 

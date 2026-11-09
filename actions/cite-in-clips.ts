@@ -4,13 +4,13 @@ import { eq } from "drizzle-orm";
 import { z } from "zod";
 
 import { getDb, schema } from "../server/db/index.js";
-import { callClips, tryClips } from "../server/verbatim/clips.js";
+import { callClips, clipsRecordingUrl, tryClips } from "../server/verbatim/clips.js";
 import { getSource, recordEvent, requireStudy } from "../server/verbatim/store.js";
 import { actorFromCtx } from "../server/verbatim/actor.js";
 
 export default defineAction({
   description:
-    "Leave a comment on the Clips recording at the exact moment a quote was said, saying which theme and insight it backs, with a link back to the board. Use it when a finding should be visible to whoever watches the call.",
+    "Try to leave a comment on the Clips recording at the exact moment a quote was said, saying which theme it backs, with a link back to the board. Clips may not accept comments from other apps: check `commented`, and when it is false give the person `link`, which opens the call at that second.",
   schema: z.object({ noteId: z.string() }),
   run: async ({ noteId }, ctx) => {
     const [note] = await getDb().select().from(schema.notes).where(eq(schema.notes.id, noteId)).limit(1);
@@ -53,6 +53,14 @@ ${content}`,
       summary: `Commented on the Clips call at ${Math.floor(atMs / 1000)}s${verified ? "" : " (not yet confirmed in Clips)"}`,
       payload: { noteId, via, verified },
     });
-    return { commented: verified, via, recordingId: ref.clipsRecordingId, atMs };
+    return {
+      commented: verified,
+      via,
+      recordingId: ref.clipsRecordingId,
+      atMs,
+      // Always usable: the call at the second the quote was said.
+      link: clipsRecordingUrl(ref.clipsRecordingId, atMs),
+      ...(verified ? {} : { note: "Clips did not confirm the comment. Share the link instead; it opens the call at this quote." }),
+    };
   },
 });
