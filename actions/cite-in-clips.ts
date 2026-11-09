@@ -4,7 +4,7 @@ import { eq } from "drizzle-orm";
 import { z } from "zod";
 
 import { getDb, schema } from "../server/db/index.js";
-import { callClips } from "../server/verbatim/clips.js";
+import { callClips, tryClips } from "../server/verbatim/clips.js";
 import { getSource, recordEvent, requireStudy } from "../server/verbatim/store.js";
 import { actorFromCtx } from "../server/verbatim/actor.js";
 
@@ -28,8 +28,31 @@ export default defineAction({
       }
     })();
     const content = `Cited in Verbatim${theme ? ` · theme **${theme.name}**` : ""}: “${note.text}” — [open the board](${base}/studies/${note.studyId}?note=${note.id})`;
-    await callClips("add-comment", { recordingId: ref.clipsRecordingId, content, videoTimestampMs: note.tMs ?? 0 });
-    await recordEvent({ studyId: note.studyId, actor: actorFromCtx(ctx), action: "cite-in-clips", summary: `Commented on the Clips call at ${Math.floor((note.tMs ?? 0) / 1000)}s`, payload: { noteId } });
-    return { commented: true, recordingId: ref.clipsRecordingId, atMs: note.tMs ?? 0 };
+    const atMs = note.tMs ?? 0;
+    let via = "add-comment";
+    const direct = await tryClips("add-comment", { recordingId: ref.clipsRecordingId, content, videoTimestampMs: atMs });
+    if (!direct.ok) {
+      // Clips' compact catalog may not serve add-comment to other apps; its own
+      // agent can still leave the comment (app-to-app over ask_app).
+      via = "ask_app";
+      const mmss = `${Math.floor(atMs / 60000)}:${String(Math.floor(atMs / 1000) % 60).padStart(2, "0")}`;
+      await callClips("ask_app", {
+        message: `Add a comment to recording ${ref.clipsRecordingId} at ${atMs} ms (${mmss}) with exactly this text, unchanged:
+
+${content}`,
+      });
+    }
+    // Confirm the comment is on the call rather than trusting either path.
+    const listed = await tryClips("list-comments", { recordingId: ref.clipsRecordingId });
+    const comments: any[] = listed.ok ? (listed.data?.comments ?? listed.data?.items ?? (Array.isArray(listed.data) ? listed.data : [])) : [];
+    const verified = comments.some((c) => typeof (c.content ?? c.body ?? c.text) === "string" && (c.content ?? c.body ?? c.text).includes(note.text.slice(0, 60)));
+    await recordEvent({
+      studyId: note.studyId,
+      actor: actorFromCtx(ctx),
+      action: "cite-in-clips",
+      summary: `Commented on the Clips call at ${Math.floor(atMs / 1000)}s${verified ? "" : " (not yet confirmed in Clips)"}`,
+      payload: { noteId, via, verified },
+    });
+    return { commented: verified, via, recordingId: ref.clipsRecordingId, atMs };
   },
 });

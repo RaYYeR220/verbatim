@@ -9,16 +9,27 @@ import type { Segment } from "./parse-source.js";
  */
 export const CLIPS_ORIGIN = "https://clips.agent-native.com";
 
-async function findClipsServer(toolName: string) {
+/** Tools any Clips MCP server lists, used to recognise the person's Clips connection. */
+const CLIPS_MARKERS = ["search-recordings", "get-recording-player-data", "list-comments", "reply-to-comment", "create-recording-upload"];
+const bareName = (name: string) => (name.includes("__") ? name.split("__").pop()! : name);
+
+/**
+ * Finds the person's Clips connection and the tool to call on it. Clips serves
+ * a compact catalog, so a tool it doesn't list (list-recordings, add-comment)
+ * is still addressed by name on the server that lists the known Clips tools.
+ */
+async function resolveClipsTool(toolName: string) {
   const tools = await listVisibleMcpTools().catch(() => []);
-  const hit = tools.find((t) => t.name === toolName || t.name.endsWith(`__${toolName}`) || t.name.endsWith(toolName));
-  if (!hit) {
+  const listed = tools.find((t) => bareName(t.name) === toolName);
+  if (listed) return { serverId: listed.serverId, name: bareName(listed.name) };
+  const clips = tools.find((t) => CLIPS_MARKERS.includes(bareName(t.name)));
+  if (!clips) {
     fail(
-      "Clips isn't connected for you yet. Open Settings → Connections, add the MCP server https://clips.agent-native.com/mcp and sign in to Clips, then try again.",
+      "Clips isn't connected for you yet. Open Settings → Integrations, add the MCP server https://clips.agent-native.com/mcp and sign in to Clips, then try again.",
       { errorCode: "clips_not_connected", statusCode: 409 },
     );
   }
-  return { serverId: hit.serverId, name: hit.name.includes("__") ? hit.name.split("__").pop()! : hit.name };
+  return { serverId: clips.serverId, name: toolName };
 }
 
 /** The structured payload of an MCP tool result (structuredContent, or JSON text content). */
@@ -39,8 +50,18 @@ function payload(result: unknown): any {
 }
 
 export async function callClips(toolName: string, args: Record<string, unknown>) {
-  const { serverId, name } = await findClipsServer(toolName);
+  const { serverId, name } = await resolveClipsTool(toolName);
   return payload(await callMcpTool(serverId, name, args));
+}
+
+/** Like callClips, but a tool Clips refuses comes back as `ok: false` (a missing connection still throws). */
+export async function tryClips(toolName: string, args: Record<string, unknown>): Promise<{ ok: true; data: any } | { ok: false; error: string }> {
+  await resolveClipsTool(toolName);
+  try {
+    return { ok: true, data: await callClips(toolName, args) };
+  } catch (error) {
+    return { ok: false, error: error instanceof Error ? error.message : String(error) };
+  }
 }
 
 export interface ClipsTranscript {

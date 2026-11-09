@@ -190,10 +190,10 @@ function ClipsTab({ studyId, onImported }: { studyId: string; onImported: (n: nu
             : (error as Error).message}
         </p>
         <ol className="list-decimal pl-5 text-[12.5px]">
-          <li>Open Settings → Connections and add the MCP server <code className="font-[family-name:var(--vb-mono)]">https://clips.agent-native.com/mcp</code>.</li>
+          <li>Open Settings → Integrations, choose Add custom integration and add the MCP server <code className="font-[family-name:var(--vb-mono)]">https://clips.agent-native.com/mcp</code>.</li>
           <li>Sign in to Clips when asked, then come back here.</li>
         </ol>
-        <a href="/settings" className="self-start rounded-full bg-[var(--vb-ink)] px-4 py-2 text-[13px] text-[var(--vb-ground-hi)]">Open settings</a>
+        <a href="/settings/integrations" className="self-start rounded-full bg-[var(--vb-ink)] px-4 py-2 text-[13px] text-[var(--vb-ground-hi)]">Open settings</a>
       </div>
     );
   }
